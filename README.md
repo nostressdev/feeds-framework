@@ -14,6 +14,8 @@ activities:\<activityID> -> activityData
 
 feed_activities:\<feedID>:\<activityID> -> activityID
 
+activity_feeds:\<activityID>:\<feedID> -> feedID
+
 foreign_id_activities:\<foreignObjectID>:\<activityID> -> activityID
 
 Добавить одно и то же событие(с одним внутренним ID) в несколько лент можно с помощью параметра redirect_to в запросе AddActivity, событие добавляется в перечисленные ленты.
@@ -41,7 +43,7 @@ objects:\<collectionID>:\<objectID> -> objectData
 * GetActivity: получаем данные в activities:\<activityID>
 * GetActivityByObjectID: получаем данные в диапазоне foreign_id_activities:\<objectID>, если там больше 1 записи, то возвращаем ошибку
 * UpdateActivity: перезаписываем данные в activities:\<activityID>
-* DeleteActivity: удаляем данные в  activities:\<activityID>, удаляем данные в feed_activities:\<feedID>:\<activityID> и если есть objectID, то удаляем данные в foreign_id_activities:\<objectID>:\<activityID>
+* DeleteActivity: удаляем данные в  activities:\<activityID>, если есть objectID, то удаляем данные в foreign_id_activities:\<objectID>:\<activityID>, удаляем feed_activities:\<feedID>:\<activityID> для всех feedID из диапазона  activity_feeds:\<activityID>, а затем очищаем и сам диапазон activity_feeds:\<activityID>
 * CreateFeed: записывает данные в feeds:\<feedID>
 * GetFeed: получает данные в feeds:\<feedID>
 * GetFeedActivities: получает id событий по диапазону feed_activities:\<feedID> и для каждого получаем данные в activities:\<activityID>
