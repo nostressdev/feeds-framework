@@ -29,3 +29,18 @@ message SortedFeed {
     string key_formula = 3 [(validate.rules).string.min_len = 1];
     google.protobuf.Any extra_data = 4;
 }
+
+message Collection {
+    string collection_id = 1 [(validate.rules).string.min_len = 1];
+    DeletingType deleting_type = 2 [(validate.rules).enum.defined_only = true];
+}
+
+enum DeletingType {
+    CASCADE = 0;
+    SET_NIL = 1;
+}
+
+message Object {
+    string object_id = 1 [(validate.rules).string.min_len = 1];
+    google.protobuf.Any data = 2;
+}

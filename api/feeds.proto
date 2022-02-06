@@ -78,15 +78,6 @@ message GetFeedResponse {
     Feed feed = 1;
 }
 
-message CreateSortedFeedRequest {
-    string feed_id = 1 [(validate.rules).string.min_len = 1];
-    string key_formula = 2 [(validate.rules).string.min_len = 1];
-}
-
-message CreateSortedFeedResponse {
-    SortedFeed sorted_feed = 1;
-}
-
 message GetFeedActivitiesRequest {
     string feed_id = 1 [(validate.rules).string.min_len = 1];
     int64 limit = 2;
@@ -105,43 +96,45 @@ message GetActivityByObjectIDResponse {
     Activity activity = 1;
 }
 
-message UpdateSortedFeedRequest {
-    string feed_id = 1 [(validate.rules).string.min_len = 1];
-    google.protobuf.Any extra_data = 2;
+message CreateCollectionRequest {
+    string collection_id = 1;
+    DeletingType deleting_type = 2 [(validate.rules).enum.defined_only = true];
 }
 
-message UpdateSortedFeedResponse {
-    SortedFeed sorted_feed = 1;
+message CreateCollectionResponse {
+    Collection collection = 1;
+}
+
+message CreateObjectRequest {
+    string collection_id = 1 [(validate.rules).string.min_len = 1];
+    string object_id = 2;
+    google.protobuf.Any data = 3;
+}
+
+message CreateObjectResponse {
+    Object object = 1;
+}
+
+message UpdateObjectRequest {
+    string collection_id = 1 [(validate.rules).string.min_len = 1];
+    string object_id = 2;
+    google.protobuf.Any data = 3;
+}
+
+message UpdateObjectResponse {
+    Object object = 1;
+}
+
+message DeleteObjectRequest {
+    string collection_id = 1 [(validate.rules).string.min_len = 1];
+    string object_id = 2;
+}
+
+message DeleteObjectResponse {
 }
 
 
-message DeleteSortedFeedRequest {
-    string feed_id = 1 [(validate.rules).string.min_len = 1];
-}
 
-message DeleteSortedFeedResponse {
-}
-
-
-message GetSortedFeedRequest {
-    string feed_id = 1 [(validate.rules).string.min_len = 1];
-}
-
-message GetSortedFeedResponse {
-    SortedFeed sorted_feed = 1;
-}
-
-
-message GetSortedFeedActivitiesRequest {
-    SortedFeed sorted_feed = 1;
-    int64 limit = 2;
-    string offset_id = 3;
-    bool reverse = 4;
-}
-
-message GetSortedFeedActivitiesResponse {
-    repeated Activity activities = 1;
-}
 
 service FeedsService {
     rpc AddActivity(AddActivityRequest) returns (AddActivityResponse) {}
@@ -154,9 +147,8 @@ service FeedsService {
     rpc GetFeedActivities(GetFeedActivitiesRequest) returns (GetFeedActivitiesResponse) {}
     rpc UpdateFeed(UpdateFeedRequest) returns (UpdateFeedResponse) {}
     rpc DeleteFeed(DeleteFeedRequest) returns (DeleteFeedResponse) {}
-    rpc CreateSortedFeed(CreateSortedFeedRequest) returns (CreateSortedFeedResponse) {}
-    rpc GetSortedFeed(GetSortedFeedRequest) returns (GetSortedFeedResponse) {}
-    rpc GetSortedFeedActivities(GetSortedFeedActivitiesRequest) returns (GetSortedFeedActivitiesResponse) {}
-    rpc UpdateSortedFeed(UpdateSortedFeedRequest) returns (UpdateSortedFeedResponse) {}
-    rpc DeleteSortedFeed(DeleteSortedFeedRequest) returns (DeleteSortedFeedResponse) {}
+    rpc CreateCollection(CreateCollectionRequest) returns (CreateCollectionResponse) {}
+    rpc CreateObject(CreateObjectRequest) returns (CreateObjectResponse) {}
+    rpc UpdateObject(UpdateObjectRequest) returns (UpdateObjectResponse) {}
+    rpc DeleteObject(DeleteObjectRequest) returns (DeleteObjectResponse) {}
 }

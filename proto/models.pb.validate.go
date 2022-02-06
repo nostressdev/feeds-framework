@@ -230,9 +230,9 @@ func (m *SortedFeed) Validate() error {
 
 	// no validation rules for UserId
 
-	if utf8.RuneCountInString(m.GetKeyFormat()) < 1 {
+	if utf8.RuneCountInString(m.GetKeyFormula()) < 1 {
 		return SortedFeedValidationError{
-			field:  "KeyFormat",
+			field:  "KeyFormula",
 			reason: "value length must be at least 1 runes",
 		}
 	}
@@ -303,3 +303,162 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = SortedFeedValidationError{}
+
+// Validate checks the field values on Collection with the rules defined in the
+// proto definition for this message. If any rules are violated, an error is returned.
+func (m *Collection) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	if utf8.RuneCountInString(m.GetCollectionId()) < 1 {
+		return CollectionValidationError{
+			field:  "CollectionId",
+			reason: "value length must be at least 1 runes",
+		}
+	}
+
+	if _, ok := DeletingType_name[int32(m.GetDeletingType())]; !ok {
+		return CollectionValidationError{
+			field:  "DeletingType",
+			reason: "value must be one of the defined enum values",
+		}
+	}
+
+	return nil
+}
+
+// CollectionValidationError is the validation error returned by
+// Collection.Validate if the designated constraints aren't met.
+type CollectionValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e CollectionValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e CollectionValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e CollectionValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e CollectionValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e CollectionValidationError) ErrorName() string { return "CollectionValidationError" }
+
+// Error satisfies the builtin error interface
+func (e CollectionValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sCollection.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = CollectionValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = CollectionValidationError{}
+
+// Validate checks the field values on Object with the rules defined in the
+// proto definition for this message. If any rules are violated, an error is returned.
+func (m *Object) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	if utf8.RuneCountInString(m.GetObjectId()) < 1 {
+		return ObjectValidationError{
+			field:  "ObjectId",
+			reason: "value length must be at least 1 runes",
+		}
+	}
+
+	if v, ok := interface{}(m.GetData()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return ObjectValidationError{
+				field:  "Data",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	return nil
+}
+
+// ObjectValidationError is the validation error returned by Object.Validate if
+// the designated constraints aren't met.
+type ObjectValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ObjectValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ObjectValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ObjectValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ObjectValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ObjectValidationError) ErrorName() string { return "ObjectValidationError" }
+
+// Error satisfies the builtin error interface
+func (e ObjectValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sObject.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ObjectValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ObjectValidationError{}
