@@ -1,0 +1,119 @@
+syntax = "proto3";
+
+package syntoks_feed;
+option go_package = "./proto";
+
+import "validate/validate.proto";
+import "api/models.proto";
+
+message CreateFeedRequest {
+    string UserID = 1;
+    map<string, string> ExtraData = 2;
+}
+
+message CreateFeedResponse {
+    Feed Feed = 1;
+}
+
+message AddActivityRequest {
+    string FeedID = 1 [(validate.rules).string.min_len = 1];
+    string ExternalID = 2 [(validate.rules).string.min_len = 1];
+    int64 Time = 3;
+    string UserID = 4;
+    string ActivityType = 5;
+    repeated string RedirectTo = 6;
+    map<string, string> ExtraData = 7;
+}
+
+message AddActivityResponse {
+    Activity Activity = 1;
+}
+
+message UpdateActivityRequest {
+    string ActivityID = 1 [(validate.rules).string.min_len = 1];
+    map<string, string> ExtraData = 2;
+}
+
+message UpdateActivityResponse {
+    Activity Activity = 1;
+}
+
+message UpdateFeedRequest {
+    string FeedID = 1 [(validate.rules).string.min_len = 1];
+    map<string, string> ExtraData = 2;
+}
+
+message UpdateFeedResponse {
+    Feed Feed = 1;
+}
+
+message DeleteActivityRequest {
+    string ActivityID = 1 [(validate.rules).string.min_len = 1];
+}
+
+message DeleteActivityResponse {
+}
+
+message DeleteFeedRequest {
+    string FeedID = 1 [(validate.rules).string.min_len = 1];
+}
+
+message DeleteFeedResponse {
+}
+
+message GetActivityRequest {
+    string ActivityID = 1 [(validate.rules).string.min_len = 1];
+}
+
+message GetActivityResponse {
+    Activity Activity = 1;
+}
+
+message GetFeedRequest {
+    string FeedID = 1 [(validate.rules).string.min_len = 1];
+}
+
+message GetFeedResponse {
+    Feed Feed = 1;
+}
+
+message CreateFeedSnapshotRequest {
+    string FeedID = 1 [(validate.rules).string.min_len = 1];
+}
+
+message CreateFeedSnapshotResponse {
+    Feed Feed = 1;
+}
+
+message CreateSortedFeedRequest {
+    string FeedID = 1 [(validate.rules).string.min_len = 1];
+    string KeyFormat = 2 [(validate.rules).string.min_len = 1];
+}
+
+message CreateSortedFeedResponse {
+    Feed Feed = 1;
+}
+
+message GetFeedActivitiesRequest {
+    string FeedID = 1 [(validate.rules).string.min_len = 1];
+    int64 Limit = 2;
+    string OffsetID = 3;
+}
+
+message GetFeedActivitiesResponse {
+    repeated Activity Activities = 1;
+}
+
+service FeedsService {
+    rpc AddActivity(AddActivityRequest) returns (AddActivityResponse) {}
+    rpc GetActivity(GetActivityRequest) returns (GetActivityResponse) {}
+    rpc UpdateActivity(UpdateActivityRequest) returns (UpdateActivityResponse) {}
+    rpc DeleteActivity(DeleteActivityRequest) returns (DeleteActivityResponse) {}
+    rpc CreateFeed(CreateFeedRequest) returns (CreateFeedResponse) {}
+    rpc CreateSortedFeed(CreateSortedFeedRequest) returns (CreateSortedFeedResponse) {}
+    rpc CreateFeedSnapshot(CreateFeedSnapshotRequest) returns (CreateFeedSnapshotResponse) {}
+    rpc GetFeed(GetFeedRequest) returns (GetFeedResponse) {}
+    rpc GetFeedActivities(GetFeedActivitiesRequest) returns (GetFeedActivitiesResponse) {}
+    rpc UpdateFeed(UpdateFeedRequest) returns (UpdateFeedResponse) {}
+    rpc DeleteFeed(DeleteFeedRequest) returns (DeleteFeedResponse) {}
+}
