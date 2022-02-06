@@ -4,19 +4,28 @@ package syntoks_feed;
 option go_package = "./proto";
 
 import "validate/validate.proto";
+import "google/protobuf/any.proto";
 
 message Activity {
-    string InternalID = 1 [(validate.rules).string.min_len = 1];
-    string ExternalID = 2 [(validate.rules).string.min_len = 1];
-    int64 Time = 3;
-    string UserID = 4;
-    string ActivityType = 5;
-    repeated string RedirectTo = 6;
-    map<string, string> ExtraData = 7;
+    int64 id = 1;
+    string string_id = 2 [(validate.rules).string.min_len = 1];
+    string foreign_object_id = 3 [(validate.rules).string.min_len = 1];
+    int64 created_at = 4;
+    int64 updated_at = 5;
+    string user_id = 6;
+    string activity_type = 7;
+    google.protobuf.Any extra_data = 8;
 }
 
 message Feed {
-    string InternalID = 1 [(validate.rules).string.min_len = 1];
-    string UserID = 2;
-    map<string, string> ExtraData = 3;
+    string id = 1 [(validate.rules).string.min_len = 1];
+    string user_id = 2;
+    google.protobuf.Any extra_data = 3;
+}
+
+message SortedFeed {
+    string id = 1 [(validate.rules).string.min_len = 1];
+    string user_id = 2;
+    string key_formula = 3 [(validate.rules).string.min_len = 1];
+    google.protobuf.Any extra_data = 4;
 }

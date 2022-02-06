@@ -5,115 +5,158 @@ option go_package = "./proto";
 
 import "validate/validate.proto";
 import "api/models.proto";
+import "google/protobuf/any.proto";
 
 message CreateFeedRequest {
-    string UserID = 1;
-    map<string, string> ExtraData = 2;
+    string user_id = 1;
+    google.protobuf.Any extra_data = 2;
 }
 
 message CreateFeedResponse {
-    Feed Feed = 1;
+    Feed feed = 1;
 }
 
 message AddActivityRequest {
-    string FeedID = 1 [(validate.rules).string.min_len = 1];
-    string ExternalID = 2 [(validate.rules).string.min_len = 1];
-    int64 Time = 3;
-    string UserID = 4;
-    string ActivityType = 5;
-    repeated string RedirectTo = 6;
-    map<string, string> ExtraData = 7;
+    string feed_id = 1 [(validate.rules).string.min_len = 1];
+    string foreign_object_id = 2 [(validate.rules).string.min_len = 1];
+    int64 time = 3;
+    string user_id = 4;
+    string activity_type = 5;
+    repeated string redirect_to = 6;
+    google.protobuf.Any extra_data = 7;
 }
 
 message AddActivityResponse {
-    Activity Activity = 1;
+    Activity activity = 1;
 }
 
 message UpdateActivityRequest {
-    string ActivityID = 1 [(validate.rules).string.min_len = 1];
-    map<string, string> ExtraData = 2;
+    string activity_id = 1 [(validate.rules).string.min_len = 1];
+    google.protobuf.Any extra_data = 2;
 }
 
 message UpdateActivityResponse {
-    Activity Activity = 1;
+    Activity activity = 1;
 }
 
 message UpdateFeedRequest {
-    string FeedID = 1 [(validate.rules).string.min_len = 1];
-    map<string, string> ExtraData = 2;
+    string feed_id = 1 [(validate.rules).string.min_len = 1];
+    google.protobuf.Any extra_data = 2;
 }
 
 message UpdateFeedResponse {
-    Feed Feed = 1;
+    Feed feed = 1;
 }
 
 message DeleteActivityRequest {
-    string ActivityID = 1 [(validate.rules).string.min_len = 1];
+    string activity_id = 1 [(validate.rules).string.min_len = 1];
 }
 
 message DeleteActivityResponse {
 }
 
 message DeleteFeedRequest {
-    string FeedID = 1 [(validate.rules).string.min_len = 1];
+    string feed_id = 1 [(validate.rules).string.min_len = 1];
 }
 
 message DeleteFeedResponse {
 }
 
 message GetActivityRequest {
-    string ActivityID = 1 [(validate.rules).string.min_len = 1];
+    string activity_id = 1 [(validate.rules).string.min_len = 1];
 }
 
 message GetActivityResponse {
-    Activity Activity = 1;
+    Activity activity = 1;
 }
 
 message GetFeedRequest {
-    string FeedID = 1 [(validate.rules).string.min_len = 1];
+    string feed_id = 1 [(validate.rules).string.min_len = 1];
 }
 
 message GetFeedResponse {
-    Feed Feed = 1;
-}
-
-message CreateFeedSnapshotRequest {
-    string FeedID = 1 [(validate.rules).string.min_len = 1];
-}
-
-message CreateFeedSnapshotResponse {
-    Feed Feed = 1;
+    Feed feed = 1;
 }
 
 message CreateSortedFeedRequest {
-    string FeedID = 1 [(validate.rules).string.min_len = 1];
-    string KeyFormat = 2 [(validate.rules).string.min_len = 1];
+    string feed_id = 1 [(validate.rules).string.min_len = 1];
+    string key_formula = 2 [(validate.rules).string.min_len = 1];
 }
 
 message CreateSortedFeedResponse {
-    Feed Feed = 1;
+    SortedFeed sorted_feed = 1;
 }
 
 message GetFeedActivitiesRequest {
-    string FeedID = 1 [(validate.rules).string.min_len = 1];
-    int64 Limit = 2;
-    string OffsetID = 3;
+    string feed_id = 1 [(validate.rules).string.min_len = 1];
+    int64 limit = 2;
+    string offset_id = 3;
 }
 
 message GetFeedActivitiesResponse {
-    repeated Activity Activities = 1;
+    repeated Activity activities = 1;
+}
+
+message GetActivityByObjectIDRequest {
+    string foreign_object_id = 1 [(validate.rules).string.min_len = 1];
+}
+
+message GetActivityByObjectIDResponse {
+    Activity activity = 1;
+}
+
+message UpdateSortedFeedRequest {
+    string feed_id = 1 [(validate.rules).string.min_len = 1];
+    google.protobuf.Any extra_data = 2;
+}
+
+message UpdateSortedFeedResponse {
+    SortedFeed sorted_feed = 1;
+}
+
+
+message DeleteSortedFeedRequest {
+    string feed_id = 1 [(validate.rules).string.min_len = 1];
+}
+
+message DeleteSortedFeedResponse {
+}
+
+
+message GetSortedFeedRequest {
+    string feed_id = 1 [(validate.rules).string.min_len = 1];
+}
+
+message GetSortedFeedResponse {
+    SortedFeed sorted_feed = 1;
+}
+
+
+message GetSortedFeedActivitiesRequest {
+    SortedFeed sorted_feed = 1;
+    int64 limit = 2;
+    string offset_id = 3;
+    bool reverse = 4;
+}
+
+message GetSortedFeedActivitiesResponse {
+    repeated Activity activities = 1;
 }
 
 service FeedsService {
     rpc AddActivity(AddActivityRequest) returns (AddActivityResponse) {}
     rpc GetActivity(GetActivityRequest) returns (GetActivityResponse) {}
+    rpc GetActivityByObjectID(GetActivityByObjectIDRequest) returns (GetActivityByObjectIDResponse) {}
     rpc UpdateActivity(UpdateActivityRequest) returns (UpdateActivityResponse) {}
     rpc DeleteActivity(DeleteActivityRequest) returns (DeleteActivityResponse) {}
     rpc CreateFeed(CreateFeedRequest) returns (CreateFeedResponse) {}
-    rpc CreateSortedFeed(CreateSortedFeedRequest) returns (CreateSortedFeedResponse) {}
-    rpc CreateFeedSnapshot(CreateFeedSnapshotRequest) returns (CreateFeedSnapshotResponse) {}
     rpc GetFeed(GetFeedRequest) returns (GetFeedResponse) {}
     rpc GetFeedActivities(GetFeedActivitiesRequest) returns (GetFeedActivitiesResponse) {}
     rpc UpdateFeed(UpdateFeedRequest) returns (UpdateFeedResponse) {}
     rpc DeleteFeed(DeleteFeedRequest) returns (DeleteFeedResponse) {}
+    rpc CreateSortedFeed(CreateSortedFeedRequest) returns (CreateSortedFeedResponse) {}
+    rpc GetSortedFeed(GetSortedFeedRequest) returns (GetSortedFeedResponse) {}
+    rpc GetSortedFeedActivities(GetSortedFeedActivitiesRequest) returns (GetSortedFeedActivitiesResponse) {}
+    rpc UpdateSortedFeed(UpdateSortedFeedRequest) returns (UpdateSortedFeedResponse) {}
+    rpc DeleteSortedFeed(DeleteSortedFeedRequest) returns (DeleteSortedFeedResponse) {}
 }

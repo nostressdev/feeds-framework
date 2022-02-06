@@ -40,27 +40,39 @@ func (m *Activity) Validate() error {
 		return nil
 	}
 
-	if utf8.RuneCountInString(m.GetInternalID()) < 1 {
+	// no validation rules for Id
+
+	if utf8.RuneCountInString(m.GetStringId()) < 1 {
 		return ActivityValidationError{
-			field:  "InternalID",
+			field:  "StringId",
 			reason: "value length must be at least 1 runes",
 		}
 	}
 
-	if utf8.RuneCountInString(m.GetExternalID()) < 1 {
+	if utf8.RuneCountInString(m.GetForeignObjectId()) < 1 {
 		return ActivityValidationError{
-			field:  "ExternalID",
+			field:  "ForeignObjectId",
 			reason: "value length must be at least 1 runes",
 		}
 	}
 
-	// no validation rules for Time
+	// no validation rules for CreatedAt
 
-	// no validation rules for UserID
+	// no validation rules for UpdatedAt
+
+	// no validation rules for UserId
 
 	// no validation rules for ActivityType
 
-	// no validation rules for ExtraData
+	if v, ok := interface{}(m.GetExtraData()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return ActivityValidationError{
+				field:  "ExtraData",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
 
 	return nil
 }
@@ -126,16 +138,24 @@ func (m *Feed) Validate() error {
 		return nil
 	}
 
-	if utf8.RuneCountInString(m.GetInternalID()) < 1 {
+	if utf8.RuneCountInString(m.GetId()) < 1 {
 		return FeedValidationError{
-			field:  "InternalID",
+			field:  "Id",
 			reason: "value length must be at least 1 runes",
 		}
 	}
 
-	// no validation rules for UserID
+	// no validation rules for UserId
 
-	// no validation rules for ExtraData
+	if v, ok := interface{}(m.GetExtraData()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return FeedValidationError{
+				field:  "ExtraData",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
 
 	return nil
 }
@@ -193,3 +213,93 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = FeedValidationError{}
+
+// Validate checks the field values on SortedFeed with the rules defined in the
+// proto definition for this message. If any rules are violated, an error is returned.
+func (m *SortedFeed) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	if utf8.RuneCountInString(m.GetId()) < 1 {
+		return SortedFeedValidationError{
+			field:  "Id",
+			reason: "value length must be at least 1 runes",
+		}
+	}
+
+	// no validation rules for UserId
+
+	if utf8.RuneCountInString(m.GetKeyFormat()) < 1 {
+		return SortedFeedValidationError{
+			field:  "KeyFormat",
+			reason: "value length must be at least 1 runes",
+		}
+	}
+
+	if v, ok := interface{}(m.GetExtraData()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return SortedFeedValidationError{
+				field:  "ExtraData",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	return nil
+}
+
+// SortedFeedValidationError is the validation error returned by
+// SortedFeed.Validate if the designated constraints aren't met.
+type SortedFeedValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e SortedFeedValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e SortedFeedValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e SortedFeedValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e SortedFeedValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e SortedFeedValidationError) ErrorName() string { return "SortedFeedValidationError" }
+
+// Error satisfies the builtin error interface
+func (e SortedFeedValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sSortedFeed.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = SortedFeedValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = SortedFeedValidationError{}
