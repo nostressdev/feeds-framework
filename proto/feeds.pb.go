@@ -1612,89 +1612,89 @@ var file_api_feeds_proto_rawDesc = []byte{
 	0x65, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x49, 0x64, 0x12, 0x1b, 0x0a, 0x09, 0x6f, 0x62, 0x6a, 0x65,
 	0x63, 0x74, 0x5f, 0x69, 0x64, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x08, 0x6f, 0x62, 0x6a,
 	0x65, 0x63, 0x74, 0x49, 0x64, 0x22, 0x16, 0x0a, 0x14, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x4f,
-	0x62, 0x6a, 0x65, 0x63, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x32, 0x87, 0x0a,
-	0x0a, 0x0c, 0x46, 0x65, 0x65, 0x64, 0x73, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x12, 0x54,
-	0x0a, 0x0b, 0x41, 0x64, 0x64, 0x41, 0x63, 0x74, 0x69, 0x76, 0x69, 0x74, 0x79, 0x12, 0x20, 0x2e,
-	0x73, 0x79, 0x6e, 0x74, 0x6f, 0x6b, 0x73, 0x5f, 0x66, 0x65, 0x65, 0x64, 0x2e, 0x41, 0x64, 0x64,
-	0x41, 0x63, 0x74, 0x69, 0x76, 0x69, 0x74, 0x79, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a,
-	0x21, 0x2e, 0x73, 0x79, 0x6e, 0x74, 0x6f, 0x6b, 0x73, 0x5f, 0x66, 0x65, 0x65, 0x64, 0x2e, 0x41,
-	0x64, 0x64, 0x41, 0x63, 0x74, 0x69, 0x76, 0x69, 0x74, 0x79, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e,
-	0x73, 0x65, 0x22, 0x00, 0x12, 0x54, 0x0a, 0x0b, 0x47, 0x65, 0x74, 0x41, 0x63, 0x74, 0x69, 0x76,
-	0x69, 0x74, 0x79, 0x12, 0x20, 0x2e, 0x73, 0x79, 0x6e, 0x74, 0x6f, 0x6b, 0x73, 0x5f, 0x66, 0x65,
-	0x65, 0x64, 0x2e, 0x47, 0x65, 0x74, 0x41, 0x63, 0x74, 0x69, 0x76, 0x69, 0x74, 0x79, 0x52, 0x65,
-	0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x21, 0x2e, 0x73, 0x79, 0x6e, 0x74, 0x6f, 0x6b, 0x73, 0x5f,
-	0x66, 0x65, 0x65, 0x64, 0x2e, 0x47, 0x65, 0x74, 0x41, 0x63, 0x74, 0x69, 0x76, 0x69, 0x74, 0x79,
-	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x72, 0x0a, 0x15, 0x47, 0x65,
-	0x74, 0x41, 0x63, 0x74, 0x69, 0x76, 0x69, 0x74, 0x79, 0x42, 0x79, 0x4f, 0x62, 0x6a, 0x65, 0x63,
-	0x74, 0x49, 0x44, 0x12, 0x2a, 0x2e, 0x73, 0x79, 0x6e, 0x74, 0x6f, 0x6b, 0x73, 0x5f, 0x66, 0x65,
-	0x65, 0x64, 0x2e, 0x47, 0x65, 0x74, 0x41, 0x63, 0x74, 0x69, 0x76, 0x69, 0x74, 0x79, 0x42, 0x79,
-	0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x49, 0x44, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a,
-	0x2b, 0x2e, 0x73, 0x79, 0x6e, 0x74, 0x6f, 0x6b, 0x73, 0x5f, 0x66, 0x65, 0x65, 0x64, 0x2e, 0x47,
-	0x65, 0x74, 0x41, 0x63, 0x74, 0x69, 0x76, 0x69, 0x74, 0x79, 0x42, 0x79, 0x4f, 0x62, 0x6a, 0x65,
-	0x63, 0x74, 0x49, 0x44, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x5d,
-	0x0a, 0x0e, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x41, 0x63, 0x74, 0x69, 0x76, 0x69, 0x74, 0x79,
-	0x12, 0x23, 0x2e, 0x73, 0x79, 0x6e, 0x74, 0x6f, 0x6b, 0x73, 0x5f, 0x66, 0x65, 0x65, 0x64, 0x2e,
-	0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x41, 0x63, 0x74, 0x69, 0x76, 0x69, 0x74, 0x79, 0x52, 0x65,
-	0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x24, 0x2e, 0x73, 0x79, 0x6e, 0x74, 0x6f, 0x6b, 0x73, 0x5f,
-	0x66, 0x65, 0x65, 0x64, 0x2e, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x41, 0x63, 0x74, 0x69, 0x76,
-	0x69, 0x74, 0x79, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x5d, 0x0a,
-	0x0e, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x41, 0x63, 0x74, 0x69, 0x76, 0x69, 0x74, 0x79, 0x12,
-	0x23, 0x2e, 0x73, 0x79, 0x6e, 0x74, 0x6f, 0x6b, 0x73, 0x5f, 0x66, 0x65, 0x65, 0x64, 0x2e, 0x44,
-	0x65, 0x6c, 0x65, 0x74, 0x65, 0x41, 0x63, 0x74, 0x69, 0x76, 0x69, 0x74, 0x79, 0x52, 0x65, 0x71,
-	0x75, 0x65, 0x73, 0x74, 0x1a, 0x24, 0x2e, 0x73, 0x79, 0x6e, 0x74, 0x6f, 0x6b, 0x73, 0x5f, 0x66,
-	0x65, 0x65, 0x64, 0x2e, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x41, 0x63, 0x74, 0x69, 0x76, 0x69,
-	0x74, 0x79, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x51, 0x0a, 0x0a,
-	0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x46, 0x65, 0x65, 0x64, 0x12, 0x1f, 0x2e, 0x73, 0x79, 0x6e,
-	0x74, 0x6f, 0x6b, 0x73, 0x5f, 0x66, 0x65, 0x65, 0x64, 0x2e, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65,
-	0x46, 0x65, 0x65, 0x64, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x20, 0x2e, 0x73, 0x79,
-	0x6e, 0x74, 0x6f, 0x6b, 0x73, 0x5f, 0x66, 0x65, 0x65, 0x64, 0x2e, 0x43, 0x72, 0x65, 0x61, 0x74,
-	0x65, 0x46, 0x65, 0x65, 0x64, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12,
-	0x48, 0x0a, 0x07, 0x47, 0x65, 0x74, 0x46, 0x65, 0x65, 0x64, 0x12, 0x1c, 0x2e, 0x73, 0x79, 0x6e,
-	0x74, 0x6f, 0x6b, 0x73, 0x5f, 0x66, 0x65, 0x65, 0x64, 0x2e, 0x47, 0x65, 0x74, 0x46, 0x65, 0x65,
-	0x64, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x1d, 0x2e, 0x73, 0x79, 0x6e, 0x74, 0x6f,
-	0x6b, 0x73, 0x5f, 0x66, 0x65, 0x65, 0x64, 0x2e, 0x47, 0x65, 0x74, 0x46, 0x65, 0x65, 0x64, 0x52,
-	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x66, 0x0a, 0x11, 0x47, 0x65, 0x74,
-	0x46, 0x65, 0x65, 0x64, 0x41, 0x63, 0x74, 0x69, 0x76, 0x69, 0x74, 0x69, 0x65, 0x73, 0x12, 0x26,
+	0x62, 0x6a, 0x65, 0x63, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x32, 0x80, 0x0a,
+	0x0a, 0x05, 0x46, 0x65, 0x65, 0x64, 0x73, 0x12, 0x54, 0x0a, 0x0b, 0x41, 0x64, 0x64, 0x41, 0x63,
+	0x74, 0x69, 0x76, 0x69, 0x74, 0x79, 0x12, 0x20, 0x2e, 0x73, 0x79, 0x6e, 0x74, 0x6f, 0x6b, 0x73,
+	0x5f, 0x66, 0x65, 0x65, 0x64, 0x2e, 0x41, 0x64, 0x64, 0x41, 0x63, 0x74, 0x69, 0x76, 0x69, 0x74,
+	0x79, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x21, 0x2e, 0x73, 0x79, 0x6e, 0x74, 0x6f,
+	0x6b, 0x73, 0x5f, 0x66, 0x65, 0x65, 0x64, 0x2e, 0x41, 0x64, 0x64, 0x41, 0x63, 0x74, 0x69, 0x76,
+	0x69, 0x74, 0x79, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x54, 0x0a,
+	0x0b, 0x47, 0x65, 0x74, 0x41, 0x63, 0x74, 0x69, 0x76, 0x69, 0x74, 0x79, 0x12, 0x20, 0x2e, 0x73,
+	0x79, 0x6e, 0x74, 0x6f, 0x6b, 0x73, 0x5f, 0x66, 0x65, 0x65, 0x64, 0x2e, 0x47, 0x65, 0x74, 0x41,
+	0x63, 0x74, 0x69, 0x76, 0x69, 0x74, 0x79, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x21,
 	0x2e, 0x73, 0x79, 0x6e, 0x74, 0x6f, 0x6b, 0x73, 0x5f, 0x66, 0x65, 0x65, 0x64, 0x2e, 0x47, 0x65,
-	0x74, 0x46, 0x65, 0x65, 0x64, 0x41, 0x63, 0x74, 0x69, 0x76, 0x69, 0x74, 0x69, 0x65, 0x73, 0x52,
-	0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x27, 0x2e, 0x73, 0x79, 0x6e, 0x74, 0x6f, 0x6b, 0x73,
-	0x5f, 0x66, 0x65, 0x65, 0x64, 0x2e, 0x47, 0x65, 0x74, 0x46, 0x65, 0x65, 0x64, 0x41, 0x63, 0x74,
-	0x69, 0x76, 0x69, 0x74, 0x69, 0x65, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22,
-	0x00, 0x12, 0x51, 0x0a, 0x0a, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x46, 0x65, 0x65, 0x64, 0x12,
-	0x1f, 0x2e, 0x73, 0x79, 0x6e, 0x74, 0x6f, 0x6b, 0x73, 0x5f, 0x66, 0x65, 0x65, 0x64, 0x2e, 0x55,
-	0x70, 0x64, 0x61, 0x74, 0x65, 0x46, 0x65, 0x65, 0x64, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74,
-	0x1a, 0x20, 0x2e, 0x73, 0x79, 0x6e, 0x74, 0x6f, 0x6b, 0x73, 0x5f, 0x66, 0x65, 0x65, 0x64, 0x2e,
-	0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x46, 0x65, 0x65, 0x64, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e,
-	0x73, 0x65, 0x22, 0x00, 0x12, 0x51, 0x0a, 0x0a, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x46, 0x65,
-	0x65, 0x64, 0x12, 0x1f, 0x2e, 0x73, 0x79, 0x6e, 0x74, 0x6f, 0x6b, 0x73, 0x5f, 0x66, 0x65, 0x65,
-	0x64, 0x2e, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x46, 0x65, 0x65, 0x64, 0x52, 0x65, 0x71, 0x75,
-	0x65, 0x73, 0x74, 0x1a, 0x20, 0x2e, 0x73, 0x79, 0x6e, 0x74, 0x6f, 0x6b, 0x73, 0x5f, 0x66, 0x65,
-	0x65, 0x64, 0x2e, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x46, 0x65, 0x65, 0x64, 0x52, 0x65, 0x73,
-	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x63, 0x0a, 0x10, 0x43, 0x72, 0x65, 0x61, 0x74,
-	0x65, 0x43, 0x6f, 0x6c, 0x6c, 0x65, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x12, 0x25, 0x2e, 0x73, 0x79,
+	0x74, 0x41, 0x63, 0x74, 0x69, 0x76, 0x69, 0x74, 0x79, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
+	0x65, 0x22, 0x00, 0x12, 0x72, 0x0a, 0x15, 0x47, 0x65, 0x74, 0x41, 0x63, 0x74, 0x69, 0x76, 0x69,
+	0x74, 0x79, 0x42, 0x79, 0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x49, 0x44, 0x12, 0x2a, 0x2e, 0x73,
+	0x79, 0x6e, 0x74, 0x6f, 0x6b, 0x73, 0x5f, 0x66, 0x65, 0x65, 0x64, 0x2e, 0x47, 0x65, 0x74, 0x41,
+	0x63, 0x74, 0x69, 0x76, 0x69, 0x74, 0x79, 0x42, 0x79, 0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x49,
+	0x44, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x2b, 0x2e, 0x73, 0x79, 0x6e, 0x74, 0x6f,
+	0x6b, 0x73, 0x5f, 0x66, 0x65, 0x65, 0x64, 0x2e, 0x47, 0x65, 0x74, 0x41, 0x63, 0x74, 0x69, 0x76,
+	0x69, 0x74, 0x79, 0x42, 0x79, 0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x49, 0x44, 0x52, 0x65, 0x73,
+	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x5d, 0x0a, 0x0e, 0x55, 0x70, 0x64, 0x61, 0x74,
+	0x65, 0x41, 0x63, 0x74, 0x69, 0x76, 0x69, 0x74, 0x79, 0x12, 0x23, 0x2e, 0x73, 0x79, 0x6e, 0x74,
+	0x6f, 0x6b, 0x73, 0x5f, 0x66, 0x65, 0x65, 0x64, 0x2e, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x41,
+	0x63, 0x74, 0x69, 0x76, 0x69, 0x74, 0x79, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x24,
+	0x2e, 0x73, 0x79, 0x6e, 0x74, 0x6f, 0x6b, 0x73, 0x5f, 0x66, 0x65, 0x65, 0x64, 0x2e, 0x55, 0x70,
+	0x64, 0x61, 0x74, 0x65, 0x41, 0x63, 0x74, 0x69, 0x76, 0x69, 0x74, 0x79, 0x52, 0x65, 0x73, 0x70,
+	0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x5d, 0x0a, 0x0e, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65,
+	0x41, 0x63, 0x74, 0x69, 0x76, 0x69, 0x74, 0x79, 0x12, 0x23, 0x2e, 0x73, 0x79, 0x6e, 0x74, 0x6f,
+	0x6b, 0x73, 0x5f, 0x66, 0x65, 0x65, 0x64, 0x2e, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x41, 0x63,
+	0x74, 0x69, 0x76, 0x69, 0x74, 0x79, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x24, 0x2e,
+	0x73, 0x79, 0x6e, 0x74, 0x6f, 0x6b, 0x73, 0x5f, 0x66, 0x65, 0x65, 0x64, 0x2e, 0x44, 0x65, 0x6c,
+	0x65, 0x74, 0x65, 0x41, 0x63, 0x74, 0x69, 0x76, 0x69, 0x74, 0x79, 0x52, 0x65, 0x73, 0x70, 0x6f,
+	0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x51, 0x0a, 0x0a, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x46,
+	0x65, 0x65, 0x64, 0x12, 0x1f, 0x2e, 0x73, 0x79, 0x6e, 0x74, 0x6f, 0x6b, 0x73, 0x5f, 0x66, 0x65,
+	0x65, 0x64, 0x2e, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x46, 0x65, 0x65, 0x64, 0x52, 0x65, 0x71,
+	0x75, 0x65, 0x73, 0x74, 0x1a, 0x20, 0x2e, 0x73, 0x79, 0x6e, 0x74, 0x6f, 0x6b, 0x73, 0x5f, 0x66,
+	0x65, 0x65, 0x64, 0x2e, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x46, 0x65, 0x65, 0x64, 0x52, 0x65,
+	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x48, 0x0a, 0x07, 0x47, 0x65, 0x74, 0x46,
+	0x65, 0x65, 0x64, 0x12, 0x1c, 0x2e, 0x73, 0x79, 0x6e, 0x74, 0x6f, 0x6b, 0x73, 0x5f, 0x66, 0x65,
+	0x65, 0x64, 0x2e, 0x47, 0x65, 0x74, 0x46, 0x65, 0x65, 0x64, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73,
+	0x74, 0x1a, 0x1d, 0x2e, 0x73, 0x79, 0x6e, 0x74, 0x6f, 0x6b, 0x73, 0x5f, 0x66, 0x65, 0x65, 0x64,
+	0x2e, 0x47, 0x65, 0x74, 0x46, 0x65, 0x65, 0x64, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
+	0x22, 0x00, 0x12, 0x66, 0x0a, 0x11, 0x47, 0x65, 0x74, 0x46, 0x65, 0x65, 0x64, 0x41, 0x63, 0x74,
+	0x69, 0x76, 0x69, 0x74, 0x69, 0x65, 0x73, 0x12, 0x26, 0x2e, 0x73, 0x79, 0x6e, 0x74, 0x6f, 0x6b,
+	0x73, 0x5f, 0x66, 0x65, 0x65, 0x64, 0x2e, 0x47, 0x65, 0x74, 0x46, 0x65, 0x65, 0x64, 0x41, 0x63,
+	0x74, 0x69, 0x76, 0x69, 0x74, 0x69, 0x65, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a,
+	0x27, 0x2e, 0x73, 0x79, 0x6e, 0x74, 0x6f, 0x6b, 0x73, 0x5f, 0x66, 0x65, 0x65, 0x64, 0x2e, 0x47,
+	0x65, 0x74, 0x46, 0x65, 0x65, 0x64, 0x41, 0x63, 0x74, 0x69, 0x76, 0x69, 0x74, 0x69, 0x65, 0x73,
+	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x51, 0x0a, 0x0a, 0x55, 0x70,
+	0x64, 0x61, 0x74, 0x65, 0x46, 0x65, 0x65, 0x64, 0x12, 0x1f, 0x2e, 0x73, 0x79, 0x6e, 0x74, 0x6f,
+	0x6b, 0x73, 0x5f, 0x66, 0x65, 0x65, 0x64, 0x2e, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x46, 0x65,
+	0x65, 0x64, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x20, 0x2e, 0x73, 0x79, 0x6e, 0x74,
+	0x6f, 0x6b, 0x73, 0x5f, 0x66, 0x65, 0x65, 0x64, 0x2e, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x46,
+	0x65, 0x65, 0x64, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x51, 0x0a,
+	0x0a, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x46, 0x65, 0x65, 0x64, 0x12, 0x1f, 0x2e, 0x73, 0x79,
+	0x6e, 0x74, 0x6f, 0x6b, 0x73, 0x5f, 0x66, 0x65, 0x65, 0x64, 0x2e, 0x44, 0x65, 0x6c, 0x65, 0x74,
+	0x65, 0x46, 0x65, 0x65, 0x64, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x20, 0x2e, 0x73,
+	0x79, 0x6e, 0x74, 0x6f, 0x6b, 0x73, 0x5f, 0x66, 0x65, 0x65, 0x64, 0x2e, 0x44, 0x65, 0x6c, 0x65,
+	0x74, 0x65, 0x46, 0x65, 0x65, 0x64, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00,
+	0x12, 0x63, 0x0a, 0x10, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x43, 0x6f, 0x6c, 0x6c, 0x65, 0x63,
+	0x74, 0x69, 0x6f, 0x6e, 0x12, 0x25, 0x2e, 0x73, 0x79, 0x6e, 0x74, 0x6f, 0x6b, 0x73, 0x5f, 0x66,
+	0x65, 0x65, 0x64, 0x2e, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x43, 0x6f, 0x6c, 0x6c, 0x65, 0x63,
+	0x74, 0x69, 0x6f, 0x6e, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x26, 0x2e, 0x73, 0x79,
 	0x6e, 0x74, 0x6f, 0x6b, 0x73, 0x5f, 0x66, 0x65, 0x65, 0x64, 0x2e, 0x43, 0x72, 0x65, 0x61, 0x74,
-	0x65, 0x43, 0x6f, 0x6c, 0x6c, 0x65, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x52, 0x65, 0x71, 0x75, 0x65,
-	0x73, 0x74, 0x1a, 0x26, 0x2e, 0x73, 0x79, 0x6e, 0x74, 0x6f, 0x6b, 0x73, 0x5f, 0x66, 0x65, 0x65,
-	0x64, 0x2e, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x43, 0x6f, 0x6c, 0x6c, 0x65, 0x63, 0x74, 0x69,
-	0x6f, 0x6e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x57, 0x0a, 0x0c,
-	0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x12, 0x21, 0x2e, 0x73,
-	0x79, 0x6e, 0x74, 0x6f, 0x6b, 0x73, 0x5f, 0x66, 0x65, 0x65, 0x64, 0x2e, 0x43, 0x72, 0x65, 0x61,
-	0x74, 0x65, 0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a,
-	0x22, 0x2e, 0x73, 0x79, 0x6e, 0x74, 0x6f, 0x6b, 0x73, 0x5f, 0x66, 0x65, 0x65, 0x64, 0x2e, 0x43,
-	0x72, 0x65, 0x61, 0x74, 0x65, 0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f,
-	0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x57, 0x0a, 0x0c, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x4f,
+	0x65, 0x43, 0x6f, 0x6c, 0x6c, 0x65, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x52, 0x65, 0x73, 0x70, 0x6f,
+	0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x57, 0x0a, 0x0c, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x4f,
 	0x62, 0x6a, 0x65, 0x63, 0x74, 0x12, 0x21, 0x2e, 0x73, 0x79, 0x6e, 0x74, 0x6f, 0x6b, 0x73, 0x5f,
-	0x66, 0x65, 0x65, 0x64, 0x2e, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x4f, 0x62, 0x6a, 0x65, 0x63,
+	0x66, 0x65, 0x65, 0x64, 0x2e, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x4f, 0x62, 0x6a, 0x65, 0x63,
 	0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x22, 0x2e, 0x73, 0x79, 0x6e, 0x74, 0x6f,
-	0x6b, 0x73, 0x5f, 0x66, 0x65, 0x65, 0x64, 0x2e, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x4f, 0x62,
+	0x6b, 0x73, 0x5f, 0x66, 0x65, 0x65, 0x64, 0x2e, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x4f, 0x62,
 	0x6a, 0x65, 0x63, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x57,
-	0x0a, 0x0c, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x12, 0x21,
-	0x2e, 0x73, 0x79, 0x6e, 0x74, 0x6f, 0x6b, 0x73, 0x5f, 0x66, 0x65, 0x65, 0x64, 0x2e, 0x44, 0x65,
-	0x6c, 0x65, 0x74, 0x65, 0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73,
+	0x0a, 0x0c, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x12, 0x21,
+	0x2e, 0x73, 0x79, 0x6e, 0x74, 0x6f, 0x6b, 0x73, 0x5f, 0x66, 0x65, 0x65, 0x64, 0x2e, 0x55, 0x70,
+	0x64, 0x61, 0x74, 0x65, 0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73,
 	0x74, 0x1a, 0x22, 0x2e, 0x73, 0x79, 0x6e, 0x74, 0x6f, 0x6b, 0x73, 0x5f, 0x66, 0x65, 0x65, 0x64,
-	0x2e, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x52, 0x65, 0x73,
-	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x42, 0x09, 0x5a, 0x07, 0x2e, 0x2f, 0x70, 0x72, 0x6f,
-	0x74, 0x6f, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x2e, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x52, 0x65, 0x73,
+	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x57, 0x0a, 0x0c, 0x44, 0x65, 0x6c, 0x65, 0x74,
+	0x65, 0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x12, 0x21, 0x2e, 0x73, 0x79, 0x6e, 0x74, 0x6f, 0x6b,
+	0x73, 0x5f, 0x66, 0x65, 0x65, 0x64, 0x2e, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x4f, 0x62, 0x6a,
+	0x65, 0x63, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x22, 0x2e, 0x73, 0x79, 0x6e,
+	0x74, 0x6f, 0x6b, 0x73, 0x5f, 0x66, 0x65, 0x65, 0x64, 0x2e, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65,
+	0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00,
+	0x42, 0x09, 0x5a, 0x07, 0x2e, 0x2f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x06, 0x70, 0x72, 0x6f,
+	0x74, 0x6f, 0x33,
 }
 
 var (
@@ -1765,34 +1765,34 @@ var file_api_feeds_proto_depIdxs = []int32{
 	33, // 15: syntoks_feed.CreateObjectResponse.object:type_name -> syntoks_feed.Object
 	28, // 16: syntoks_feed.UpdateObjectRequest.data:type_name -> google.protobuf.Any
 	33, // 17: syntoks_feed.UpdateObjectResponse.object:type_name -> syntoks_feed.Object
-	2,  // 18: syntoks_feed.FeedsService.AddActivity:input_type -> syntoks_feed.AddActivityRequest
-	12, // 19: syntoks_feed.FeedsService.GetActivity:input_type -> syntoks_feed.GetActivityRequest
-	18, // 20: syntoks_feed.FeedsService.GetActivityByObjectID:input_type -> syntoks_feed.GetActivityByObjectIDRequest
-	4,  // 21: syntoks_feed.FeedsService.UpdateActivity:input_type -> syntoks_feed.UpdateActivityRequest
-	8,  // 22: syntoks_feed.FeedsService.DeleteActivity:input_type -> syntoks_feed.DeleteActivityRequest
-	0,  // 23: syntoks_feed.FeedsService.CreateFeed:input_type -> syntoks_feed.CreateFeedRequest
-	14, // 24: syntoks_feed.FeedsService.GetFeed:input_type -> syntoks_feed.GetFeedRequest
-	16, // 25: syntoks_feed.FeedsService.GetFeedActivities:input_type -> syntoks_feed.GetFeedActivitiesRequest
-	6,  // 26: syntoks_feed.FeedsService.UpdateFeed:input_type -> syntoks_feed.UpdateFeedRequest
-	10, // 27: syntoks_feed.FeedsService.DeleteFeed:input_type -> syntoks_feed.DeleteFeedRequest
-	20, // 28: syntoks_feed.FeedsService.CreateCollection:input_type -> syntoks_feed.CreateCollectionRequest
-	22, // 29: syntoks_feed.FeedsService.CreateObject:input_type -> syntoks_feed.CreateObjectRequest
-	24, // 30: syntoks_feed.FeedsService.UpdateObject:input_type -> syntoks_feed.UpdateObjectRequest
-	26, // 31: syntoks_feed.FeedsService.DeleteObject:input_type -> syntoks_feed.DeleteObjectRequest
-	3,  // 32: syntoks_feed.FeedsService.AddActivity:output_type -> syntoks_feed.AddActivityResponse
-	13, // 33: syntoks_feed.FeedsService.GetActivity:output_type -> syntoks_feed.GetActivityResponse
-	19, // 34: syntoks_feed.FeedsService.GetActivityByObjectID:output_type -> syntoks_feed.GetActivityByObjectIDResponse
-	5,  // 35: syntoks_feed.FeedsService.UpdateActivity:output_type -> syntoks_feed.UpdateActivityResponse
-	9,  // 36: syntoks_feed.FeedsService.DeleteActivity:output_type -> syntoks_feed.DeleteActivityResponse
-	1,  // 37: syntoks_feed.FeedsService.CreateFeed:output_type -> syntoks_feed.CreateFeedResponse
-	15, // 38: syntoks_feed.FeedsService.GetFeed:output_type -> syntoks_feed.GetFeedResponse
-	17, // 39: syntoks_feed.FeedsService.GetFeedActivities:output_type -> syntoks_feed.GetFeedActivitiesResponse
-	7,  // 40: syntoks_feed.FeedsService.UpdateFeed:output_type -> syntoks_feed.UpdateFeedResponse
-	11, // 41: syntoks_feed.FeedsService.DeleteFeed:output_type -> syntoks_feed.DeleteFeedResponse
-	21, // 42: syntoks_feed.FeedsService.CreateCollection:output_type -> syntoks_feed.CreateCollectionResponse
-	23, // 43: syntoks_feed.FeedsService.CreateObject:output_type -> syntoks_feed.CreateObjectResponse
-	25, // 44: syntoks_feed.FeedsService.UpdateObject:output_type -> syntoks_feed.UpdateObjectResponse
-	27, // 45: syntoks_feed.FeedsService.DeleteObject:output_type -> syntoks_feed.DeleteObjectResponse
+	2,  // 18: syntoks_feed.Feeds.AddActivity:input_type -> syntoks_feed.AddActivityRequest
+	12, // 19: syntoks_feed.Feeds.GetActivity:input_type -> syntoks_feed.GetActivityRequest
+	18, // 20: syntoks_feed.Feeds.GetActivityByObjectID:input_type -> syntoks_feed.GetActivityByObjectIDRequest
+	4,  // 21: syntoks_feed.Feeds.UpdateActivity:input_type -> syntoks_feed.UpdateActivityRequest
+	8,  // 22: syntoks_feed.Feeds.DeleteActivity:input_type -> syntoks_feed.DeleteActivityRequest
+	0,  // 23: syntoks_feed.Feeds.CreateFeed:input_type -> syntoks_feed.CreateFeedRequest
+	14, // 24: syntoks_feed.Feeds.GetFeed:input_type -> syntoks_feed.GetFeedRequest
+	16, // 25: syntoks_feed.Feeds.GetFeedActivities:input_type -> syntoks_feed.GetFeedActivitiesRequest
+	6,  // 26: syntoks_feed.Feeds.UpdateFeed:input_type -> syntoks_feed.UpdateFeedRequest
+	10, // 27: syntoks_feed.Feeds.DeleteFeed:input_type -> syntoks_feed.DeleteFeedRequest
+	20, // 28: syntoks_feed.Feeds.CreateCollection:input_type -> syntoks_feed.CreateCollectionRequest
+	22, // 29: syntoks_feed.Feeds.CreateObject:input_type -> syntoks_feed.CreateObjectRequest
+	24, // 30: syntoks_feed.Feeds.UpdateObject:input_type -> syntoks_feed.UpdateObjectRequest
+	26, // 31: syntoks_feed.Feeds.DeleteObject:input_type -> syntoks_feed.DeleteObjectRequest
+	3,  // 32: syntoks_feed.Feeds.AddActivity:output_type -> syntoks_feed.AddActivityResponse
+	13, // 33: syntoks_feed.Feeds.GetActivity:output_type -> syntoks_feed.GetActivityResponse
+	19, // 34: syntoks_feed.Feeds.GetActivityByObjectID:output_type -> syntoks_feed.GetActivityByObjectIDResponse
+	5,  // 35: syntoks_feed.Feeds.UpdateActivity:output_type -> syntoks_feed.UpdateActivityResponse
+	9,  // 36: syntoks_feed.Feeds.DeleteActivity:output_type -> syntoks_feed.DeleteActivityResponse
+	1,  // 37: syntoks_feed.Feeds.CreateFeed:output_type -> syntoks_feed.CreateFeedResponse
+	15, // 38: syntoks_feed.Feeds.GetFeed:output_type -> syntoks_feed.GetFeedResponse
+	17, // 39: syntoks_feed.Feeds.GetFeedActivities:output_type -> syntoks_feed.GetFeedActivitiesResponse
+	7,  // 40: syntoks_feed.Feeds.UpdateFeed:output_type -> syntoks_feed.UpdateFeedResponse
+	11, // 41: syntoks_feed.Feeds.DeleteFeed:output_type -> syntoks_feed.DeleteFeedResponse
+	21, // 42: syntoks_feed.Feeds.CreateCollection:output_type -> syntoks_feed.CreateCollectionResponse
+	23, // 43: syntoks_feed.Feeds.CreateObject:output_type -> syntoks_feed.CreateObjectResponse
+	25, // 44: syntoks_feed.Feeds.UpdateObject:output_type -> syntoks_feed.UpdateObjectResponse
+	27, // 45: syntoks_feed.Feeds.DeleteObject:output_type -> syntoks_feed.DeleteObjectResponse
 	32, // [32:46] is the sub-list for method output_type
 	18, // [18:32] is the sub-list for method input_type
 	18, // [18:18] is the sub-list for extension type_name
@@ -2172,10 +2172,10 @@ var _ grpc.ClientConnInterface
 // is compatible with the grpc package it is being compiled against.
 const _ = grpc.SupportPackageIsVersion6
 
-// FeedsServiceClient is the client API for FeedsService service.
+// FeedsClient is the client API for Feeds service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
-type FeedsServiceClient interface {
+type FeedsClient interface {
 	AddActivity(ctx context.Context, in *AddActivityRequest, opts ...grpc.CallOption) (*AddActivityResponse, error)
 	GetActivity(ctx context.Context, in *GetActivityRequest, opts ...grpc.CallOption) (*GetActivityResponse, error)
 	GetActivityByObjectID(ctx context.Context, in *GetActivityByObjectIDRequest, opts ...grpc.CallOption) (*GetActivityByObjectIDResponse, error)
@@ -2192,142 +2192,142 @@ type FeedsServiceClient interface {
 	DeleteObject(ctx context.Context, in *DeleteObjectRequest, opts ...grpc.CallOption) (*DeleteObjectResponse, error)
 }
 
-type feedsServiceClient struct {
+type feedsClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewFeedsServiceClient(cc grpc.ClientConnInterface) FeedsServiceClient {
-	return &feedsServiceClient{cc}
+func NewFeedsClient(cc grpc.ClientConnInterface) FeedsClient {
+	return &feedsClient{cc}
 }
 
-func (c *feedsServiceClient) AddActivity(ctx context.Context, in *AddActivityRequest, opts ...grpc.CallOption) (*AddActivityResponse, error) {
+func (c *feedsClient) AddActivity(ctx context.Context, in *AddActivityRequest, opts ...grpc.CallOption) (*AddActivityResponse, error) {
 	out := new(AddActivityResponse)
-	err := c.cc.Invoke(ctx, "/syntoks_feed.FeedsService/AddActivity", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/syntoks_feed.Feeds/AddActivity", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *feedsServiceClient) GetActivity(ctx context.Context, in *GetActivityRequest, opts ...grpc.CallOption) (*GetActivityResponse, error) {
+func (c *feedsClient) GetActivity(ctx context.Context, in *GetActivityRequest, opts ...grpc.CallOption) (*GetActivityResponse, error) {
 	out := new(GetActivityResponse)
-	err := c.cc.Invoke(ctx, "/syntoks_feed.FeedsService/GetActivity", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/syntoks_feed.Feeds/GetActivity", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *feedsServiceClient) GetActivityByObjectID(ctx context.Context, in *GetActivityByObjectIDRequest, opts ...grpc.CallOption) (*GetActivityByObjectIDResponse, error) {
+func (c *feedsClient) GetActivityByObjectID(ctx context.Context, in *GetActivityByObjectIDRequest, opts ...grpc.CallOption) (*GetActivityByObjectIDResponse, error) {
 	out := new(GetActivityByObjectIDResponse)
-	err := c.cc.Invoke(ctx, "/syntoks_feed.FeedsService/GetActivityByObjectID", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/syntoks_feed.Feeds/GetActivityByObjectID", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *feedsServiceClient) UpdateActivity(ctx context.Context, in *UpdateActivityRequest, opts ...grpc.CallOption) (*UpdateActivityResponse, error) {
+func (c *feedsClient) UpdateActivity(ctx context.Context, in *UpdateActivityRequest, opts ...grpc.CallOption) (*UpdateActivityResponse, error) {
 	out := new(UpdateActivityResponse)
-	err := c.cc.Invoke(ctx, "/syntoks_feed.FeedsService/UpdateActivity", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/syntoks_feed.Feeds/UpdateActivity", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *feedsServiceClient) DeleteActivity(ctx context.Context, in *DeleteActivityRequest, opts ...grpc.CallOption) (*DeleteActivityResponse, error) {
+func (c *feedsClient) DeleteActivity(ctx context.Context, in *DeleteActivityRequest, opts ...grpc.CallOption) (*DeleteActivityResponse, error) {
 	out := new(DeleteActivityResponse)
-	err := c.cc.Invoke(ctx, "/syntoks_feed.FeedsService/DeleteActivity", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/syntoks_feed.Feeds/DeleteActivity", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *feedsServiceClient) CreateFeed(ctx context.Context, in *CreateFeedRequest, opts ...grpc.CallOption) (*CreateFeedResponse, error) {
+func (c *feedsClient) CreateFeed(ctx context.Context, in *CreateFeedRequest, opts ...grpc.CallOption) (*CreateFeedResponse, error) {
 	out := new(CreateFeedResponse)
-	err := c.cc.Invoke(ctx, "/syntoks_feed.FeedsService/CreateFeed", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/syntoks_feed.Feeds/CreateFeed", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *feedsServiceClient) GetFeed(ctx context.Context, in *GetFeedRequest, opts ...grpc.CallOption) (*GetFeedResponse, error) {
+func (c *feedsClient) GetFeed(ctx context.Context, in *GetFeedRequest, opts ...grpc.CallOption) (*GetFeedResponse, error) {
 	out := new(GetFeedResponse)
-	err := c.cc.Invoke(ctx, "/syntoks_feed.FeedsService/GetFeed", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/syntoks_feed.Feeds/GetFeed", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *feedsServiceClient) GetFeedActivities(ctx context.Context, in *GetFeedActivitiesRequest, opts ...grpc.CallOption) (*GetFeedActivitiesResponse, error) {
+func (c *feedsClient) GetFeedActivities(ctx context.Context, in *GetFeedActivitiesRequest, opts ...grpc.CallOption) (*GetFeedActivitiesResponse, error) {
 	out := new(GetFeedActivitiesResponse)
-	err := c.cc.Invoke(ctx, "/syntoks_feed.FeedsService/GetFeedActivities", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/syntoks_feed.Feeds/GetFeedActivities", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *feedsServiceClient) UpdateFeed(ctx context.Context, in *UpdateFeedRequest, opts ...grpc.CallOption) (*UpdateFeedResponse, error) {
+func (c *feedsClient) UpdateFeed(ctx context.Context, in *UpdateFeedRequest, opts ...grpc.CallOption) (*UpdateFeedResponse, error) {
 	out := new(UpdateFeedResponse)
-	err := c.cc.Invoke(ctx, "/syntoks_feed.FeedsService/UpdateFeed", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/syntoks_feed.Feeds/UpdateFeed", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *feedsServiceClient) DeleteFeed(ctx context.Context, in *DeleteFeedRequest, opts ...grpc.CallOption) (*DeleteFeedResponse, error) {
+func (c *feedsClient) DeleteFeed(ctx context.Context, in *DeleteFeedRequest, opts ...grpc.CallOption) (*DeleteFeedResponse, error) {
 	out := new(DeleteFeedResponse)
-	err := c.cc.Invoke(ctx, "/syntoks_feed.FeedsService/DeleteFeed", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/syntoks_feed.Feeds/DeleteFeed", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *feedsServiceClient) CreateCollection(ctx context.Context, in *CreateCollectionRequest, opts ...grpc.CallOption) (*CreateCollectionResponse, error) {
+func (c *feedsClient) CreateCollection(ctx context.Context, in *CreateCollectionRequest, opts ...grpc.CallOption) (*CreateCollectionResponse, error) {
 	out := new(CreateCollectionResponse)
-	err := c.cc.Invoke(ctx, "/syntoks_feed.FeedsService/CreateCollection", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/syntoks_feed.Feeds/CreateCollection", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *feedsServiceClient) CreateObject(ctx context.Context, in *CreateObjectRequest, opts ...grpc.CallOption) (*CreateObjectResponse, error) {
+func (c *feedsClient) CreateObject(ctx context.Context, in *CreateObjectRequest, opts ...grpc.CallOption) (*CreateObjectResponse, error) {
 	out := new(CreateObjectResponse)
-	err := c.cc.Invoke(ctx, "/syntoks_feed.FeedsService/CreateObject", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/syntoks_feed.Feeds/CreateObject", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *feedsServiceClient) UpdateObject(ctx context.Context, in *UpdateObjectRequest, opts ...grpc.CallOption) (*UpdateObjectResponse, error) {
+func (c *feedsClient) UpdateObject(ctx context.Context, in *UpdateObjectRequest, opts ...grpc.CallOption) (*UpdateObjectResponse, error) {
 	out := new(UpdateObjectResponse)
-	err := c.cc.Invoke(ctx, "/syntoks_feed.FeedsService/UpdateObject", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/syntoks_feed.Feeds/UpdateObject", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *feedsServiceClient) DeleteObject(ctx context.Context, in *DeleteObjectRequest, opts ...grpc.CallOption) (*DeleteObjectResponse, error) {
+func (c *feedsClient) DeleteObject(ctx context.Context, in *DeleteObjectRequest, opts ...grpc.CallOption) (*DeleteObjectResponse, error) {
 	out := new(DeleteObjectResponse)
-	err := c.cc.Invoke(ctx, "/syntoks_feed.FeedsService/DeleteObject", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/syntoks_feed.Feeds/DeleteObject", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// FeedsServiceServer is the server API for FeedsService service.
-type FeedsServiceServer interface {
+// FeedsServer is the server API for Feeds service.
+type FeedsServer interface {
 	AddActivity(context.Context, *AddActivityRequest) (*AddActivityResponse, error)
 	GetActivity(context.Context, *GetActivityRequest) (*GetActivityResponse, error)
 	GetActivityByObjectID(context.Context, *GetActivityByObjectIDRequest) (*GetActivityByObjectIDResponse, error)
@@ -2344,368 +2344,368 @@ type FeedsServiceServer interface {
 	DeleteObject(context.Context, *DeleteObjectRequest) (*DeleteObjectResponse, error)
 }
 
-// UnimplementedFeedsServiceServer can be embedded to have forward compatible implementations.
-type UnimplementedFeedsServiceServer struct {
+// UnimplementedFeedsServer can be embedded to have forward compatible implementations.
+type UnimplementedFeedsServer struct {
 }
 
-func (*UnimplementedFeedsServiceServer) AddActivity(context.Context, *AddActivityRequest) (*AddActivityResponse, error) {
+func (*UnimplementedFeedsServer) AddActivity(context.Context, *AddActivityRequest) (*AddActivityResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method AddActivity not implemented")
 }
-func (*UnimplementedFeedsServiceServer) GetActivity(context.Context, *GetActivityRequest) (*GetActivityResponse, error) {
+func (*UnimplementedFeedsServer) GetActivity(context.Context, *GetActivityRequest) (*GetActivityResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetActivity not implemented")
 }
-func (*UnimplementedFeedsServiceServer) GetActivityByObjectID(context.Context, *GetActivityByObjectIDRequest) (*GetActivityByObjectIDResponse, error) {
+func (*UnimplementedFeedsServer) GetActivityByObjectID(context.Context, *GetActivityByObjectIDRequest) (*GetActivityByObjectIDResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetActivityByObjectID not implemented")
 }
-func (*UnimplementedFeedsServiceServer) UpdateActivity(context.Context, *UpdateActivityRequest) (*UpdateActivityResponse, error) {
+func (*UnimplementedFeedsServer) UpdateActivity(context.Context, *UpdateActivityRequest) (*UpdateActivityResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateActivity not implemented")
 }
-func (*UnimplementedFeedsServiceServer) DeleteActivity(context.Context, *DeleteActivityRequest) (*DeleteActivityResponse, error) {
+func (*UnimplementedFeedsServer) DeleteActivity(context.Context, *DeleteActivityRequest) (*DeleteActivityResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteActivity not implemented")
 }
-func (*UnimplementedFeedsServiceServer) CreateFeed(context.Context, *CreateFeedRequest) (*CreateFeedResponse, error) {
+func (*UnimplementedFeedsServer) CreateFeed(context.Context, *CreateFeedRequest) (*CreateFeedResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateFeed not implemented")
 }
-func (*UnimplementedFeedsServiceServer) GetFeed(context.Context, *GetFeedRequest) (*GetFeedResponse, error) {
+func (*UnimplementedFeedsServer) GetFeed(context.Context, *GetFeedRequest) (*GetFeedResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetFeed not implemented")
 }
-func (*UnimplementedFeedsServiceServer) GetFeedActivities(context.Context, *GetFeedActivitiesRequest) (*GetFeedActivitiesResponse, error) {
+func (*UnimplementedFeedsServer) GetFeedActivities(context.Context, *GetFeedActivitiesRequest) (*GetFeedActivitiesResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetFeedActivities not implemented")
 }
-func (*UnimplementedFeedsServiceServer) UpdateFeed(context.Context, *UpdateFeedRequest) (*UpdateFeedResponse, error) {
+func (*UnimplementedFeedsServer) UpdateFeed(context.Context, *UpdateFeedRequest) (*UpdateFeedResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateFeed not implemented")
 }
-func (*UnimplementedFeedsServiceServer) DeleteFeed(context.Context, *DeleteFeedRequest) (*DeleteFeedResponse, error) {
+func (*UnimplementedFeedsServer) DeleteFeed(context.Context, *DeleteFeedRequest) (*DeleteFeedResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteFeed not implemented")
 }
-func (*UnimplementedFeedsServiceServer) CreateCollection(context.Context, *CreateCollectionRequest) (*CreateCollectionResponse, error) {
+func (*UnimplementedFeedsServer) CreateCollection(context.Context, *CreateCollectionRequest) (*CreateCollectionResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateCollection not implemented")
 }
-func (*UnimplementedFeedsServiceServer) CreateObject(context.Context, *CreateObjectRequest) (*CreateObjectResponse, error) {
+func (*UnimplementedFeedsServer) CreateObject(context.Context, *CreateObjectRequest) (*CreateObjectResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateObject not implemented")
 }
-func (*UnimplementedFeedsServiceServer) UpdateObject(context.Context, *UpdateObjectRequest) (*UpdateObjectResponse, error) {
+func (*UnimplementedFeedsServer) UpdateObject(context.Context, *UpdateObjectRequest) (*UpdateObjectResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateObject not implemented")
 }
-func (*UnimplementedFeedsServiceServer) DeleteObject(context.Context, *DeleteObjectRequest) (*DeleteObjectResponse, error) {
+func (*UnimplementedFeedsServer) DeleteObject(context.Context, *DeleteObjectRequest) (*DeleteObjectResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteObject not implemented")
 }
 
-func RegisterFeedsServiceServer(s *grpc.Server, srv FeedsServiceServer) {
-	s.RegisterService(&_FeedsService_serviceDesc, srv)
+func RegisterFeedsServer(s *grpc.Server, srv FeedsServer) {
+	s.RegisterService(&_Feeds_serviceDesc, srv)
 }
 
-func _FeedsService_AddActivity_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Feeds_AddActivity_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(AddActivityRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(FeedsServiceServer).AddActivity(ctx, in)
+		return srv.(FeedsServer).AddActivity(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/syntoks_feed.FeedsService/AddActivity",
+		FullMethod: "/syntoks_feed.Feeds/AddActivity",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FeedsServiceServer).AddActivity(ctx, req.(*AddActivityRequest))
+		return srv.(FeedsServer).AddActivity(ctx, req.(*AddActivityRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _FeedsService_GetActivity_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Feeds_GetActivity_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetActivityRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(FeedsServiceServer).GetActivity(ctx, in)
+		return srv.(FeedsServer).GetActivity(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/syntoks_feed.FeedsService/GetActivity",
+		FullMethod: "/syntoks_feed.Feeds/GetActivity",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FeedsServiceServer).GetActivity(ctx, req.(*GetActivityRequest))
+		return srv.(FeedsServer).GetActivity(ctx, req.(*GetActivityRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _FeedsService_GetActivityByObjectID_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Feeds_GetActivityByObjectID_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetActivityByObjectIDRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(FeedsServiceServer).GetActivityByObjectID(ctx, in)
+		return srv.(FeedsServer).GetActivityByObjectID(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/syntoks_feed.FeedsService/GetActivityByObjectID",
+		FullMethod: "/syntoks_feed.Feeds/GetActivityByObjectID",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FeedsServiceServer).GetActivityByObjectID(ctx, req.(*GetActivityByObjectIDRequest))
+		return srv.(FeedsServer).GetActivityByObjectID(ctx, req.(*GetActivityByObjectIDRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _FeedsService_UpdateActivity_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Feeds_UpdateActivity_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(UpdateActivityRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(FeedsServiceServer).UpdateActivity(ctx, in)
+		return srv.(FeedsServer).UpdateActivity(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/syntoks_feed.FeedsService/UpdateActivity",
+		FullMethod: "/syntoks_feed.Feeds/UpdateActivity",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FeedsServiceServer).UpdateActivity(ctx, req.(*UpdateActivityRequest))
+		return srv.(FeedsServer).UpdateActivity(ctx, req.(*UpdateActivityRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _FeedsService_DeleteActivity_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Feeds_DeleteActivity_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(DeleteActivityRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(FeedsServiceServer).DeleteActivity(ctx, in)
+		return srv.(FeedsServer).DeleteActivity(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/syntoks_feed.FeedsService/DeleteActivity",
+		FullMethod: "/syntoks_feed.Feeds/DeleteActivity",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FeedsServiceServer).DeleteActivity(ctx, req.(*DeleteActivityRequest))
+		return srv.(FeedsServer).DeleteActivity(ctx, req.(*DeleteActivityRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _FeedsService_CreateFeed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Feeds_CreateFeed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CreateFeedRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(FeedsServiceServer).CreateFeed(ctx, in)
+		return srv.(FeedsServer).CreateFeed(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/syntoks_feed.FeedsService/CreateFeed",
+		FullMethod: "/syntoks_feed.Feeds/CreateFeed",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FeedsServiceServer).CreateFeed(ctx, req.(*CreateFeedRequest))
+		return srv.(FeedsServer).CreateFeed(ctx, req.(*CreateFeedRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _FeedsService_GetFeed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Feeds_GetFeed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetFeedRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(FeedsServiceServer).GetFeed(ctx, in)
+		return srv.(FeedsServer).GetFeed(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/syntoks_feed.FeedsService/GetFeed",
+		FullMethod: "/syntoks_feed.Feeds/GetFeed",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FeedsServiceServer).GetFeed(ctx, req.(*GetFeedRequest))
+		return srv.(FeedsServer).GetFeed(ctx, req.(*GetFeedRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _FeedsService_GetFeedActivities_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Feeds_GetFeedActivities_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetFeedActivitiesRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(FeedsServiceServer).GetFeedActivities(ctx, in)
+		return srv.(FeedsServer).GetFeedActivities(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/syntoks_feed.FeedsService/GetFeedActivities",
+		FullMethod: "/syntoks_feed.Feeds/GetFeedActivities",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FeedsServiceServer).GetFeedActivities(ctx, req.(*GetFeedActivitiesRequest))
+		return srv.(FeedsServer).GetFeedActivities(ctx, req.(*GetFeedActivitiesRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _FeedsService_UpdateFeed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Feeds_UpdateFeed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(UpdateFeedRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(FeedsServiceServer).UpdateFeed(ctx, in)
+		return srv.(FeedsServer).UpdateFeed(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/syntoks_feed.FeedsService/UpdateFeed",
+		FullMethod: "/syntoks_feed.Feeds/UpdateFeed",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FeedsServiceServer).UpdateFeed(ctx, req.(*UpdateFeedRequest))
+		return srv.(FeedsServer).UpdateFeed(ctx, req.(*UpdateFeedRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _FeedsService_DeleteFeed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Feeds_DeleteFeed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(DeleteFeedRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(FeedsServiceServer).DeleteFeed(ctx, in)
+		return srv.(FeedsServer).DeleteFeed(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/syntoks_feed.FeedsService/DeleteFeed",
+		FullMethod: "/syntoks_feed.Feeds/DeleteFeed",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FeedsServiceServer).DeleteFeed(ctx, req.(*DeleteFeedRequest))
+		return srv.(FeedsServer).DeleteFeed(ctx, req.(*DeleteFeedRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _FeedsService_CreateCollection_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Feeds_CreateCollection_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CreateCollectionRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(FeedsServiceServer).CreateCollection(ctx, in)
+		return srv.(FeedsServer).CreateCollection(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/syntoks_feed.FeedsService/CreateCollection",
+		FullMethod: "/syntoks_feed.Feeds/CreateCollection",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FeedsServiceServer).CreateCollection(ctx, req.(*CreateCollectionRequest))
+		return srv.(FeedsServer).CreateCollection(ctx, req.(*CreateCollectionRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _FeedsService_CreateObject_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Feeds_CreateObject_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CreateObjectRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(FeedsServiceServer).CreateObject(ctx, in)
+		return srv.(FeedsServer).CreateObject(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/syntoks_feed.FeedsService/CreateObject",
+		FullMethod: "/syntoks_feed.Feeds/CreateObject",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FeedsServiceServer).CreateObject(ctx, req.(*CreateObjectRequest))
+		return srv.(FeedsServer).CreateObject(ctx, req.(*CreateObjectRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _FeedsService_UpdateObject_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Feeds_UpdateObject_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(UpdateObjectRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(FeedsServiceServer).UpdateObject(ctx, in)
+		return srv.(FeedsServer).UpdateObject(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/syntoks_feed.FeedsService/UpdateObject",
+		FullMethod: "/syntoks_feed.Feeds/UpdateObject",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FeedsServiceServer).UpdateObject(ctx, req.(*UpdateObjectRequest))
+		return srv.(FeedsServer).UpdateObject(ctx, req.(*UpdateObjectRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _FeedsService_DeleteObject_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Feeds_DeleteObject_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(DeleteObjectRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(FeedsServiceServer).DeleteObject(ctx, in)
+		return srv.(FeedsServer).DeleteObject(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/syntoks_feed.FeedsService/DeleteObject",
+		FullMethod: "/syntoks_feed.Feeds/DeleteObject",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FeedsServiceServer).DeleteObject(ctx, req.(*DeleteObjectRequest))
+		return srv.(FeedsServer).DeleteObject(ctx, req.(*DeleteObjectRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-var _FeedsService_serviceDesc = grpc.ServiceDesc{
-	ServiceName: "syntoks_feed.FeedsService",
-	HandlerType: (*FeedsServiceServer)(nil),
+var _Feeds_serviceDesc = grpc.ServiceDesc{
+	ServiceName: "syntoks_feed.Feeds",
+	HandlerType: (*FeedsServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "AddActivity",
-			Handler:    _FeedsService_AddActivity_Handler,
+			Handler:    _Feeds_AddActivity_Handler,
 		},
 		{
 			MethodName: "GetActivity",
-			Handler:    _FeedsService_GetActivity_Handler,
+			Handler:    _Feeds_GetActivity_Handler,
 		},
 		{
 			MethodName: "GetActivityByObjectID",
-			Handler:    _FeedsService_GetActivityByObjectID_Handler,
+			Handler:    _Feeds_GetActivityByObjectID_Handler,
 		},
 		{
 			MethodName: "UpdateActivity",
-			Handler:    _FeedsService_UpdateActivity_Handler,
+			Handler:    _Feeds_UpdateActivity_Handler,
 		},
 		{
 			MethodName: "DeleteActivity",
-			Handler:    _FeedsService_DeleteActivity_Handler,
+			Handler:    _Feeds_DeleteActivity_Handler,
 		},
 		{
 			MethodName: "CreateFeed",
-			Handler:    _FeedsService_CreateFeed_Handler,
+			Handler:    _Feeds_CreateFeed_Handler,
 		},
 		{
 			MethodName: "GetFeed",
-			Handler:    _FeedsService_GetFeed_Handler,
+			Handler:    _Feeds_GetFeed_Handler,
 		},
 		{
 			MethodName: "GetFeedActivities",
-			Handler:    _FeedsService_GetFeedActivities_Handler,
+			Handler:    _Feeds_GetFeedActivities_Handler,
 		},
 		{
 			MethodName: "UpdateFeed",
-			Handler:    _FeedsService_UpdateFeed_Handler,
+			Handler:    _Feeds_UpdateFeed_Handler,
 		},
 		{
 			MethodName: "DeleteFeed",
-			Handler:    _FeedsService_DeleteFeed_Handler,
+			Handler:    _Feeds_DeleteFeed_Handler,
 		},
 		{
 			MethodName: "CreateCollection",
-			Handler:    _FeedsService_CreateCollection_Handler,
+			Handler:    _Feeds_CreateCollection_Handler,
 		},
 		{
 			MethodName: "CreateObject",
-			Handler:    _FeedsService_CreateObject_Handler,
+			Handler:    _Feeds_CreateObject_Handler,
 		},
 		{
 			MethodName: "UpdateObject",
-			Handler:    _FeedsService_UpdateObject_Handler,
+			Handler:    _Feeds_UpdateObject_Handler,
 		},
 		{
 			MethodName: "DeleteObject",
-			Handler:    _FeedsService_DeleteObject_Handler,
+			Handler:    _Feeds_DeleteObject_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

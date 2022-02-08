@@ -136,7 +136,7 @@ message DeleteObjectResponse {
 
 
 
-service FeedsService {
+service Feeds {
     rpc AddActivity(AddActivityRequest) returns (AddActivityResponse) {}
     rpc GetActivity(GetActivityRequest) returns (GetActivityResponse) {}
     rpc GetActivityByObjectID(GetActivityByObjectIDRequest) returns (GetActivityByObjectIDResponse) {}
