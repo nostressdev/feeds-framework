@@ -1,9 +1,9 @@
 package feeds
 
 import (
-	"github.com/nostressdev/signer"
 	"github.com/nostressdev/feeds-framework/internal/storage"
 	"github.com/nostressdev/feeds-framework/proto"
+	"github.com/nostressdev/signer"
 )
 
 type FeedsService struct {

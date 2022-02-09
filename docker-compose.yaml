@@ -40,5 +40,6 @@ services:
       - FDB_SUBSPACE=dev-feeds-1
       - FDB_COORDINATOR=fdb-coordinator
       - LOGGING=DEVELOPMENT
+      - NODE_NUMBER=1
     ports:
       - 8009:80

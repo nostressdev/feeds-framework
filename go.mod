@@ -4,6 +4,7 @@ go 1.17
 
 require (
 	github.com/apple/foundationdb/bindings/go v0.0.0-20190311170436-f2d582ffa197
+	github.com/bwmarrin/snowflake v0.3.0
 	github.com/envoyproxy/protoc-gen-validate v0.6.3
 	github.com/golang/protobuf v1.5.2
 	github.com/google/uuid v1.3.0

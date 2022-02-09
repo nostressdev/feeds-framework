@@ -6,6 +6,7 @@ import (
 
 	"github.com/apple/foundationdb/bindings/go/src/fdb"
 	"github.com/apple/foundationdb/bindings/go/src/fdb/subspace"
+	"github.com/bwmarrin/snowflake"
 	"github.com/nostressdev/feeds-framework/proto"
 	"github.com/nostressdev/nerrors"
 	protobuf "google.golang.org/protobuf/proto"
@@ -13,8 +14,9 @@ import (
 )
 
 type ConfigFeedsFDB struct {
-	DB       fdb.Database
-	Subspace subspace.Subspace
+	DB        fdb.Database
+	Subspace  subspace.Subspace
+	Generator *snowflake.Node
 }
 
 type FeedsStorageFDB struct {
@@ -45,19 +47,17 @@ func (s *FeedsStorageFDB) AddActivity(feedID, objectID, userID, activityType str
 	if time == 0 {
 		time = go_time.Now().UnixNano()
 	}
-	id, err := UUIDFromTimestamp(uint64(time))
-	if err != nil {
-		return nil, err
-	}
+	snowflakeID := s.Generator.Generate()
 	activity := &proto.Activity{
-		StringId:        id,
+		Id:              snowflakeID.Int64(),
+		StringId:        snowflakeID.String(),
 		ForeignObjectId: objectID,
 		CreatedAt:       time,
 		UserId:          userID,
 		ActivityType:    activityType,
 		ExtraData:       extraData,
 	}
-	_, err = s.DB.Transact(func(tr fdb.Transaction) (interface{}, error) {
+	_, err := s.DB.Transact(func(tr fdb.Transaction) (interface{}, error) {
 		bytes, err := tr.Get(s.FeedsSubspace.Sub(feedID)).Get()
 		if err != nil {
 			return nil, err
@@ -415,7 +415,6 @@ func (s *FeedsStorageFDB) GetObject(collectionID, objectID string) (*proto.Objec
 	})
 	return object, err
 }
-
 
 func (s *FeedsStorageFDB) UpdateObject(collectionID, objectID string, data *anypb.Any) (*proto.Object, error) {
 	object := &proto.Object{

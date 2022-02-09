@@ -5,8 +5,10 @@ import (
 	"log"
 	"net"
 	"os"
+	"strconv"
 	"time"
 
+	"github.com/bwmarrin/snowflake"
 	"github.com/nostressdev/feeds-framework/internal/feeds"
 	"github.com/nostressdev/feeds-framework/internal/storage"
 	"github.com/nostressdev/feeds-framework/internal/utils"
@@ -24,6 +26,7 @@ var (
 	port      string
 	secretKey string
 	logging   string
+	nodeNumber string
 )
 
 func loadEnvironmentVariables() {
@@ -38,6 +41,9 @@ func loadEnvironmentVariables() {
 	}
 	if logging = os.Getenv("LOGGING"); logging == "" {
 		log.Fatalln("LOGGING environment variable should be specified")
+	}
+	if nodeNumber = os.Getenv("NODE_NUMBER"); nodeNumber == "" {
+		log.Fatalln("NODE_NUMBER environment variable should be specified")
 	}
 }
 
@@ -69,14 +75,27 @@ func main() {
 
 	loadEnvironmentVariables()
 
-	feedsStorage := storage.NewFeedsFDB(&storage.ConfigFeedsFDB{DB: db, Subspace: serviceSubspace})
+	number, err := strconv.Atoi(nodeNumber)
+	if err != nil {
+		log.Fatalln("failed to parse node number")
+	}
+	node, err := snowflake.NewNode(int64(number))
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+
+	feedsStorage := storage.NewFeedsFDB(&storage.ConfigFeedsFDB{
+		DB: db,
+		 Subspace: serviceSubspace,
+		 Generator: node,
+		})
 
 	signer := signer.NewSignerJWT(signer.TokenProviderConfig{
 		Expiration: time.Hour,
 		SecretKey:  []byte(secretKey),
 	})
 
-	var err error
 	var logger *zap.Logger
 	if logging == "DEVELOPMENT" {
 		logger, err = zap.NewDevelopment()
@@ -88,6 +107,8 @@ func main() {
 	if err != nil {
 		log.Fatalln("failed to create zap logger")
 	}
+
+
 
 	server := grpc.NewServer(utils.GetServerInterceptor(logger, signer))
 	pb.RegisterFeedsServer(server, feeds.New(&feeds.Config{
