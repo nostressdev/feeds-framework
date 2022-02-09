@@ -18,7 +18,7 @@ message CreateFeedResponse {
 
 message AddActivityRequest {
     string feed_id = 1 [(validate.rules).string.min_len = 1];
-    string foreign_object_id = 2 [(validate.rules).string.min_len = 1];
+    string foreign_object_id = 2;
     int64 time = 3;
     string user_id = 4;
     string activity_type = 5;
@@ -115,6 +115,15 @@ message CreateObjectResponse {
     Object object = 1;
 }
 
+message GetObjectRequest {
+    string collection_id = 1 [(validate.rules).string.min_len = 1];
+    string object_id = 2 [(validate.rules).string.min_len = 1];
+}
+
+message GetObjectResponse {
+    Object object = 1;
+}
+
 message UpdateObjectRequest {
     string collection_id = 1 [(validate.rules).string.min_len = 1];
     string object_id = 2;
@@ -149,6 +158,7 @@ service Feeds {
     rpc DeleteFeed(DeleteFeedRequest) returns (DeleteFeedResponse) {}
     rpc CreateCollection(CreateCollectionRequest) returns (CreateCollectionResponse) {}
     rpc CreateObject(CreateObjectRequest) returns (CreateObjectResponse) {}
+    rpc GetObject(GetObjectRequest) returns (GetObjectResponse) {}
     rpc UpdateObject(UpdateObjectRequest) returns (UpdateObjectResponse) {}
     rpc DeleteObject(DeleteObjectRequest) returns (DeleteObjectResponse) {}
 }

@@ -6,7 +6,7 @@ import (
 )
 
 type FeedsStorage interface {
-	AddActivity(feedID, objectID, userID, activityType string, time int64, redirect_to []string, extraData *anypb.Any) (*proto.Activity, error)
+	AddActivity(feedID, objectID, userID, activityType string, time int64, redirectTo []string, extraData *anypb.Any) (*proto.Activity, error)
 	GetActivity(activityID string) (*proto.Activity, error)
 	GetActivityByObjectID(objectID string) (*proto.Activity, error)
 	UpdateActivity(activityID string, extraData *anypb.Any) (*proto.Activity, error)
@@ -18,6 +18,7 @@ type FeedsStorage interface {
 	DeleteFeed(feedID string) error
 	CreateCollection(collectionID string, deletingType proto.DeletingType) (*proto.Collection, error)
 	CreateObject(collectionID, objectID string, data *anypb.Any) (*proto.Object, error)
+	GetObject(collectionID, objectID string) (*proto.Object, error)
 	UpdateObject(collectionID, objectID string, data *anypb.Any) (*proto.Object, error)
 	DeleteObject(collectionID, objectID string) error
 }

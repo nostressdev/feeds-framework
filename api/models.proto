@@ -9,7 +9,7 @@ import "google/protobuf/any.proto";
 message Activity {
     int64 id = 1;
     string string_id = 2 [(validate.rules).string.min_len = 1];
-    string foreign_object_id = 3 [(validate.rules).string.min_len = 1];
+    string foreign_object_id = 3;
     int64 created_at = 4;
     int64 updated_at = 5;
     string user_id = 6;
@@ -31,7 +31,7 @@ message SortedFeed {
 }
 
 message Collection {
-    string collection_id = 1 [(validate.rules).string.min_len = 1];
+    string id = 1 [(validate.rules).string.min_len = 1];
     DeletingType deleting_type = 2 [(validate.rules).enum.defined_only = true];
 }
 
@@ -41,6 +41,6 @@ enum DeletingType {
 }
 
 message Object {
-    string object_id = 1 [(validate.rules).string.min_len = 1];
+    string id = 1 [(validate.rules).string.min_len = 1];
     google.protobuf.Any data = 2;
 }

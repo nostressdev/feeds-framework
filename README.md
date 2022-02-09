@@ -29,7 +29,7 @@ foreign_id_activities:\<foreignObjectID>:\<activityID> -> activityID
 
 collections:\<collectionID> -> collectionData
 
-objects:\<collectionID>:\<objectID> -> objectData
+collection_objects:\<collectionID>:\<objectID> -> objectData
 
 При удалении объекта есть два варианта поведения:
 1) удаляются все события, ссылающиеся на этот объект - CASCADE
@@ -48,8 +48,9 @@ objects:\<collectionID>:\<objectID> -> objectData
 * GetFeed: получает данные в feeds:\<feedID>
 * GetFeedActivities: получает id событий по диапазону feed_activities:\<feedID> и для каждого получаем данные в activities:\<activityID>
 * UpdateFeed: перезаписывает данные в feeds:\<feedID>
-* DeleteFeed: удаляет данные в feeds:\<feedID> и удаляет диапазон feed_activities:\<feedID>
+* DeleteFeed: удаляет данные в feeds:\<feedID>, удаляет данные в activity_feeds:\<activity_id>:\<feed_id> для всех activity_id из feed_activities:\<feedID> и наконец удаляет диапазон feed_activities:\<feedID>
 * CreateCollection: записывает данные в collections:\<collectionID>
 * CreateObject: записывает данные в objects:\<collectionID>:\<objectID>
+* GetObject: получает данные из objects:\<collectionID>:\<objectID>
 * UpdateObject: перезаписывает данные в objects:\<collectionID>:\<objectID>
 * DeleteObject: удаляет данные из objects:\<collectionID>:\<objectID> и в зависимости от типа удаления в коллекции изменяет/удаляет события, которые находим по диапазону в индексе foreign_id_activities:\<objectID>

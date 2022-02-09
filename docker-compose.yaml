@@ -1,0 +1,44 @@
+version: "3.4"
+services:
+
+  fdb-coordinator:
+    image: foundationdb/foundationdb:6.0.18
+    environment:
+      FDB_COORDINATOR: fdb-coordinator
+      FDB_NETWORKING_MODE: container
+      FDB_COORDINATOR_PORT: 4500
+
+  fdb-server-1:
+    depends_on:
+      - fdb-coordinator
+    image: foundationdb/foundationdb:6.0.18
+    environment:
+      FDB_COORDINATOR: fdb-coordinator
+      FDB_NETWORKING_MODE: container
+      FDB_COORDINATOR_PORT: 4500
+
+  fdb-server-2:
+    depends_on:
+      - fdb-coordinator
+    image: foundationdb/foundationdb:6.0.18
+    environment:
+      FDB_COORDINATOR: fdb-coordinator
+      FDB_NETWORKING_MODE: container
+      FDB_COORDINATOR_PORT: 4500
+
+  feeds-framework:
+    image: feeds-framework:latest
+    restart: always
+    depends_on:
+      - fdb-coordinator
+      - fdb-server-1
+      - fdb-server-2
+    environment:
+      - PORT=80
+      - HOST=0.0.0.0
+      - SECRET_KEY=IVKESJPMKEDKWZVH
+      - FDB_SUBSPACE=dev-feeds-1
+      - FDB_COORDINATOR=fdb-coordinator
+      - LOGGING=DEVELOPMENT
+    ports:
+      - 8009:80
