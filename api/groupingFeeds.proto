@@ -1,0 +1,48 @@
+syntax = "proto3";
+
+package syntoks_feed;
+option go_package = "./proto";
+
+import "validate/validate.proto";
+import "api/models.proto";
+import "google/protobuf/any.proto";
+
+message CreateGroupingFeedRequest {
+
+}
+
+message CreateGroupingFeedResponse {
+
+}
+
+message GetGroupingFeedRequest {
+
+}
+
+message GetGroupingFeedResponse {
+
+}
+
+message GetGroupingFeedActivitiesRequest {
+
+}
+
+message GetGroupingFeedActivitiesResponse {
+
+}
+
+message UpdateGroupingFeedRequest {
+
+}
+
+message UpdateGroupingFeedResponse {
+
+}
+
+message DeleteGroupingFeedRequest {
+
+}
+
+message DeleteGroupingFeedResponse {
+
+}

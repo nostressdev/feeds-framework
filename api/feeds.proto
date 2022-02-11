@@ -16,29 +16,6 @@ message CreateFeedResponse {
     Feed feed = 1;
 }
 
-message AddActivityRequest {
-    string feed_id = 1 [(validate.rules).string.min_len = 1];
-    string foreign_object_id = 2;
-    int64 time = 3;
-    string user_id = 4;
-    string activity_type = 5;
-    repeated string redirect_to = 6;
-    google.protobuf.Any extra_data = 7;
-}
-
-message AddActivityResponse {
-    Activity activity = 1;
-}
-
-message UpdateActivityRequest {
-    string activity_id = 1 [(validate.rules).string.min_len = 1];
-    google.protobuf.Any extra_data = 2;
-}
-
-message UpdateActivityResponse {
-    Activity activity = 1;
-}
-
 message UpdateFeedRequest {
     string feed_id = 1 [(validate.rules).string.min_len = 1];
     google.protobuf.Any extra_data = 2;
@@ -48,12 +25,7 @@ message UpdateFeedResponse {
     Feed feed = 1;
 }
 
-message DeleteActivityRequest {
-    string activity_id = 1 [(validate.rules).string.min_len = 1];
-}
 
-message DeleteActivityResponse {
-}
 
 message DeleteFeedRequest {
     string feed_id = 1 [(validate.rules).string.min_len = 1];
@@ -62,13 +34,6 @@ message DeleteFeedRequest {
 message DeleteFeedResponse {
 }
 
-message GetActivityRequest {
-    string activity_id = 1 [(validate.rules).string.min_len = 1];
-}
-
-message GetActivityResponse {
-    Activity activity = 1;
-}
 
 message GetFeedRequest {
     string feed_id = 1 [(validate.rules).string.min_len = 1];
@@ -86,79 +51,4 @@ message GetFeedActivitiesRequest {
 
 message GetFeedActivitiesResponse {
     repeated Activity activities = 1;
-}
-
-message GetActivityByObjectIDRequest {
-    string foreign_object_id = 1 [(validate.rules).string.min_len = 1];
-}
-
-message GetActivityByObjectIDResponse {
-    Activity activity = 1;
-}
-
-message CreateCollectionRequest {
-    string collection_id = 1;
-    DeletingType deleting_type = 2 [(validate.rules).enum.defined_only = true];
-}
-
-message CreateCollectionResponse {
-    Collection collection = 1;
-}
-
-message CreateObjectRequest {
-    string collection_id = 1 [(validate.rules).string.min_len = 1];
-    string object_id = 2;
-    google.protobuf.Any data = 3;
-}
-
-message CreateObjectResponse {
-    Object object = 1;
-}
-
-message GetObjectRequest {
-    string collection_id = 1 [(validate.rules).string.min_len = 1];
-    string object_id = 2 [(validate.rules).string.min_len = 1];
-}
-
-message GetObjectResponse {
-    Object object = 1;
-}
-
-message UpdateObjectRequest {
-    string collection_id = 1 [(validate.rules).string.min_len = 1];
-    string object_id = 2;
-    google.protobuf.Any data = 3;
-}
-
-message UpdateObjectResponse {
-    Object object = 1;
-}
-
-message DeleteObjectRequest {
-    string collection_id = 1 [(validate.rules).string.min_len = 1];
-    string object_id = 2;
-}
-
-message DeleteObjectResponse {
-}
-
-
-
-
-service Feeds {
-    rpc AddActivity(AddActivityRequest) returns (AddActivityResponse) {}
-    rpc GetActivity(GetActivityRequest) returns (GetActivityResponse) {}
-    rpc GetActivityByObjectID(GetActivityByObjectIDRequest) returns (GetActivityByObjectIDResponse) {}
-    rpc UpdateActivity(UpdateActivityRequest) returns (UpdateActivityResponse) {}
-    rpc DeleteActivity(DeleteActivityRequest) returns (DeleteActivityResponse) {}
-    rpc CreateFeed(CreateFeedRequest) returns (CreateFeedResponse) {}
-    rpc GetFeed(GetFeedRequest) returns (GetFeedResponse) {}
-    rpc GetFeedActivities(GetFeedActivitiesRequest) returns (GetFeedActivitiesResponse) {}
-    rpc UpdateFeed(UpdateFeedRequest) returns (UpdateFeedResponse) {}
-    rpc DeleteFeed(DeleteFeedRequest) returns (DeleteFeedResponse) {}
-    rpc CreateCollection(CreateCollectionRequest) returns (CreateCollectionResponse) {}
-    rpc CreateObject(CreateObjectRequest) returns (CreateObjectResponse) {}
-    rpc GetObject(GetObjectRequest) returns (GetObjectResponse) {}
-    rpc UpdateObject(UpdateObjectRequest) returns (UpdateObjectResponse) {}
-    rpc DeleteObject(DeleteObjectRequest) returns (DeleteObjectResponse) {}
 }

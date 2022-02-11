@@ -23,10 +23,10 @@ message Feed {
     google.protobuf.Any extra_data = 3;
 }
 
-message SortedFeed {
+message GroupingFeed {
     string id = 1 [(validate.rules).string.min_len = 1];
     string user_id = 2;
-    string key_formula = 3 [(validate.rules).string.min_len = 1];
+    string key_format = 3 [(validate.rules).string.min_len = 1];
     google.protobuf.Any extra_data = 4;
 }
 

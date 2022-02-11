@@ -7,12 +7,8 @@
 package proto
 
 import (
-	context "context"
 	_ "github.com/envoyproxy/protoc-gen-validate/validate"
 	any "github.com/golang/protobuf/ptypes/any"
-	grpc "google.golang.org/grpc"
-	codes "google.golang.org/grpc/codes"
-	status "google.golang.org/grpc/status"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -128,250 +124,6 @@ func (x *CreateFeedResponse) GetFeed() *Feed {
 	return nil
 }
 
-type AddActivityRequest struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	FeedId          string   `protobuf:"bytes,1,opt,name=feed_id,json=feedId,proto3" json:"feed_id,omitempty"`
-	ForeignObjectId string   `protobuf:"bytes,2,opt,name=foreign_object_id,json=foreignObjectId,proto3" json:"foreign_object_id,omitempty"`
-	Time            int64    `protobuf:"varint,3,opt,name=time,proto3" json:"time,omitempty"`
-	UserId          string   `protobuf:"bytes,4,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
-	ActivityType    string   `protobuf:"bytes,5,opt,name=activity_type,json=activityType,proto3" json:"activity_type,omitempty"`
-	RedirectTo      []string `protobuf:"bytes,6,rep,name=redirect_to,json=redirectTo,proto3" json:"redirect_to,omitempty"`
-	ExtraData       *any.Any `protobuf:"bytes,7,opt,name=extra_data,json=extraData,proto3" json:"extra_data,omitempty"`
-}
-
-func (x *AddActivityRequest) Reset() {
-	*x = AddActivityRequest{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_api_feeds_proto_msgTypes[2]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *AddActivityRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AddActivityRequest) ProtoMessage() {}
-
-func (x *AddActivityRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_api_feeds_proto_msgTypes[2]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AddActivityRequest.ProtoReflect.Descriptor instead.
-func (*AddActivityRequest) Descriptor() ([]byte, []int) {
-	return file_api_feeds_proto_rawDescGZIP(), []int{2}
-}
-
-func (x *AddActivityRequest) GetFeedId() string {
-	if x != nil {
-		return x.FeedId
-	}
-	return ""
-}
-
-func (x *AddActivityRequest) GetForeignObjectId() string {
-	if x != nil {
-		return x.ForeignObjectId
-	}
-	return ""
-}
-
-func (x *AddActivityRequest) GetTime() int64 {
-	if x != nil {
-		return x.Time
-	}
-	return 0
-}
-
-func (x *AddActivityRequest) GetUserId() string {
-	if x != nil {
-		return x.UserId
-	}
-	return ""
-}
-
-func (x *AddActivityRequest) GetActivityType() string {
-	if x != nil {
-		return x.ActivityType
-	}
-	return ""
-}
-
-func (x *AddActivityRequest) GetRedirectTo() []string {
-	if x != nil {
-		return x.RedirectTo
-	}
-	return nil
-}
-
-func (x *AddActivityRequest) GetExtraData() *any.Any {
-	if x != nil {
-		return x.ExtraData
-	}
-	return nil
-}
-
-type AddActivityResponse struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	Activity *Activity `protobuf:"bytes,1,opt,name=activity,proto3" json:"activity,omitempty"`
-}
-
-func (x *AddActivityResponse) Reset() {
-	*x = AddActivityResponse{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_api_feeds_proto_msgTypes[3]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *AddActivityResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AddActivityResponse) ProtoMessage() {}
-
-func (x *AddActivityResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_api_feeds_proto_msgTypes[3]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AddActivityResponse.ProtoReflect.Descriptor instead.
-func (*AddActivityResponse) Descriptor() ([]byte, []int) {
-	return file_api_feeds_proto_rawDescGZIP(), []int{3}
-}
-
-func (x *AddActivityResponse) GetActivity() *Activity {
-	if x != nil {
-		return x.Activity
-	}
-	return nil
-}
-
-type UpdateActivityRequest struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	ActivityId string   `protobuf:"bytes,1,opt,name=activity_id,json=activityId,proto3" json:"activity_id,omitempty"`
-	ExtraData  *any.Any `protobuf:"bytes,2,opt,name=extra_data,json=extraData,proto3" json:"extra_data,omitempty"`
-}
-
-func (x *UpdateActivityRequest) Reset() {
-	*x = UpdateActivityRequest{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_api_feeds_proto_msgTypes[4]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *UpdateActivityRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*UpdateActivityRequest) ProtoMessage() {}
-
-func (x *UpdateActivityRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_api_feeds_proto_msgTypes[4]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use UpdateActivityRequest.ProtoReflect.Descriptor instead.
-func (*UpdateActivityRequest) Descriptor() ([]byte, []int) {
-	return file_api_feeds_proto_rawDescGZIP(), []int{4}
-}
-
-func (x *UpdateActivityRequest) GetActivityId() string {
-	if x != nil {
-		return x.ActivityId
-	}
-	return ""
-}
-
-func (x *UpdateActivityRequest) GetExtraData() *any.Any {
-	if x != nil {
-		return x.ExtraData
-	}
-	return nil
-}
-
-type UpdateActivityResponse struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	Activity *Activity `protobuf:"bytes,1,opt,name=activity,proto3" json:"activity,omitempty"`
-}
-
-func (x *UpdateActivityResponse) Reset() {
-	*x = UpdateActivityResponse{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_api_feeds_proto_msgTypes[5]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *UpdateActivityResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*UpdateActivityResponse) ProtoMessage() {}
-
-func (x *UpdateActivityResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_api_feeds_proto_msgTypes[5]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use UpdateActivityResponse.ProtoReflect.Descriptor instead.
-func (*UpdateActivityResponse) Descriptor() ([]byte, []int) {
-	return file_api_feeds_proto_rawDescGZIP(), []int{5}
-}
-
-func (x *UpdateActivityResponse) GetActivity() *Activity {
-	if x != nil {
-		return x.Activity
-	}
-	return nil
-}
-
 type UpdateFeedRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -384,7 +136,7 @@ type UpdateFeedRequest struct {
 func (x *UpdateFeedRequest) Reset() {
 	*x = UpdateFeedRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_api_feeds_proto_msgTypes[6]
+		mi := &file_api_feeds_proto_msgTypes[2]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -397,7 +149,7 @@ func (x *UpdateFeedRequest) String() string {
 func (*UpdateFeedRequest) ProtoMessage() {}
 
 func (x *UpdateFeedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_api_feeds_proto_msgTypes[6]
+	mi := &file_api_feeds_proto_msgTypes[2]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -410,7 +162,7 @@ func (x *UpdateFeedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateFeedRequest.ProtoReflect.Descriptor instead.
 func (*UpdateFeedRequest) Descriptor() ([]byte, []int) {
-	return file_api_feeds_proto_rawDescGZIP(), []int{6}
+	return file_api_feeds_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *UpdateFeedRequest) GetFeedId() string {
@@ -438,7 +190,7 @@ type UpdateFeedResponse struct {
 func (x *UpdateFeedResponse) Reset() {
 	*x = UpdateFeedResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_api_feeds_proto_msgTypes[7]
+		mi := &file_api_feeds_proto_msgTypes[3]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -451,7 +203,7 @@ func (x *UpdateFeedResponse) String() string {
 func (*UpdateFeedResponse) ProtoMessage() {}
 
 func (x *UpdateFeedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_api_feeds_proto_msgTypes[7]
+	mi := &file_api_feeds_proto_msgTypes[3]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -464,7 +216,7 @@ func (x *UpdateFeedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateFeedResponse.ProtoReflect.Descriptor instead.
 func (*UpdateFeedResponse) Descriptor() ([]byte, []int) {
-	return file_api_feeds_proto_rawDescGZIP(), []int{7}
+	return file_api_feeds_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *UpdateFeedResponse) GetFeed() *Feed {
@@ -472,91 +224,6 @@ func (x *UpdateFeedResponse) GetFeed() *Feed {
 		return x.Feed
 	}
 	return nil
-}
-
-type DeleteActivityRequest struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	ActivityId string `protobuf:"bytes,1,opt,name=activity_id,json=activityId,proto3" json:"activity_id,omitempty"`
-}
-
-func (x *DeleteActivityRequest) Reset() {
-	*x = DeleteActivityRequest{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_api_feeds_proto_msgTypes[8]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *DeleteActivityRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*DeleteActivityRequest) ProtoMessage() {}
-
-func (x *DeleteActivityRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_api_feeds_proto_msgTypes[8]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use DeleteActivityRequest.ProtoReflect.Descriptor instead.
-func (*DeleteActivityRequest) Descriptor() ([]byte, []int) {
-	return file_api_feeds_proto_rawDescGZIP(), []int{8}
-}
-
-func (x *DeleteActivityRequest) GetActivityId() string {
-	if x != nil {
-		return x.ActivityId
-	}
-	return ""
-}
-
-type DeleteActivityResponse struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-}
-
-func (x *DeleteActivityResponse) Reset() {
-	*x = DeleteActivityResponse{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_api_feeds_proto_msgTypes[9]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *DeleteActivityResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*DeleteActivityResponse) ProtoMessage() {}
-
-func (x *DeleteActivityResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_api_feeds_proto_msgTypes[9]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use DeleteActivityResponse.ProtoReflect.Descriptor instead.
-func (*DeleteActivityResponse) Descriptor() ([]byte, []int) {
-	return file_api_feeds_proto_rawDescGZIP(), []int{9}
 }
 
 type DeleteFeedRequest struct {
@@ -570,7 +237,7 @@ type DeleteFeedRequest struct {
 func (x *DeleteFeedRequest) Reset() {
 	*x = DeleteFeedRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_api_feeds_proto_msgTypes[10]
+		mi := &file_api_feeds_proto_msgTypes[4]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -583,7 +250,7 @@ func (x *DeleteFeedRequest) String() string {
 func (*DeleteFeedRequest) ProtoMessage() {}
 
 func (x *DeleteFeedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_api_feeds_proto_msgTypes[10]
+	mi := &file_api_feeds_proto_msgTypes[4]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -596,7 +263,7 @@ func (x *DeleteFeedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteFeedRequest.ProtoReflect.Descriptor instead.
 func (*DeleteFeedRequest) Descriptor() ([]byte, []int) {
-	return file_api_feeds_proto_rawDescGZIP(), []int{10}
+	return file_api_feeds_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *DeleteFeedRequest) GetFeedId() string {
@@ -615,7 +282,7 @@ type DeleteFeedResponse struct {
 func (x *DeleteFeedResponse) Reset() {
 	*x = DeleteFeedResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_api_feeds_proto_msgTypes[11]
+		mi := &file_api_feeds_proto_msgTypes[5]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -628,7 +295,7 @@ func (x *DeleteFeedResponse) String() string {
 func (*DeleteFeedResponse) ProtoMessage() {}
 
 func (x *DeleteFeedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_api_feeds_proto_msgTypes[11]
+	mi := &file_api_feeds_proto_msgTypes[5]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -641,101 +308,7 @@ func (x *DeleteFeedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteFeedResponse.ProtoReflect.Descriptor instead.
 func (*DeleteFeedResponse) Descriptor() ([]byte, []int) {
-	return file_api_feeds_proto_rawDescGZIP(), []int{11}
-}
-
-type GetActivityRequest struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	ActivityId string `protobuf:"bytes,1,opt,name=activity_id,json=activityId,proto3" json:"activity_id,omitempty"`
-}
-
-func (x *GetActivityRequest) Reset() {
-	*x = GetActivityRequest{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_api_feeds_proto_msgTypes[12]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *GetActivityRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetActivityRequest) ProtoMessage() {}
-
-func (x *GetActivityRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_api_feeds_proto_msgTypes[12]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetActivityRequest.ProtoReflect.Descriptor instead.
-func (*GetActivityRequest) Descriptor() ([]byte, []int) {
-	return file_api_feeds_proto_rawDescGZIP(), []int{12}
-}
-
-func (x *GetActivityRequest) GetActivityId() string {
-	if x != nil {
-		return x.ActivityId
-	}
-	return ""
-}
-
-type GetActivityResponse struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	Activity *Activity `protobuf:"bytes,1,opt,name=activity,proto3" json:"activity,omitempty"`
-}
-
-func (x *GetActivityResponse) Reset() {
-	*x = GetActivityResponse{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_api_feeds_proto_msgTypes[13]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *GetActivityResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetActivityResponse) ProtoMessage() {}
-
-func (x *GetActivityResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_api_feeds_proto_msgTypes[13]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetActivityResponse.ProtoReflect.Descriptor instead.
-func (*GetActivityResponse) Descriptor() ([]byte, []int) {
-	return file_api_feeds_proto_rawDescGZIP(), []int{13}
-}
-
-func (x *GetActivityResponse) GetActivity() *Activity {
-	if x != nil {
-		return x.Activity
-	}
-	return nil
+	return file_api_feeds_proto_rawDescGZIP(), []int{5}
 }
 
 type GetFeedRequest struct {
@@ -749,7 +322,7 @@ type GetFeedRequest struct {
 func (x *GetFeedRequest) Reset() {
 	*x = GetFeedRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_api_feeds_proto_msgTypes[14]
+		mi := &file_api_feeds_proto_msgTypes[6]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -762,7 +335,7 @@ func (x *GetFeedRequest) String() string {
 func (*GetFeedRequest) ProtoMessage() {}
 
 func (x *GetFeedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_api_feeds_proto_msgTypes[14]
+	mi := &file_api_feeds_proto_msgTypes[6]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -775,7 +348,7 @@ func (x *GetFeedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetFeedRequest.ProtoReflect.Descriptor instead.
 func (*GetFeedRequest) Descriptor() ([]byte, []int) {
-	return file_api_feeds_proto_rawDescGZIP(), []int{14}
+	return file_api_feeds_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *GetFeedRequest) GetFeedId() string {
@@ -796,7 +369,7 @@ type GetFeedResponse struct {
 func (x *GetFeedResponse) Reset() {
 	*x = GetFeedResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_api_feeds_proto_msgTypes[15]
+		mi := &file_api_feeds_proto_msgTypes[7]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -809,7 +382,7 @@ func (x *GetFeedResponse) String() string {
 func (*GetFeedResponse) ProtoMessage() {}
 
 func (x *GetFeedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_api_feeds_proto_msgTypes[15]
+	mi := &file_api_feeds_proto_msgTypes[7]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -822,7 +395,7 @@ func (x *GetFeedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetFeedResponse.ProtoReflect.Descriptor instead.
 func (*GetFeedResponse) Descriptor() ([]byte, []int) {
-	return file_api_feeds_proto_rawDescGZIP(), []int{15}
+	return file_api_feeds_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *GetFeedResponse) GetFeed() *Feed {
@@ -845,7 +418,7 @@ type GetFeedActivitiesRequest struct {
 func (x *GetFeedActivitiesRequest) Reset() {
 	*x = GetFeedActivitiesRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_api_feeds_proto_msgTypes[16]
+		mi := &file_api_feeds_proto_msgTypes[8]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -858,7 +431,7 @@ func (x *GetFeedActivitiesRequest) String() string {
 func (*GetFeedActivitiesRequest) ProtoMessage() {}
 
 func (x *GetFeedActivitiesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_api_feeds_proto_msgTypes[16]
+	mi := &file_api_feeds_proto_msgTypes[8]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -871,7 +444,7 @@ func (x *GetFeedActivitiesRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetFeedActivitiesRequest.ProtoReflect.Descriptor instead.
 func (*GetFeedActivitiesRequest) Descriptor() ([]byte, []int) {
-	return file_api_feeds_proto_rawDescGZIP(), []int{16}
+	return file_api_feeds_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *GetFeedActivitiesRequest) GetFeedId() string {
@@ -906,7 +479,7 @@ type GetFeedActivitiesResponse struct {
 func (x *GetFeedActivitiesResponse) Reset() {
 	*x = GetFeedActivitiesResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_api_feeds_proto_msgTypes[17]
+		mi := &file_api_feeds_proto_msgTypes[9]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -919,7 +492,7 @@ func (x *GetFeedActivitiesResponse) String() string {
 func (*GetFeedActivitiesResponse) ProtoMessage() {}
 
 func (x *GetFeedActivitiesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_api_feeds_proto_msgTypes[17]
+	mi := &file_api_feeds_proto_msgTypes[9]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -932,7 +505,7 @@ func (x *GetFeedActivitiesResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetFeedActivitiesResponse.ProtoReflect.Descriptor instead.
 func (*GetFeedActivitiesResponse) Descriptor() ([]byte, []int) {
-	return file_api_feeds_proto_rawDescGZIP(), []int{17}
+	return file_api_feeds_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *GetFeedActivitiesResponse) GetActivities() []*Activity {
@@ -940,617 +513,6 @@ func (x *GetFeedActivitiesResponse) GetActivities() []*Activity {
 		return x.Activities
 	}
 	return nil
-}
-
-type GetActivityByObjectIDRequest struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	ForeignObjectId string `protobuf:"bytes,1,opt,name=foreign_object_id,json=foreignObjectId,proto3" json:"foreign_object_id,omitempty"`
-}
-
-func (x *GetActivityByObjectIDRequest) Reset() {
-	*x = GetActivityByObjectIDRequest{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_api_feeds_proto_msgTypes[18]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *GetActivityByObjectIDRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetActivityByObjectIDRequest) ProtoMessage() {}
-
-func (x *GetActivityByObjectIDRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_api_feeds_proto_msgTypes[18]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetActivityByObjectIDRequest.ProtoReflect.Descriptor instead.
-func (*GetActivityByObjectIDRequest) Descriptor() ([]byte, []int) {
-	return file_api_feeds_proto_rawDescGZIP(), []int{18}
-}
-
-func (x *GetActivityByObjectIDRequest) GetForeignObjectId() string {
-	if x != nil {
-		return x.ForeignObjectId
-	}
-	return ""
-}
-
-type GetActivityByObjectIDResponse struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	Activity *Activity `protobuf:"bytes,1,opt,name=activity,proto3" json:"activity,omitempty"`
-}
-
-func (x *GetActivityByObjectIDResponse) Reset() {
-	*x = GetActivityByObjectIDResponse{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_api_feeds_proto_msgTypes[19]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *GetActivityByObjectIDResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetActivityByObjectIDResponse) ProtoMessage() {}
-
-func (x *GetActivityByObjectIDResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_api_feeds_proto_msgTypes[19]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetActivityByObjectIDResponse.ProtoReflect.Descriptor instead.
-func (*GetActivityByObjectIDResponse) Descriptor() ([]byte, []int) {
-	return file_api_feeds_proto_rawDescGZIP(), []int{19}
-}
-
-func (x *GetActivityByObjectIDResponse) GetActivity() *Activity {
-	if x != nil {
-		return x.Activity
-	}
-	return nil
-}
-
-type CreateCollectionRequest struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	CollectionId string       `protobuf:"bytes,1,opt,name=collection_id,json=collectionId,proto3" json:"collection_id,omitempty"`
-	DeletingType DeletingType `protobuf:"varint,2,opt,name=deleting_type,json=deletingType,proto3,enum=syntoks_feed.DeletingType" json:"deleting_type,omitempty"`
-}
-
-func (x *CreateCollectionRequest) Reset() {
-	*x = CreateCollectionRequest{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_api_feeds_proto_msgTypes[20]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *CreateCollectionRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CreateCollectionRequest) ProtoMessage() {}
-
-func (x *CreateCollectionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_api_feeds_proto_msgTypes[20]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CreateCollectionRequest.ProtoReflect.Descriptor instead.
-func (*CreateCollectionRequest) Descriptor() ([]byte, []int) {
-	return file_api_feeds_proto_rawDescGZIP(), []int{20}
-}
-
-func (x *CreateCollectionRequest) GetCollectionId() string {
-	if x != nil {
-		return x.CollectionId
-	}
-	return ""
-}
-
-func (x *CreateCollectionRequest) GetDeletingType() DeletingType {
-	if x != nil {
-		return x.DeletingType
-	}
-	return DeletingType_CASCADE
-}
-
-type CreateCollectionResponse struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	Collection *Collection `protobuf:"bytes,1,opt,name=collection,proto3" json:"collection,omitempty"`
-}
-
-func (x *CreateCollectionResponse) Reset() {
-	*x = CreateCollectionResponse{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_api_feeds_proto_msgTypes[21]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *CreateCollectionResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CreateCollectionResponse) ProtoMessage() {}
-
-func (x *CreateCollectionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_api_feeds_proto_msgTypes[21]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CreateCollectionResponse.ProtoReflect.Descriptor instead.
-func (*CreateCollectionResponse) Descriptor() ([]byte, []int) {
-	return file_api_feeds_proto_rawDescGZIP(), []int{21}
-}
-
-func (x *CreateCollectionResponse) GetCollection() *Collection {
-	if x != nil {
-		return x.Collection
-	}
-	return nil
-}
-
-type CreateObjectRequest struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	CollectionId string   `protobuf:"bytes,1,opt,name=collection_id,json=collectionId,proto3" json:"collection_id,omitempty"`
-	ObjectId     string   `protobuf:"bytes,2,opt,name=object_id,json=objectId,proto3" json:"object_id,omitempty"`
-	Data         *any.Any `protobuf:"bytes,3,opt,name=data,proto3" json:"data,omitempty"`
-}
-
-func (x *CreateObjectRequest) Reset() {
-	*x = CreateObjectRequest{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_api_feeds_proto_msgTypes[22]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *CreateObjectRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CreateObjectRequest) ProtoMessage() {}
-
-func (x *CreateObjectRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_api_feeds_proto_msgTypes[22]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CreateObjectRequest.ProtoReflect.Descriptor instead.
-func (*CreateObjectRequest) Descriptor() ([]byte, []int) {
-	return file_api_feeds_proto_rawDescGZIP(), []int{22}
-}
-
-func (x *CreateObjectRequest) GetCollectionId() string {
-	if x != nil {
-		return x.CollectionId
-	}
-	return ""
-}
-
-func (x *CreateObjectRequest) GetObjectId() string {
-	if x != nil {
-		return x.ObjectId
-	}
-	return ""
-}
-
-func (x *CreateObjectRequest) GetData() *any.Any {
-	if x != nil {
-		return x.Data
-	}
-	return nil
-}
-
-type CreateObjectResponse struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	Object *Object `protobuf:"bytes,1,opt,name=object,proto3" json:"object,omitempty"`
-}
-
-func (x *CreateObjectResponse) Reset() {
-	*x = CreateObjectResponse{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_api_feeds_proto_msgTypes[23]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *CreateObjectResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CreateObjectResponse) ProtoMessage() {}
-
-func (x *CreateObjectResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_api_feeds_proto_msgTypes[23]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CreateObjectResponse.ProtoReflect.Descriptor instead.
-func (*CreateObjectResponse) Descriptor() ([]byte, []int) {
-	return file_api_feeds_proto_rawDescGZIP(), []int{23}
-}
-
-func (x *CreateObjectResponse) GetObject() *Object {
-	if x != nil {
-		return x.Object
-	}
-	return nil
-}
-
-type GetObjectRequest struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	CollectionId string `protobuf:"bytes,1,opt,name=collection_id,json=collectionId,proto3" json:"collection_id,omitempty"`
-	ObjectId     string `protobuf:"bytes,2,opt,name=object_id,json=objectId,proto3" json:"object_id,omitempty"`
-}
-
-func (x *GetObjectRequest) Reset() {
-	*x = GetObjectRequest{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_api_feeds_proto_msgTypes[24]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *GetObjectRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetObjectRequest) ProtoMessage() {}
-
-func (x *GetObjectRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_api_feeds_proto_msgTypes[24]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetObjectRequest.ProtoReflect.Descriptor instead.
-func (*GetObjectRequest) Descriptor() ([]byte, []int) {
-	return file_api_feeds_proto_rawDescGZIP(), []int{24}
-}
-
-func (x *GetObjectRequest) GetCollectionId() string {
-	if x != nil {
-		return x.CollectionId
-	}
-	return ""
-}
-
-func (x *GetObjectRequest) GetObjectId() string {
-	if x != nil {
-		return x.ObjectId
-	}
-	return ""
-}
-
-type GetObjectResponse struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	Object *Object `protobuf:"bytes,1,opt,name=object,proto3" json:"object,omitempty"`
-}
-
-func (x *GetObjectResponse) Reset() {
-	*x = GetObjectResponse{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_api_feeds_proto_msgTypes[25]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *GetObjectResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetObjectResponse) ProtoMessage() {}
-
-func (x *GetObjectResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_api_feeds_proto_msgTypes[25]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetObjectResponse.ProtoReflect.Descriptor instead.
-func (*GetObjectResponse) Descriptor() ([]byte, []int) {
-	return file_api_feeds_proto_rawDescGZIP(), []int{25}
-}
-
-func (x *GetObjectResponse) GetObject() *Object {
-	if x != nil {
-		return x.Object
-	}
-	return nil
-}
-
-type UpdateObjectRequest struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	CollectionId string   `protobuf:"bytes,1,opt,name=collection_id,json=collectionId,proto3" json:"collection_id,omitempty"`
-	ObjectId     string   `protobuf:"bytes,2,opt,name=object_id,json=objectId,proto3" json:"object_id,omitempty"`
-	Data         *any.Any `protobuf:"bytes,3,opt,name=data,proto3" json:"data,omitempty"`
-}
-
-func (x *UpdateObjectRequest) Reset() {
-	*x = UpdateObjectRequest{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_api_feeds_proto_msgTypes[26]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *UpdateObjectRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*UpdateObjectRequest) ProtoMessage() {}
-
-func (x *UpdateObjectRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_api_feeds_proto_msgTypes[26]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use UpdateObjectRequest.ProtoReflect.Descriptor instead.
-func (*UpdateObjectRequest) Descriptor() ([]byte, []int) {
-	return file_api_feeds_proto_rawDescGZIP(), []int{26}
-}
-
-func (x *UpdateObjectRequest) GetCollectionId() string {
-	if x != nil {
-		return x.CollectionId
-	}
-	return ""
-}
-
-func (x *UpdateObjectRequest) GetObjectId() string {
-	if x != nil {
-		return x.ObjectId
-	}
-	return ""
-}
-
-func (x *UpdateObjectRequest) GetData() *any.Any {
-	if x != nil {
-		return x.Data
-	}
-	return nil
-}
-
-type UpdateObjectResponse struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	Object *Object `protobuf:"bytes,1,opt,name=object,proto3" json:"object,omitempty"`
-}
-
-func (x *UpdateObjectResponse) Reset() {
-	*x = UpdateObjectResponse{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_api_feeds_proto_msgTypes[27]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *UpdateObjectResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*UpdateObjectResponse) ProtoMessage() {}
-
-func (x *UpdateObjectResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_api_feeds_proto_msgTypes[27]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use UpdateObjectResponse.ProtoReflect.Descriptor instead.
-func (*UpdateObjectResponse) Descriptor() ([]byte, []int) {
-	return file_api_feeds_proto_rawDescGZIP(), []int{27}
-}
-
-func (x *UpdateObjectResponse) GetObject() *Object {
-	if x != nil {
-		return x.Object
-	}
-	return nil
-}
-
-type DeleteObjectRequest struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	CollectionId string `protobuf:"bytes,1,opt,name=collection_id,json=collectionId,proto3" json:"collection_id,omitempty"`
-	ObjectId     string `protobuf:"bytes,2,opt,name=object_id,json=objectId,proto3" json:"object_id,omitempty"`
-}
-
-func (x *DeleteObjectRequest) Reset() {
-	*x = DeleteObjectRequest{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_api_feeds_proto_msgTypes[28]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *DeleteObjectRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*DeleteObjectRequest) ProtoMessage() {}
-
-func (x *DeleteObjectRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_api_feeds_proto_msgTypes[28]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use DeleteObjectRequest.ProtoReflect.Descriptor instead.
-func (*DeleteObjectRequest) Descriptor() ([]byte, []int) {
-	return file_api_feeds_proto_rawDescGZIP(), []int{28}
-}
-
-func (x *DeleteObjectRequest) GetCollectionId() string {
-	if x != nil {
-		return x.CollectionId
-	}
-	return ""
-}
-
-func (x *DeleteObjectRequest) GetObjectId() string {
-	if x != nil {
-		return x.ObjectId
-	}
-	return ""
-}
-
-type DeleteObjectResponse struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-}
-
-func (x *DeleteObjectResponse) Reset() {
-	*x = DeleteObjectResponse{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_api_feeds_proto_msgTypes[29]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *DeleteObjectResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*DeleteObjectResponse) ProtoMessage() {}
-
-func (x *DeleteObjectResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_api_feeds_proto_msgTypes[29]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use DeleteObjectResponse.ProtoReflect.Descriptor instead.
-func (*DeleteObjectResponse) Descriptor() ([]byte, []int) {
-	return file_api_feeds_proto_rawDescGZIP(), []int{29}
 }
 
 var File_api_feeds_proto protoreflect.FileDescriptor
@@ -1572,245 +534,42 @@ var file_api_feeds_proto_rawDesc = []byte{
 	0x74, 0x65, 0x46, 0x65, 0x65, 0x64, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x26,
 	0x0a, 0x04, 0x66, 0x65, 0x65, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x12, 0x2e, 0x73,
 	0x79, 0x6e, 0x74, 0x6f, 0x6b, 0x73, 0x5f, 0x66, 0x65, 0x65, 0x64, 0x2e, 0x46, 0x65, 0x65, 0x64,
-	0x52, 0x04, 0x66, 0x65, 0x65, 0x64, 0x22, 0x8a, 0x02, 0x0a, 0x12, 0x41, 0x64, 0x64, 0x41, 0x63,
-	0x74, 0x69, 0x76, 0x69, 0x74, 0x79, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x20, 0x0a,
-	0x07, 0x66, 0x65, 0x65, 0x64, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x42, 0x07,
-	0xfa, 0x42, 0x04, 0x72, 0x02, 0x10, 0x01, 0x52, 0x06, 0x66, 0x65, 0x65, 0x64, 0x49, 0x64, 0x12,
-	0x2a, 0x0a, 0x11, 0x66, 0x6f, 0x72, 0x65, 0x69, 0x67, 0x6e, 0x5f, 0x6f, 0x62, 0x6a, 0x65, 0x63,
-	0x74, 0x5f, 0x69, 0x64, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0f, 0x66, 0x6f, 0x72, 0x65,
-	0x69, 0x67, 0x6e, 0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x49, 0x64, 0x12, 0x12, 0x0a, 0x04, 0x74,
-	0x69, 0x6d, 0x65, 0x18, 0x03, 0x20, 0x01, 0x28, 0x03, 0x52, 0x04, 0x74, 0x69, 0x6d, 0x65, 0x12,
-	0x17, 0x0a, 0x07, 0x75, 0x73, 0x65, 0x72, 0x5f, 0x69, 0x64, 0x18, 0x04, 0x20, 0x01, 0x28, 0x09,
-	0x52, 0x06, 0x75, 0x73, 0x65, 0x72, 0x49, 0x64, 0x12, 0x23, 0x0a, 0x0d, 0x61, 0x63, 0x74, 0x69,
-	0x76, 0x69, 0x74, 0x79, 0x5f, 0x74, 0x79, 0x70, 0x65, 0x18, 0x05, 0x20, 0x01, 0x28, 0x09, 0x52,
-	0x0c, 0x61, 0x63, 0x74, 0x69, 0x76, 0x69, 0x74, 0x79, 0x54, 0x79, 0x70, 0x65, 0x12, 0x1f, 0x0a,
-	0x0b, 0x72, 0x65, 0x64, 0x69, 0x72, 0x65, 0x63, 0x74, 0x5f, 0x74, 0x6f, 0x18, 0x06, 0x20, 0x03,
-	0x28, 0x09, 0x52, 0x0a, 0x72, 0x65, 0x64, 0x69, 0x72, 0x65, 0x63, 0x74, 0x54, 0x6f, 0x12, 0x33,
-	0x0a, 0x0a, 0x65, 0x78, 0x74, 0x72, 0x61, 0x5f, 0x64, 0x61, 0x74, 0x61, 0x18, 0x07, 0x20, 0x01,
-	0x28, 0x0b, 0x32, 0x14, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74,
-	0x6f, 0x62, 0x75, 0x66, 0x2e, 0x41, 0x6e, 0x79, 0x52, 0x09, 0x65, 0x78, 0x74, 0x72, 0x61, 0x44,
-	0x61, 0x74, 0x61, 0x22, 0x49, 0x0a, 0x13, 0x41, 0x64, 0x64, 0x41, 0x63, 0x74, 0x69, 0x76, 0x69,
-	0x74, 0x79, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x32, 0x0a, 0x08, 0x61, 0x63,
-	0x74, 0x69, 0x76, 0x69, 0x74, 0x79, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x16, 0x2e, 0x73,
-	0x79, 0x6e, 0x74, 0x6f, 0x6b, 0x73, 0x5f, 0x66, 0x65, 0x65, 0x64, 0x2e, 0x41, 0x63, 0x74, 0x69,
-	0x76, 0x69, 0x74, 0x79, 0x52, 0x08, 0x61, 0x63, 0x74, 0x69, 0x76, 0x69, 0x74, 0x79, 0x22, 0x76,
-	0x0a, 0x15, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x41, 0x63, 0x74, 0x69, 0x76, 0x69, 0x74, 0x79,
-	0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x28, 0x0a, 0x0b, 0x61, 0x63, 0x74, 0x69, 0x76,
-	0x69, 0x74, 0x79, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x42, 0x07, 0xfa, 0x42,
-	0x04, 0x72, 0x02, 0x10, 0x01, 0x52, 0x0a, 0x61, 0x63, 0x74, 0x69, 0x76, 0x69, 0x74, 0x79, 0x49,
-	0x64, 0x12, 0x33, 0x0a, 0x0a, 0x65, 0x78, 0x74, 0x72, 0x61, 0x5f, 0x64, 0x61, 0x74, 0x61, 0x18,
-	0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x14, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x70,
-	0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x2e, 0x41, 0x6e, 0x79, 0x52, 0x09, 0x65, 0x78, 0x74,
-	0x72, 0x61, 0x44, 0x61, 0x74, 0x61, 0x22, 0x4c, 0x0a, 0x16, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65,
-	0x41, 0x63, 0x74, 0x69, 0x76, 0x69, 0x74, 0x79, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
-	0x12, 0x32, 0x0a, 0x08, 0x61, 0x63, 0x74, 0x69, 0x76, 0x69, 0x74, 0x79, 0x18, 0x01, 0x20, 0x01,
-	0x28, 0x0b, 0x32, 0x16, 0x2e, 0x73, 0x79, 0x6e, 0x74, 0x6f, 0x6b, 0x73, 0x5f, 0x66, 0x65, 0x65,
-	0x64, 0x2e, 0x41, 0x63, 0x74, 0x69, 0x76, 0x69, 0x74, 0x79, 0x52, 0x08, 0x61, 0x63, 0x74, 0x69,
-	0x76, 0x69, 0x74, 0x79, 0x22, 0x6a, 0x0a, 0x11, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x46, 0x65,
-	0x65, 0x64, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x20, 0x0a, 0x07, 0x66, 0x65, 0x65,
-	0x64, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x72,
-	0x02, 0x10, 0x01, 0x52, 0x06, 0x66, 0x65, 0x65, 0x64, 0x49, 0x64, 0x12, 0x33, 0x0a, 0x0a, 0x65,
-	0x78, 0x74, 0x72, 0x61, 0x5f, 0x64, 0x61, 0x74, 0x61, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32,
-	0x14, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75,
-	0x66, 0x2e, 0x41, 0x6e, 0x79, 0x52, 0x09, 0x65, 0x78, 0x74, 0x72, 0x61, 0x44, 0x61, 0x74, 0x61,
-	0x22, 0x3c, 0x0a, 0x12, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x46, 0x65, 0x65, 0x64, 0x52, 0x65,
-	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x26, 0x0a, 0x04, 0x66, 0x65, 0x65, 0x64, 0x18, 0x01,
-	0x20, 0x01, 0x28, 0x0b, 0x32, 0x12, 0x2e, 0x73, 0x79, 0x6e, 0x74, 0x6f, 0x6b, 0x73, 0x5f, 0x66,
-	0x65, 0x65, 0x64, 0x2e, 0x46, 0x65, 0x65, 0x64, 0x52, 0x04, 0x66, 0x65, 0x65, 0x64, 0x22, 0x41,
-	0x0a, 0x15, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x41, 0x63, 0x74, 0x69, 0x76, 0x69, 0x74, 0x79,
-	0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x28, 0x0a, 0x0b, 0x61, 0x63, 0x74, 0x69, 0x76,
-	0x69, 0x74, 0x79, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x42, 0x07, 0xfa, 0x42,
-	0x04, 0x72, 0x02, 0x10, 0x01, 0x52, 0x0a, 0x61, 0x63, 0x74, 0x69, 0x76, 0x69, 0x74, 0x79, 0x49,
-	0x64, 0x22, 0x18, 0x0a, 0x16, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x41, 0x63, 0x74, 0x69, 0x76,
-	0x69, 0x74, 0x79, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x35, 0x0a, 0x11, 0x44,
-	0x65, 0x6c, 0x65, 0x74, 0x65, 0x46, 0x65, 0x65, 0x64, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74,
-	0x12, 0x20, 0x0a, 0x07, 0x66, 0x65, 0x65, 0x64, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28,
-	0x09, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x72, 0x02, 0x10, 0x01, 0x52, 0x06, 0x66, 0x65, 0x65, 0x64,
-	0x49, 0x64, 0x22, 0x14, 0x0a, 0x12, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x46, 0x65, 0x65, 0x64,
-	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x3e, 0x0a, 0x12, 0x47, 0x65, 0x74, 0x41,
-	0x63, 0x74, 0x69, 0x76, 0x69, 0x74, 0x79, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x28,
-	0x0a, 0x0b, 0x61, 0x63, 0x74, 0x69, 0x76, 0x69, 0x74, 0x79, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20,
-	0x01, 0x28, 0x09, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x72, 0x02, 0x10, 0x01, 0x52, 0x0a, 0x61, 0x63,
-	0x74, 0x69, 0x76, 0x69, 0x74, 0x79, 0x49, 0x64, 0x22, 0x49, 0x0a, 0x13, 0x47, 0x65, 0x74, 0x41,
-	0x63, 0x74, 0x69, 0x76, 0x69, 0x74, 0x79, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12,
-	0x32, 0x0a, 0x08, 0x61, 0x63, 0x74, 0x69, 0x76, 0x69, 0x74, 0x79, 0x18, 0x01, 0x20, 0x01, 0x28,
-	0x0b, 0x32, 0x16, 0x2e, 0x73, 0x79, 0x6e, 0x74, 0x6f, 0x6b, 0x73, 0x5f, 0x66, 0x65, 0x65, 0x64,
-	0x2e, 0x41, 0x63, 0x74, 0x69, 0x76, 0x69, 0x74, 0x79, 0x52, 0x08, 0x61, 0x63, 0x74, 0x69, 0x76,
-	0x69, 0x74, 0x79, 0x22, 0x32, 0x0a, 0x0e, 0x47, 0x65, 0x74, 0x46, 0x65, 0x65, 0x64, 0x52, 0x65,
+	0x52, 0x04, 0x66, 0x65, 0x65, 0x64, 0x22, 0x6a, 0x0a, 0x11, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65,
+	0x46, 0x65, 0x65, 0x64, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x20, 0x0a, 0x07, 0x66,
+	0x65, 0x65, 0x64, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x42, 0x07, 0xfa, 0x42,
+	0x04, 0x72, 0x02, 0x10, 0x01, 0x52, 0x06, 0x66, 0x65, 0x65, 0x64, 0x49, 0x64, 0x12, 0x33, 0x0a,
+	0x0a, 0x65, 0x78, 0x74, 0x72, 0x61, 0x5f, 0x64, 0x61, 0x74, 0x61, 0x18, 0x02, 0x20, 0x01, 0x28,
+	0x0b, 0x32, 0x14, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f,
+	0x62, 0x75, 0x66, 0x2e, 0x41, 0x6e, 0x79, 0x52, 0x09, 0x65, 0x78, 0x74, 0x72, 0x61, 0x44, 0x61,
+	0x74, 0x61, 0x22, 0x3c, 0x0a, 0x12, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x46, 0x65, 0x65, 0x64,
+	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x26, 0x0a, 0x04, 0x66, 0x65, 0x65, 0x64,
+	0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x12, 0x2e, 0x73, 0x79, 0x6e, 0x74, 0x6f, 0x6b, 0x73,
+	0x5f, 0x66, 0x65, 0x65, 0x64, 0x2e, 0x46, 0x65, 0x65, 0x64, 0x52, 0x04, 0x66, 0x65, 0x65, 0x64,
+	0x22, 0x35, 0x0a, 0x11, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x46, 0x65, 0x65, 0x64, 0x52, 0x65,
 	0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x20, 0x0a, 0x07, 0x66, 0x65, 0x65, 0x64, 0x5f, 0x69, 0x64,
 	0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x72, 0x02, 0x10, 0x01, 0x52,
-	0x06, 0x66, 0x65, 0x65, 0x64, 0x49, 0x64, 0x22, 0x39, 0x0a, 0x0f, 0x47, 0x65, 0x74, 0x46, 0x65,
-	0x65, 0x64, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x26, 0x0a, 0x04, 0x66, 0x65,
-	0x65, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x12, 0x2e, 0x73, 0x79, 0x6e, 0x74, 0x6f,
-	0x6b, 0x73, 0x5f, 0x66, 0x65, 0x65, 0x64, 0x2e, 0x46, 0x65, 0x65, 0x64, 0x52, 0x04, 0x66, 0x65,
-	0x65, 0x64, 0x22, 0x6f, 0x0a, 0x18, 0x47, 0x65, 0x74, 0x46, 0x65, 0x65, 0x64, 0x41, 0x63, 0x74,
-	0x69, 0x76, 0x69, 0x74, 0x69, 0x65, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x20,
-	0x0a, 0x07, 0x66, 0x65, 0x65, 0x64, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x42,
-	0x07, 0xfa, 0x42, 0x04, 0x72, 0x02, 0x10, 0x01, 0x52, 0x06, 0x66, 0x65, 0x65, 0x64, 0x49, 0x64,
-	0x12, 0x14, 0x0a, 0x05, 0x6c, 0x69, 0x6d, 0x69, 0x74, 0x18, 0x02, 0x20, 0x01, 0x28, 0x03, 0x52,
-	0x05, 0x6c, 0x69, 0x6d, 0x69, 0x74, 0x12, 0x1b, 0x0a, 0x09, 0x6f, 0x66, 0x66, 0x73, 0x65, 0x74,
-	0x5f, 0x69, 0x64, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x08, 0x6f, 0x66, 0x66, 0x73, 0x65,
-	0x74, 0x49, 0x64, 0x22, 0x53, 0x0a, 0x19, 0x47, 0x65, 0x74, 0x46, 0x65, 0x65, 0x64, 0x41, 0x63,
-	0x74, 0x69, 0x76, 0x69, 0x74, 0x69, 0x65, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
-	0x12, 0x36, 0x0a, 0x0a, 0x61, 0x63, 0x74, 0x69, 0x76, 0x69, 0x74, 0x69, 0x65, 0x73, 0x18, 0x01,
-	0x20, 0x03, 0x28, 0x0b, 0x32, 0x16, 0x2e, 0x73, 0x79, 0x6e, 0x74, 0x6f, 0x6b, 0x73, 0x5f, 0x66,
-	0x65, 0x65, 0x64, 0x2e, 0x41, 0x63, 0x74, 0x69, 0x76, 0x69, 0x74, 0x79, 0x52, 0x0a, 0x61, 0x63,
-	0x74, 0x69, 0x76, 0x69, 0x74, 0x69, 0x65, 0x73, 0x22, 0x53, 0x0a, 0x1c, 0x47, 0x65, 0x74, 0x41,
-	0x63, 0x74, 0x69, 0x76, 0x69, 0x74, 0x79, 0x42, 0x79, 0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x49,
-	0x44, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x33, 0x0a, 0x11, 0x66, 0x6f, 0x72, 0x65,
-	0x69, 0x67, 0x6e, 0x5f, 0x6f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20,
-	0x01, 0x28, 0x09, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x72, 0x02, 0x10, 0x01, 0x52, 0x0f, 0x66, 0x6f,
-	0x72, 0x65, 0x69, 0x67, 0x6e, 0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x49, 0x64, 0x22, 0x53, 0x0a,
-	0x1d, 0x47, 0x65, 0x74, 0x41, 0x63, 0x74, 0x69, 0x76, 0x69, 0x74, 0x79, 0x42, 0x79, 0x4f, 0x62,
-	0x6a, 0x65, 0x63, 0x74, 0x49, 0x44, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x32,
-	0x0a, 0x08, 0x61, 0x63, 0x74, 0x69, 0x76, 0x69, 0x74, 0x79, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b,
-	0x32, 0x16, 0x2e, 0x73, 0x79, 0x6e, 0x74, 0x6f, 0x6b, 0x73, 0x5f, 0x66, 0x65, 0x65, 0x64, 0x2e,
-	0x41, 0x63, 0x74, 0x69, 0x76, 0x69, 0x74, 0x79, 0x52, 0x08, 0x61, 0x63, 0x74, 0x69, 0x76, 0x69,
-	0x74, 0x79, 0x22, 0x89, 0x01, 0x0a, 0x17, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x43, 0x6f, 0x6c,
-	0x6c, 0x65, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x23,
-	0x0a, 0x0d, 0x63, 0x6f, 0x6c, 0x6c, 0x65, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x5f, 0x69, 0x64, 0x18,
-	0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0c, 0x63, 0x6f, 0x6c, 0x6c, 0x65, 0x63, 0x74, 0x69, 0x6f,
-	0x6e, 0x49, 0x64, 0x12, 0x49, 0x0a, 0x0d, 0x64, 0x65, 0x6c, 0x65, 0x74, 0x69, 0x6e, 0x67, 0x5f,
-	0x74, 0x79, 0x70, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0e, 0x32, 0x1a, 0x2e, 0x73, 0x79, 0x6e,
-	0x74, 0x6f, 0x6b, 0x73, 0x5f, 0x66, 0x65, 0x65, 0x64, 0x2e, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x69,
-	0x6e, 0x67, 0x54, 0x79, 0x70, 0x65, 0x42, 0x08, 0xfa, 0x42, 0x05, 0x82, 0x01, 0x02, 0x10, 0x01,
-	0x52, 0x0c, 0x64, 0x65, 0x6c, 0x65, 0x74, 0x69, 0x6e, 0x67, 0x54, 0x79, 0x70, 0x65, 0x22, 0x54,
-	0x0a, 0x18, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x43, 0x6f, 0x6c, 0x6c, 0x65, 0x63, 0x74, 0x69,
-	0x6f, 0x6e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x38, 0x0a, 0x0a, 0x63, 0x6f,
-	0x6c, 0x6c, 0x65, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x18,
-	0x2e, 0x73, 0x79, 0x6e, 0x74, 0x6f, 0x6b, 0x73, 0x5f, 0x66, 0x65, 0x65, 0x64, 0x2e, 0x43, 0x6f,
-	0x6c, 0x6c, 0x65, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x52, 0x0a, 0x63, 0x6f, 0x6c, 0x6c, 0x65, 0x63,
-	0x74, 0x69, 0x6f, 0x6e, 0x22, 0x8a, 0x01, 0x0a, 0x13, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x4f,
-	0x62, 0x6a, 0x65, 0x63, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x2c, 0x0a, 0x0d,
-	0x63, 0x6f, 0x6c, 0x6c, 0x65, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20,
-	0x01, 0x28, 0x09, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x72, 0x02, 0x10, 0x01, 0x52, 0x0c, 0x63, 0x6f,
-	0x6c, 0x6c, 0x65, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x49, 0x64, 0x12, 0x1b, 0x0a, 0x09, 0x6f, 0x62,
-	0x6a, 0x65, 0x63, 0x74, 0x5f, 0x69, 0x64, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x08, 0x6f,
-	0x62, 0x6a, 0x65, 0x63, 0x74, 0x49, 0x64, 0x12, 0x28, 0x0a, 0x04, 0x64, 0x61, 0x74, 0x61, 0x18,
-	0x03, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x14, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x70,
-	0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x2e, 0x41, 0x6e, 0x79, 0x52, 0x04, 0x64, 0x61, 0x74,
-	0x61, 0x22, 0x44, 0x0a, 0x14, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x4f, 0x62, 0x6a, 0x65, 0x63,
-	0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x2c, 0x0a, 0x06, 0x6f, 0x62, 0x6a,
-	0x65, 0x63, 0x74, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x14, 0x2e, 0x73, 0x79, 0x6e, 0x74,
-	0x6f, 0x6b, 0x73, 0x5f, 0x66, 0x65, 0x65, 0x64, 0x2e, 0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x52,
-	0x06, 0x6f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x22, 0x66, 0x0a, 0x10, 0x47, 0x65, 0x74, 0x4f, 0x62,
-	0x6a, 0x65, 0x63, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x2c, 0x0a, 0x0d, 0x63,
-	0x6f, 0x6c, 0x6c, 0x65, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01,
-	0x28, 0x09, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x72, 0x02, 0x10, 0x01, 0x52, 0x0c, 0x63, 0x6f, 0x6c,
-	0x6c, 0x65, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x49, 0x64, 0x12, 0x24, 0x0a, 0x09, 0x6f, 0x62, 0x6a,
-	0x65, 0x63, 0x74, 0x5f, 0x69, 0x64, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x42, 0x07, 0xfa, 0x42,
-	0x04, 0x72, 0x02, 0x10, 0x01, 0x52, 0x08, 0x6f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x49, 0x64, 0x22,
-	0x41, 0x0a, 0x11, 0x47, 0x65, 0x74, 0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x52, 0x65, 0x73, 0x70,
-	0x6f, 0x6e, 0x73, 0x65, 0x12, 0x2c, 0x0a, 0x06, 0x6f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x18, 0x01,
-	0x20, 0x01, 0x28, 0x0b, 0x32, 0x14, 0x2e, 0x73, 0x79, 0x6e, 0x74, 0x6f, 0x6b, 0x73, 0x5f, 0x66,
-	0x65, 0x65, 0x64, 0x2e, 0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x52, 0x06, 0x6f, 0x62, 0x6a, 0x65,
-	0x63, 0x74, 0x22, 0x8a, 0x01, 0x0a, 0x13, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x4f, 0x62, 0x6a,
-	0x65, 0x63, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x2c, 0x0a, 0x0d, 0x63, 0x6f,
-	0x6c, 0x6c, 0x65, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28,
-	0x09, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x72, 0x02, 0x10, 0x01, 0x52, 0x0c, 0x63, 0x6f, 0x6c, 0x6c,
-	0x65, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x49, 0x64, 0x12, 0x1b, 0x0a, 0x09, 0x6f, 0x62, 0x6a, 0x65,
-	0x63, 0x74, 0x5f, 0x69, 0x64, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x08, 0x6f, 0x62, 0x6a,
-	0x65, 0x63, 0x74, 0x49, 0x64, 0x12, 0x28, 0x0a, 0x04, 0x64, 0x61, 0x74, 0x61, 0x18, 0x03, 0x20,
-	0x01, 0x28, 0x0b, 0x32, 0x14, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x70, 0x72, 0x6f,
-	0x74, 0x6f, 0x62, 0x75, 0x66, 0x2e, 0x41, 0x6e, 0x79, 0x52, 0x04, 0x64, 0x61, 0x74, 0x61, 0x22,
-	0x44, 0x0a, 0x14, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x52,
-	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x2c, 0x0a, 0x06, 0x6f, 0x62, 0x6a, 0x65, 0x63,
-	0x74, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x14, 0x2e, 0x73, 0x79, 0x6e, 0x74, 0x6f, 0x6b,
-	0x73, 0x5f, 0x66, 0x65, 0x65, 0x64, 0x2e, 0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x52, 0x06, 0x6f,
-	0x62, 0x6a, 0x65, 0x63, 0x74, 0x22, 0x60, 0x0a, 0x13, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x4f,
-	0x62, 0x6a, 0x65, 0x63, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x2c, 0x0a, 0x0d,
-	0x63, 0x6f, 0x6c, 0x6c, 0x65, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20,
-	0x01, 0x28, 0x09, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x72, 0x02, 0x10, 0x01, 0x52, 0x0c, 0x63, 0x6f,
-	0x6c, 0x6c, 0x65, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x49, 0x64, 0x12, 0x1b, 0x0a, 0x09, 0x6f, 0x62,
-	0x6a, 0x65, 0x63, 0x74, 0x5f, 0x69, 0x64, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x08, 0x6f,
-	0x62, 0x6a, 0x65, 0x63, 0x74, 0x49, 0x64, 0x22, 0x16, 0x0a, 0x14, 0x44, 0x65, 0x6c, 0x65, 0x74,
-	0x65, 0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x32,
-	0xd0, 0x0a, 0x0a, 0x05, 0x46, 0x65, 0x65, 0x64, 0x73, 0x12, 0x54, 0x0a, 0x0b, 0x41, 0x64, 0x64,
-	0x41, 0x63, 0x74, 0x69, 0x76, 0x69, 0x74, 0x79, 0x12, 0x20, 0x2e, 0x73, 0x79, 0x6e, 0x74, 0x6f,
-	0x6b, 0x73, 0x5f, 0x66, 0x65, 0x65, 0x64, 0x2e, 0x41, 0x64, 0x64, 0x41, 0x63, 0x74, 0x69, 0x76,
-	0x69, 0x74, 0x79, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x21, 0x2e, 0x73, 0x79, 0x6e,
-	0x74, 0x6f, 0x6b, 0x73, 0x5f, 0x66, 0x65, 0x65, 0x64, 0x2e, 0x41, 0x64, 0x64, 0x41, 0x63, 0x74,
-	0x69, 0x76, 0x69, 0x74, 0x79, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12,
-	0x54, 0x0a, 0x0b, 0x47, 0x65, 0x74, 0x41, 0x63, 0x74, 0x69, 0x76, 0x69, 0x74, 0x79, 0x12, 0x20,
-	0x2e, 0x73, 0x79, 0x6e, 0x74, 0x6f, 0x6b, 0x73, 0x5f, 0x66, 0x65, 0x65, 0x64, 0x2e, 0x47, 0x65,
-	0x74, 0x41, 0x63, 0x74, 0x69, 0x76, 0x69, 0x74, 0x79, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74,
-	0x1a, 0x21, 0x2e, 0x73, 0x79, 0x6e, 0x74, 0x6f, 0x6b, 0x73, 0x5f, 0x66, 0x65, 0x65, 0x64, 0x2e,
-	0x47, 0x65, 0x74, 0x41, 0x63, 0x74, 0x69, 0x76, 0x69, 0x74, 0x79, 0x52, 0x65, 0x73, 0x70, 0x6f,
-	0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x72, 0x0a, 0x15, 0x47, 0x65, 0x74, 0x41, 0x63, 0x74, 0x69,
-	0x76, 0x69, 0x74, 0x79, 0x42, 0x79, 0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x49, 0x44, 0x12, 0x2a,
-	0x2e, 0x73, 0x79, 0x6e, 0x74, 0x6f, 0x6b, 0x73, 0x5f, 0x66, 0x65, 0x65, 0x64, 0x2e, 0x47, 0x65,
-	0x74, 0x41, 0x63, 0x74, 0x69, 0x76, 0x69, 0x74, 0x79, 0x42, 0x79, 0x4f, 0x62, 0x6a, 0x65, 0x63,
-	0x74, 0x49, 0x44, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x2b, 0x2e, 0x73, 0x79, 0x6e,
-	0x74, 0x6f, 0x6b, 0x73, 0x5f, 0x66, 0x65, 0x65, 0x64, 0x2e, 0x47, 0x65, 0x74, 0x41, 0x63, 0x74,
-	0x69, 0x76, 0x69, 0x74, 0x79, 0x42, 0x79, 0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x49, 0x44, 0x52,
-	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x5d, 0x0a, 0x0e, 0x55, 0x70, 0x64,
-	0x61, 0x74, 0x65, 0x41, 0x63, 0x74, 0x69, 0x76, 0x69, 0x74, 0x79, 0x12, 0x23, 0x2e, 0x73, 0x79,
-	0x6e, 0x74, 0x6f, 0x6b, 0x73, 0x5f, 0x66, 0x65, 0x65, 0x64, 0x2e, 0x55, 0x70, 0x64, 0x61, 0x74,
-	0x65, 0x41, 0x63, 0x74, 0x69, 0x76, 0x69, 0x74, 0x79, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74,
-	0x1a, 0x24, 0x2e, 0x73, 0x79, 0x6e, 0x74, 0x6f, 0x6b, 0x73, 0x5f, 0x66, 0x65, 0x65, 0x64, 0x2e,
-	0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x41, 0x63, 0x74, 0x69, 0x76, 0x69, 0x74, 0x79, 0x52, 0x65,
-	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x5d, 0x0a, 0x0e, 0x44, 0x65, 0x6c, 0x65,
-	0x74, 0x65, 0x41, 0x63, 0x74, 0x69, 0x76, 0x69, 0x74, 0x79, 0x12, 0x23, 0x2e, 0x73, 0x79, 0x6e,
-	0x74, 0x6f, 0x6b, 0x73, 0x5f, 0x66, 0x65, 0x65, 0x64, 0x2e, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65,
-	0x41, 0x63, 0x74, 0x69, 0x76, 0x69, 0x74, 0x79, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a,
-	0x24, 0x2e, 0x73, 0x79, 0x6e, 0x74, 0x6f, 0x6b, 0x73, 0x5f, 0x66, 0x65, 0x65, 0x64, 0x2e, 0x44,
-	0x65, 0x6c, 0x65, 0x74, 0x65, 0x41, 0x63, 0x74, 0x69, 0x76, 0x69, 0x74, 0x79, 0x52, 0x65, 0x73,
-	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x51, 0x0a, 0x0a, 0x43, 0x72, 0x65, 0x61, 0x74,
-	0x65, 0x46, 0x65, 0x65, 0x64, 0x12, 0x1f, 0x2e, 0x73, 0x79, 0x6e, 0x74, 0x6f, 0x6b, 0x73, 0x5f,
-	0x66, 0x65, 0x65, 0x64, 0x2e, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x46, 0x65, 0x65, 0x64, 0x52,
-	0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x20, 0x2e, 0x73, 0x79, 0x6e, 0x74, 0x6f, 0x6b, 0x73,
-	0x5f, 0x66, 0x65, 0x65, 0x64, 0x2e, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x46, 0x65, 0x65, 0x64,
-	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x48, 0x0a, 0x07, 0x47, 0x65,
-	0x74, 0x46, 0x65, 0x65, 0x64, 0x12, 0x1c, 0x2e, 0x73, 0x79, 0x6e, 0x74, 0x6f, 0x6b, 0x73, 0x5f,
-	0x66, 0x65, 0x65, 0x64, 0x2e, 0x47, 0x65, 0x74, 0x46, 0x65, 0x65, 0x64, 0x52, 0x65, 0x71, 0x75,
-	0x65, 0x73, 0x74, 0x1a, 0x1d, 0x2e, 0x73, 0x79, 0x6e, 0x74, 0x6f, 0x6b, 0x73, 0x5f, 0x66, 0x65,
-	0x65, 0x64, 0x2e, 0x47, 0x65, 0x74, 0x46, 0x65, 0x65, 0x64, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e,
-	0x73, 0x65, 0x22, 0x00, 0x12, 0x66, 0x0a, 0x11, 0x47, 0x65, 0x74, 0x46, 0x65, 0x65, 0x64, 0x41,
-	0x63, 0x74, 0x69, 0x76, 0x69, 0x74, 0x69, 0x65, 0x73, 0x12, 0x26, 0x2e, 0x73, 0x79, 0x6e, 0x74,
-	0x6f, 0x6b, 0x73, 0x5f, 0x66, 0x65, 0x65, 0x64, 0x2e, 0x47, 0x65, 0x74, 0x46, 0x65, 0x65, 0x64,
-	0x41, 0x63, 0x74, 0x69, 0x76, 0x69, 0x74, 0x69, 0x65, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73,
-	0x74, 0x1a, 0x27, 0x2e, 0x73, 0x79, 0x6e, 0x74, 0x6f, 0x6b, 0x73, 0x5f, 0x66, 0x65, 0x65, 0x64,
-	0x2e, 0x47, 0x65, 0x74, 0x46, 0x65, 0x65, 0x64, 0x41, 0x63, 0x74, 0x69, 0x76, 0x69, 0x74, 0x69,
-	0x65, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x51, 0x0a, 0x0a,
-	0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x46, 0x65, 0x65, 0x64, 0x12, 0x1f, 0x2e, 0x73, 0x79, 0x6e,
-	0x74, 0x6f, 0x6b, 0x73, 0x5f, 0x66, 0x65, 0x65, 0x64, 0x2e, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65,
-	0x46, 0x65, 0x65, 0x64, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x20, 0x2e, 0x73, 0x79,
-	0x6e, 0x74, 0x6f, 0x6b, 0x73, 0x5f, 0x66, 0x65, 0x65, 0x64, 0x2e, 0x55, 0x70, 0x64, 0x61, 0x74,
-	0x65, 0x46, 0x65, 0x65, 0x64, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12,
-	0x51, 0x0a, 0x0a, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x46, 0x65, 0x65, 0x64, 0x12, 0x1f, 0x2e,
-	0x73, 0x79, 0x6e, 0x74, 0x6f, 0x6b, 0x73, 0x5f, 0x66, 0x65, 0x65, 0x64, 0x2e, 0x44, 0x65, 0x6c,
-	0x65, 0x74, 0x65, 0x46, 0x65, 0x65, 0x64, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x20,
-	0x2e, 0x73, 0x79, 0x6e, 0x74, 0x6f, 0x6b, 0x73, 0x5f, 0x66, 0x65, 0x65, 0x64, 0x2e, 0x44, 0x65,
-	0x6c, 0x65, 0x74, 0x65, 0x46, 0x65, 0x65, 0x64, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
-	0x22, 0x00, 0x12, 0x63, 0x0a, 0x10, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x43, 0x6f, 0x6c, 0x6c,
-	0x65, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x12, 0x25, 0x2e, 0x73, 0x79, 0x6e, 0x74, 0x6f, 0x6b, 0x73,
-	0x5f, 0x66, 0x65, 0x65, 0x64, 0x2e, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x43, 0x6f, 0x6c, 0x6c,
-	0x65, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x26, 0x2e,
-	0x73, 0x79, 0x6e, 0x74, 0x6f, 0x6b, 0x73, 0x5f, 0x66, 0x65, 0x65, 0x64, 0x2e, 0x43, 0x72, 0x65,
-	0x61, 0x74, 0x65, 0x43, 0x6f, 0x6c, 0x6c, 0x65, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x52, 0x65, 0x73,
-	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x57, 0x0a, 0x0c, 0x43, 0x72, 0x65, 0x61, 0x74,
-	0x65, 0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x12, 0x21, 0x2e, 0x73, 0x79, 0x6e, 0x74, 0x6f, 0x6b,
-	0x73, 0x5f, 0x66, 0x65, 0x65, 0x64, 0x2e, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x4f, 0x62, 0x6a,
-	0x65, 0x63, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x22, 0x2e, 0x73, 0x79, 0x6e,
-	0x74, 0x6f, 0x6b, 0x73, 0x5f, 0x66, 0x65, 0x65, 0x64, 0x2e, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65,
-	0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00,
-	0x12, 0x4e, 0x0a, 0x09, 0x47, 0x65, 0x74, 0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x12, 0x1e, 0x2e,
-	0x73, 0x79, 0x6e, 0x74, 0x6f, 0x6b, 0x73, 0x5f, 0x66, 0x65, 0x65, 0x64, 0x2e, 0x47, 0x65, 0x74,
-	0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x1f, 0x2e,
-	0x73, 0x79, 0x6e, 0x74, 0x6f, 0x6b, 0x73, 0x5f, 0x66, 0x65, 0x65, 0x64, 0x2e, 0x47, 0x65, 0x74,
-	0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00,
-	0x12, 0x57, 0x0a, 0x0c, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74,
-	0x12, 0x21, 0x2e, 0x73, 0x79, 0x6e, 0x74, 0x6f, 0x6b, 0x73, 0x5f, 0x66, 0x65, 0x65, 0x64, 0x2e,
-	0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x52, 0x65, 0x71, 0x75,
-	0x65, 0x73, 0x74, 0x1a, 0x22, 0x2e, 0x73, 0x79, 0x6e, 0x74, 0x6f, 0x6b, 0x73, 0x5f, 0x66, 0x65,
-	0x65, 0x64, 0x2e, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x52,
-	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x57, 0x0a, 0x0c, 0x44, 0x65, 0x6c,
-	0x65, 0x74, 0x65, 0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x12, 0x21, 0x2e, 0x73, 0x79, 0x6e, 0x74,
-	0x6f, 0x6b, 0x73, 0x5f, 0x66, 0x65, 0x65, 0x64, 0x2e, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x4f,
-	0x62, 0x6a, 0x65, 0x63, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x22, 0x2e, 0x73,
-	0x79, 0x6e, 0x74, 0x6f, 0x6b, 0x73, 0x5f, 0x66, 0x65, 0x65, 0x64, 0x2e, 0x44, 0x65, 0x6c, 0x65,
-	0x74, 0x65, 0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
-	0x22, 0x00, 0x42, 0x09, 0x5a, 0x07, 0x2e, 0x2f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x06, 0x70,
+	0x06, 0x66, 0x65, 0x65, 0x64, 0x49, 0x64, 0x22, 0x14, 0x0a, 0x12, 0x44, 0x65, 0x6c, 0x65, 0x74,
+	0x65, 0x46, 0x65, 0x65, 0x64, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x32, 0x0a,
+	0x0e, 0x47, 0x65, 0x74, 0x46, 0x65, 0x65, 0x64, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12,
+	0x20, 0x0a, 0x07, 0x66, 0x65, 0x65, 0x64, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09,
+	0x42, 0x07, 0xfa, 0x42, 0x04, 0x72, 0x02, 0x10, 0x01, 0x52, 0x06, 0x66, 0x65, 0x65, 0x64, 0x49,
+	0x64, 0x22, 0x39, 0x0a, 0x0f, 0x47, 0x65, 0x74, 0x46, 0x65, 0x65, 0x64, 0x52, 0x65, 0x73, 0x70,
+	0x6f, 0x6e, 0x73, 0x65, 0x12, 0x26, 0x0a, 0x04, 0x66, 0x65, 0x65, 0x64, 0x18, 0x01, 0x20, 0x01,
+	0x28, 0x0b, 0x32, 0x12, 0x2e, 0x73, 0x79, 0x6e, 0x74, 0x6f, 0x6b, 0x73, 0x5f, 0x66, 0x65, 0x65,
+	0x64, 0x2e, 0x46, 0x65, 0x65, 0x64, 0x52, 0x04, 0x66, 0x65, 0x65, 0x64, 0x22, 0x6f, 0x0a, 0x18,
+	0x47, 0x65, 0x74, 0x46, 0x65, 0x65, 0x64, 0x41, 0x63, 0x74, 0x69, 0x76, 0x69, 0x74, 0x69, 0x65,
+	0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x20, 0x0a, 0x07, 0x66, 0x65, 0x65, 0x64,
+	0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x72, 0x02,
+	0x10, 0x01, 0x52, 0x06, 0x66, 0x65, 0x65, 0x64, 0x49, 0x64, 0x12, 0x14, 0x0a, 0x05, 0x6c, 0x69,
+	0x6d, 0x69, 0x74, 0x18, 0x02, 0x20, 0x01, 0x28, 0x03, 0x52, 0x05, 0x6c, 0x69, 0x6d, 0x69, 0x74,
+	0x12, 0x1b, 0x0a, 0x09, 0x6f, 0x66, 0x66, 0x73, 0x65, 0x74, 0x5f, 0x69, 0x64, 0x18, 0x03, 0x20,
+	0x01, 0x28, 0x09, 0x52, 0x08, 0x6f, 0x66, 0x66, 0x73, 0x65, 0x74, 0x49, 0x64, 0x22, 0x53, 0x0a,
+	0x19, 0x47, 0x65, 0x74, 0x46, 0x65, 0x65, 0x64, 0x41, 0x63, 0x74, 0x69, 0x76, 0x69, 0x74, 0x69,
+	0x65, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x36, 0x0a, 0x0a, 0x61, 0x63,
+	0x74, 0x69, 0x76, 0x69, 0x74, 0x69, 0x65, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x16,
+	0x2e, 0x73, 0x79, 0x6e, 0x74, 0x6f, 0x6b, 0x73, 0x5f, 0x66, 0x65, 0x65, 0x64, 0x2e, 0x41, 0x63,
+	0x74, 0x69, 0x76, 0x69, 0x74, 0x79, 0x52, 0x0a, 0x61, 0x63, 0x74, 0x69, 0x76, 0x69, 0x74, 0x69,
+	0x65, 0x73, 0x42, 0x09, 0x5a, 0x07, 0x2e, 0x2f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x06, 0x70,
 	0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
@@ -1826,100 +585,34 @@ func file_api_feeds_proto_rawDescGZIP() []byte {
 	return file_api_feeds_proto_rawDescData
 }
 
-var file_api_feeds_proto_msgTypes = make([]protoimpl.MessageInfo, 30)
+var file_api_feeds_proto_msgTypes = make([]protoimpl.MessageInfo, 10)
 var file_api_feeds_proto_goTypes = []interface{}{
-	(*CreateFeedRequest)(nil),             // 0: syntoks_feed.CreateFeedRequest
-	(*CreateFeedResponse)(nil),            // 1: syntoks_feed.CreateFeedResponse
-	(*AddActivityRequest)(nil),            // 2: syntoks_feed.AddActivityRequest
-	(*AddActivityResponse)(nil),           // 3: syntoks_feed.AddActivityResponse
-	(*UpdateActivityRequest)(nil),         // 4: syntoks_feed.UpdateActivityRequest
-	(*UpdateActivityResponse)(nil),        // 5: syntoks_feed.UpdateActivityResponse
-	(*UpdateFeedRequest)(nil),             // 6: syntoks_feed.UpdateFeedRequest
-	(*UpdateFeedResponse)(nil),            // 7: syntoks_feed.UpdateFeedResponse
-	(*DeleteActivityRequest)(nil),         // 8: syntoks_feed.DeleteActivityRequest
-	(*DeleteActivityResponse)(nil),        // 9: syntoks_feed.DeleteActivityResponse
-	(*DeleteFeedRequest)(nil),             // 10: syntoks_feed.DeleteFeedRequest
-	(*DeleteFeedResponse)(nil),            // 11: syntoks_feed.DeleteFeedResponse
-	(*GetActivityRequest)(nil),            // 12: syntoks_feed.GetActivityRequest
-	(*GetActivityResponse)(nil),           // 13: syntoks_feed.GetActivityResponse
-	(*GetFeedRequest)(nil),                // 14: syntoks_feed.GetFeedRequest
-	(*GetFeedResponse)(nil),               // 15: syntoks_feed.GetFeedResponse
-	(*GetFeedActivitiesRequest)(nil),      // 16: syntoks_feed.GetFeedActivitiesRequest
-	(*GetFeedActivitiesResponse)(nil),     // 17: syntoks_feed.GetFeedActivitiesResponse
-	(*GetActivityByObjectIDRequest)(nil),  // 18: syntoks_feed.GetActivityByObjectIDRequest
-	(*GetActivityByObjectIDResponse)(nil), // 19: syntoks_feed.GetActivityByObjectIDResponse
-	(*CreateCollectionRequest)(nil),       // 20: syntoks_feed.CreateCollectionRequest
-	(*CreateCollectionResponse)(nil),      // 21: syntoks_feed.CreateCollectionResponse
-	(*CreateObjectRequest)(nil),           // 22: syntoks_feed.CreateObjectRequest
-	(*CreateObjectResponse)(nil),          // 23: syntoks_feed.CreateObjectResponse
-	(*GetObjectRequest)(nil),              // 24: syntoks_feed.GetObjectRequest
-	(*GetObjectResponse)(nil),             // 25: syntoks_feed.GetObjectResponse
-	(*UpdateObjectRequest)(nil),           // 26: syntoks_feed.UpdateObjectRequest
-	(*UpdateObjectResponse)(nil),          // 27: syntoks_feed.UpdateObjectResponse
-	(*DeleteObjectRequest)(nil),           // 28: syntoks_feed.DeleteObjectRequest
-	(*DeleteObjectResponse)(nil),          // 29: syntoks_feed.DeleteObjectResponse
-	(*any.Any)(nil),                       // 30: google.protobuf.Any
-	(*Feed)(nil),                          // 31: syntoks_feed.Feed
-	(*Activity)(nil),                      // 32: syntoks_feed.Activity
-	(DeletingType)(0),                     // 33: syntoks_feed.DeletingType
-	(*Collection)(nil),                    // 34: syntoks_feed.Collection
-	(*Object)(nil),                        // 35: syntoks_feed.Object
+	(*CreateFeedRequest)(nil),         // 0: syntoks_feed.CreateFeedRequest
+	(*CreateFeedResponse)(nil),        // 1: syntoks_feed.CreateFeedResponse
+	(*UpdateFeedRequest)(nil),         // 2: syntoks_feed.UpdateFeedRequest
+	(*UpdateFeedResponse)(nil),        // 3: syntoks_feed.UpdateFeedResponse
+	(*DeleteFeedRequest)(nil),         // 4: syntoks_feed.DeleteFeedRequest
+	(*DeleteFeedResponse)(nil),        // 5: syntoks_feed.DeleteFeedResponse
+	(*GetFeedRequest)(nil),            // 6: syntoks_feed.GetFeedRequest
+	(*GetFeedResponse)(nil),           // 7: syntoks_feed.GetFeedResponse
+	(*GetFeedActivitiesRequest)(nil),  // 8: syntoks_feed.GetFeedActivitiesRequest
+	(*GetFeedActivitiesResponse)(nil), // 9: syntoks_feed.GetFeedActivitiesResponse
+	(*any.Any)(nil),                   // 10: google.protobuf.Any
+	(*Feed)(nil),                      // 11: syntoks_feed.Feed
+	(*Activity)(nil),                  // 12: syntoks_feed.Activity
 }
 var file_api_feeds_proto_depIdxs = []int32{
-	30, // 0: syntoks_feed.CreateFeedRequest.extra_data:type_name -> google.protobuf.Any
-	31, // 1: syntoks_feed.CreateFeedResponse.feed:type_name -> syntoks_feed.Feed
-	30, // 2: syntoks_feed.AddActivityRequest.extra_data:type_name -> google.protobuf.Any
-	32, // 3: syntoks_feed.AddActivityResponse.activity:type_name -> syntoks_feed.Activity
-	30, // 4: syntoks_feed.UpdateActivityRequest.extra_data:type_name -> google.protobuf.Any
-	32, // 5: syntoks_feed.UpdateActivityResponse.activity:type_name -> syntoks_feed.Activity
-	30, // 6: syntoks_feed.UpdateFeedRequest.extra_data:type_name -> google.protobuf.Any
-	31, // 7: syntoks_feed.UpdateFeedResponse.feed:type_name -> syntoks_feed.Feed
-	32, // 8: syntoks_feed.GetActivityResponse.activity:type_name -> syntoks_feed.Activity
-	31, // 9: syntoks_feed.GetFeedResponse.feed:type_name -> syntoks_feed.Feed
-	32, // 10: syntoks_feed.GetFeedActivitiesResponse.activities:type_name -> syntoks_feed.Activity
-	32, // 11: syntoks_feed.GetActivityByObjectIDResponse.activity:type_name -> syntoks_feed.Activity
-	33, // 12: syntoks_feed.CreateCollectionRequest.deleting_type:type_name -> syntoks_feed.DeletingType
-	34, // 13: syntoks_feed.CreateCollectionResponse.collection:type_name -> syntoks_feed.Collection
-	30, // 14: syntoks_feed.CreateObjectRequest.data:type_name -> google.protobuf.Any
-	35, // 15: syntoks_feed.CreateObjectResponse.object:type_name -> syntoks_feed.Object
-	35, // 16: syntoks_feed.GetObjectResponse.object:type_name -> syntoks_feed.Object
-	30, // 17: syntoks_feed.UpdateObjectRequest.data:type_name -> google.protobuf.Any
-	35, // 18: syntoks_feed.UpdateObjectResponse.object:type_name -> syntoks_feed.Object
-	2,  // 19: syntoks_feed.Feeds.AddActivity:input_type -> syntoks_feed.AddActivityRequest
-	12, // 20: syntoks_feed.Feeds.GetActivity:input_type -> syntoks_feed.GetActivityRequest
-	18, // 21: syntoks_feed.Feeds.GetActivityByObjectID:input_type -> syntoks_feed.GetActivityByObjectIDRequest
-	4,  // 22: syntoks_feed.Feeds.UpdateActivity:input_type -> syntoks_feed.UpdateActivityRequest
-	8,  // 23: syntoks_feed.Feeds.DeleteActivity:input_type -> syntoks_feed.DeleteActivityRequest
-	0,  // 24: syntoks_feed.Feeds.CreateFeed:input_type -> syntoks_feed.CreateFeedRequest
-	14, // 25: syntoks_feed.Feeds.GetFeed:input_type -> syntoks_feed.GetFeedRequest
-	16, // 26: syntoks_feed.Feeds.GetFeedActivities:input_type -> syntoks_feed.GetFeedActivitiesRequest
-	6,  // 27: syntoks_feed.Feeds.UpdateFeed:input_type -> syntoks_feed.UpdateFeedRequest
-	10, // 28: syntoks_feed.Feeds.DeleteFeed:input_type -> syntoks_feed.DeleteFeedRequest
-	20, // 29: syntoks_feed.Feeds.CreateCollection:input_type -> syntoks_feed.CreateCollectionRequest
-	22, // 30: syntoks_feed.Feeds.CreateObject:input_type -> syntoks_feed.CreateObjectRequest
-	24, // 31: syntoks_feed.Feeds.GetObject:input_type -> syntoks_feed.GetObjectRequest
-	26, // 32: syntoks_feed.Feeds.UpdateObject:input_type -> syntoks_feed.UpdateObjectRequest
-	28, // 33: syntoks_feed.Feeds.DeleteObject:input_type -> syntoks_feed.DeleteObjectRequest
-	3,  // 34: syntoks_feed.Feeds.AddActivity:output_type -> syntoks_feed.AddActivityResponse
-	13, // 35: syntoks_feed.Feeds.GetActivity:output_type -> syntoks_feed.GetActivityResponse
-	19, // 36: syntoks_feed.Feeds.GetActivityByObjectID:output_type -> syntoks_feed.GetActivityByObjectIDResponse
-	5,  // 37: syntoks_feed.Feeds.UpdateActivity:output_type -> syntoks_feed.UpdateActivityResponse
-	9,  // 38: syntoks_feed.Feeds.DeleteActivity:output_type -> syntoks_feed.DeleteActivityResponse
-	1,  // 39: syntoks_feed.Feeds.CreateFeed:output_type -> syntoks_feed.CreateFeedResponse
-	15, // 40: syntoks_feed.Feeds.GetFeed:output_type -> syntoks_feed.GetFeedResponse
-	17, // 41: syntoks_feed.Feeds.GetFeedActivities:output_type -> syntoks_feed.GetFeedActivitiesResponse
-	7,  // 42: syntoks_feed.Feeds.UpdateFeed:output_type -> syntoks_feed.UpdateFeedResponse
-	11, // 43: syntoks_feed.Feeds.DeleteFeed:output_type -> syntoks_feed.DeleteFeedResponse
-	21, // 44: syntoks_feed.Feeds.CreateCollection:output_type -> syntoks_feed.CreateCollectionResponse
-	23, // 45: syntoks_feed.Feeds.CreateObject:output_type -> syntoks_feed.CreateObjectResponse
-	25, // 46: syntoks_feed.Feeds.GetObject:output_type -> syntoks_feed.GetObjectResponse
-	27, // 47: syntoks_feed.Feeds.UpdateObject:output_type -> syntoks_feed.UpdateObjectResponse
-	29, // 48: syntoks_feed.Feeds.DeleteObject:output_type -> syntoks_feed.DeleteObjectResponse
-	34, // [34:49] is the sub-list for method output_type
-	19, // [19:34] is the sub-list for method input_type
-	19, // [19:19] is the sub-list for extension type_name
-	19, // [19:19] is the sub-list for extension extendee
-	0,  // [0:19] is the sub-list for field type_name
+	10, // 0: syntoks_feed.CreateFeedRequest.extra_data:type_name -> google.protobuf.Any
+	11, // 1: syntoks_feed.CreateFeedResponse.feed:type_name -> syntoks_feed.Feed
+	10, // 2: syntoks_feed.UpdateFeedRequest.extra_data:type_name -> google.protobuf.Any
+	11, // 3: syntoks_feed.UpdateFeedResponse.feed:type_name -> syntoks_feed.Feed
+	11, // 4: syntoks_feed.GetFeedResponse.feed:type_name -> syntoks_feed.Feed
+	12, // 5: syntoks_feed.GetFeedActivitiesResponse.activities:type_name -> syntoks_feed.Activity
+	6,  // [6:6] is the sub-list for method output_type
+	6,  // [6:6] is the sub-list for method input_type
+	6,  // [6:6] is the sub-list for extension type_name
+	6,  // [6:6] is the sub-list for extension extendee
+	0,  // [0:6] is the sub-list for field type_name
 }
 
 func init() { file_api_feeds_proto_init() }
@@ -1954,54 +647,6 @@ func file_api_feeds_proto_init() {
 			}
 		}
 		file_api_feeds_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*AddActivityRequest); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_api_feeds_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*AddActivityResponse); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_api_feeds_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*UpdateActivityRequest); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_api_feeds_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*UpdateActivityResponse); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_api_feeds_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*UpdateFeedRequest); i {
 			case 0:
 				return &v.state
@@ -2013,7 +658,7 @@ func file_api_feeds_proto_init() {
 				return nil
 			}
 		}
-		file_api_feeds_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
+		file_api_feeds_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*UpdateFeedResponse); i {
 			case 0:
 				return &v.state
@@ -2025,31 +670,7 @@ func file_api_feeds_proto_init() {
 				return nil
 			}
 		}
-		file_api_feeds_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*DeleteActivityRequest); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_api_feeds_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*DeleteActivityResponse); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_api_feeds_proto_msgTypes[10].Exporter = func(v interface{}, i int) interface{} {
+		file_api_feeds_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*DeleteFeedRequest); i {
 			case 0:
 				return &v.state
@@ -2061,7 +682,7 @@ func file_api_feeds_proto_init() {
 				return nil
 			}
 		}
-		file_api_feeds_proto_msgTypes[11].Exporter = func(v interface{}, i int) interface{} {
+		file_api_feeds_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*DeleteFeedResponse); i {
 			case 0:
 				return &v.state
@@ -2073,31 +694,7 @@ func file_api_feeds_proto_init() {
 				return nil
 			}
 		}
-		file_api_feeds_proto_msgTypes[12].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*GetActivityRequest); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_api_feeds_proto_msgTypes[13].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*GetActivityResponse); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_api_feeds_proto_msgTypes[14].Exporter = func(v interface{}, i int) interface{} {
+		file_api_feeds_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GetFeedRequest); i {
 			case 0:
 				return &v.state
@@ -2109,7 +706,7 @@ func file_api_feeds_proto_init() {
 				return nil
 			}
 		}
-		file_api_feeds_proto_msgTypes[15].Exporter = func(v interface{}, i int) interface{} {
+		file_api_feeds_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GetFeedResponse); i {
 			case 0:
 				return &v.state
@@ -2121,7 +718,7 @@ func file_api_feeds_proto_init() {
 				return nil
 			}
 		}
-		file_api_feeds_proto_msgTypes[16].Exporter = func(v interface{}, i int) interface{} {
+		file_api_feeds_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GetFeedActivitiesRequest); i {
 			case 0:
 				return &v.state
@@ -2133,152 +730,8 @@ func file_api_feeds_proto_init() {
 				return nil
 			}
 		}
-		file_api_feeds_proto_msgTypes[17].Exporter = func(v interface{}, i int) interface{} {
+		file_api_feeds_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GetFeedActivitiesResponse); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_api_feeds_proto_msgTypes[18].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*GetActivityByObjectIDRequest); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_api_feeds_proto_msgTypes[19].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*GetActivityByObjectIDResponse); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_api_feeds_proto_msgTypes[20].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*CreateCollectionRequest); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_api_feeds_proto_msgTypes[21].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*CreateCollectionResponse); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_api_feeds_proto_msgTypes[22].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*CreateObjectRequest); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_api_feeds_proto_msgTypes[23].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*CreateObjectResponse); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_api_feeds_proto_msgTypes[24].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*GetObjectRequest); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_api_feeds_proto_msgTypes[25].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*GetObjectResponse); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_api_feeds_proto_msgTypes[26].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*UpdateObjectRequest); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_api_feeds_proto_msgTypes[27].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*UpdateObjectResponse); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_api_feeds_proto_msgTypes[28].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*DeleteObjectRequest); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_api_feeds_proto_msgTypes[29].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*DeleteObjectResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2296,9 +749,9 @@ func file_api_feeds_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_api_feeds_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   30,
+			NumMessages:   10,
 			NumExtensions: 0,
-			NumServices:   1,
+			NumServices:   0,
 		},
 		GoTypes:           file_api_feeds_proto_goTypes,
 		DependencyIndexes: file_api_feeds_proto_depIdxs,
@@ -2308,588 +761,4 @@ func file_api_feeds_proto_init() {
 	file_api_feeds_proto_rawDesc = nil
 	file_api_feeds_proto_goTypes = nil
 	file_api_feeds_proto_depIdxs = nil
-}
-
-// Reference imports to suppress errors if they are not otherwise used.
-var _ context.Context
-var _ grpc.ClientConnInterface
-
-// This is a compile-time assertion to ensure that this generated file
-// is compatible with the grpc package it is being compiled against.
-const _ = grpc.SupportPackageIsVersion6
-
-// FeedsClient is the client API for Feeds service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
-type FeedsClient interface {
-	AddActivity(ctx context.Context, in *AddActivityRequest, opts ...grpc.CallOption) (*AddActivityResponse, error)
-	GetActivity(ctx context.Context, in *GetActivityRequest, opts ...grpc.CallOption) (*GetActivityResponse, error)
-	GetActivityByObjectID(ctx context.Context, in *GetActivityByObjectIDRequest, opts ...grpc.CallOption) (*GetActivityByObjectIDResponse, error)
-	UpdateActivity(ctx context.Context, in *UpdateActivityRequest, opts ...grpc.CallOption) (*UpdateActivityResponse, error)
-	DeleteActivity(ctx context.Context, in *DeleteActivityRequest, opts ...grpc.CallOption) (*DeleteActivityResponse, error)
-	CreateFeed(ctx context.Context, in *CreateFeedRequest, opts ...grpc.CallOption) (*CreateFeedResponse, error)
-	GetFeed(ctx context.Context, in *GetFeedRequest, opts ...grpc.CallOption) (*GetFeedResponse, error)
-	GetFeedActivities(ctx context.Context, in *GetFeedActivitiesRequest, opts ...grpc.CallOption) (*GetFeedActivitiesResponse, error)
-	UpdateFeed(ctx context.Context, in *UpdateFeedRequest, opts ...grpc.CallOption) (*UpdateFeedResponse, error)
-	DeleteFeed(ctx context.Context, in *DeleteFeedRequest, opts ...grpc.CallOption) (*DeleteFeedResponse, error)
-	CreateCollection(ctx context.Context, in *CreateCollectionRequest, opts ...grpc.CallOption) (*CreateCollectionResponse, error)
-	CreateObject(ctx context.Context, in *CreateObjectRequest, opts ...grpc.CallOption) (*CreateObjectResponse, error)
-	GetObject(ctx context.Context, in *GetObjectRequest, opts ...grpc.CallOption) (*GetObjectResponse, error)
-	UpdateObject(ctx context.Context, in *UpdateObjectRequest, opts ...grpc.CallOption) (*UpdateObjectResponse, error)
-	DeleteObject(ctx context.Context, in *DeleteObjectRequest, opts ...grpc.CallOption) (*DeleteObjectResponse, error)
-}
-
-type feedsClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewFeedsClient(cc grpc.ClientConnInterface) FeedsClient {
-	return &feedsClient{cc}
-}
-
-func (c *feedsClient) AddActivity(ctx context.Context, in *AddActivityRequest, opts ...grpc.CallOption) (*AddActivityResponse, error) {
-	out := new(AddActivityResponse)
-	err := c.cc.Invoke(ctx, "/syntoks_feed.Feeds/AddActivity", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *feedsClient) GetActivity(ctx context.Context, in *GetActivityRequest, opts ...grpc.CallOption) (*GetActivityResponse, error) {
-	out := new(GetActivityResponse)
-	err := c.cc.Invoke(ctx, "/syntoks_feed.Feeds/GetActivity", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *feedsClient) GetActivityByObjectID(ctx context.Context, in *GetActivityByObjectIDRequest, opts ...grpc.CallOption) (*GetActivityByObjectIDResponse, error) {
-	out := new(GetActivityByObjectIDResponse)
-	err := c.cc.Invoke(ctx, "/syntoks_feed.Feeds/GetActivityByObjectID", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *feedsClient) UpdateActivity(ctx context.Context, in *UpdateActivityRequest, opts ...grpc.CallOption) (*UpdateActivityResponse, error) {
-	out := new(UpdateActivityResponse)
-	err := c.cc.Invoke(ctx, "/syntoks_feed.Feeds/UpdateActivity", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *feedsClient) DeleteActivity(ctx context.Context, in *DeleteActivityRequest, opts ...grpc.CallOption) (*DeleteActivityResponse, error) {
-	out := new(DeleteActivityResponse)
-	err := c.cc.Invoke(ctx, "/syntoks_feed.Feeds/DeleteActivity", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *feedsClient) CreateFeed(ctx context.Context, in *CreateFeedRequest, opts ...grpc.CallOption) (*CreateFeedResponse, error) {
-	out := new(CreateFeedResponse)
-	err := c.cc.Invoke(ctx, "/syntoks_feed.Feeds/CreateFeed", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *feedsClient) GetFeed(ctx context.Context, in *GetFeedRequest, opts ...grpc.CallOption) (*GetFeedResponse, error) {
-	out := new(GetFeedResponse)
-	err := c.cc.Invoke(ctx, "/syntoks_feed.Feeds/GetFeed", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *feedsClient) GetFeedActivities(ctx context.Context, in *GetFeedActivitiesRequest, opts ...grpc.CallOption) (*GetFeedActivitiesResponse, error) {
-	out := new(GetFeedActivitiesResponse)
-	err := c.cc.Invoke(ctx, "/syntoks_feed.Feeds/GetFeedActivities", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *feedsClient) UpdateFeed(ctx context.Context, in *UpdateFeedRequest, opts ...grpc.CallOption) (*UpdateFeedResponse, error) {
-	out := new(UpdateFeedResponse)
-	err := c.cc.Invoke(ctx, "/syntoks_feed.Feeds/UpdateFeed", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *feedsClient) DeleteFeed(ctx context.Context, in *DeleteFeedRequest, opts ...grpc.CallOption) (*DeleteFeedResponse, error) {
-	out := new(DeleteFeedResponse)
-	err := c.cc.Invoke(ctx, "/syntoks_feed.Feeds/DeleteFeed", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *feedsClient) CreateCollection(ctx context.Context, in *CreateCollectionRequest, opts ...grpc.CallOption) (*CreateCollectionResponse, error) {
-	out := new(CreateCollectionResponse)
-	err := c.cc.Invoke(ctx, "/syntoks_feed.Feeds/CreateCollection", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *feedsClient) CreateObject(ctx context.Context, in *CreateObjectRequest, opts ...grpc.CallOption) (*CreateObjectResponse, error) {
-	out := new(CreateObjectResponse)
-	err := c.cc.Invoke(ctx, "/syntoks_feed.Feeds/CreateObject", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *feedsClient) GetObject(ctx context.Context, in *GetObjectRequest, opts ...grpc.CallOption) (*GetObjectResponse, error) {
-	out := new(GetObjectResponse)
-	err := c.cc.Invoke(ctx, "/syntoks_feed.Feeds/GetObject", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *feedsClient) UpdateObject(ctx context.Context, in *UpdateObjectRequest, opts ...grpc.CallOption) (*UpdateObjectResponse, error) {
-	out := new(UpdateObjectResponse)
-	err := c.cc.Invoke(ctx, "/syntoks_feed.Feeds/UpdateObject", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *feedsClient) DeleteObject(ctx context.Context, in *DeleteObjectRequest, opts ...grpc.CallOption) (*DeleteObjectResponse, error) {
-	out := new(DeleteObjectResponse)
-	err := c.cc.Invoke(ctx, "/syntoks_feed.Feeds/DeleteObject", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// FeedsServer is the server API for Feeds service.
-type FeedsServer interface {
-	AddActivity(context.Context, *AddActivityRequest) (*AddActivityResponse, error)
-	GetActivity(context.Context, *GetActivityRequest) (*GetActivityResponse, error)
-	GetActivityByObjectID(context.Context, *GetActivityByObjectIDRequest) (*GetActivityByObjectIDResponse, error)
-	UpdateActivity(context.Context, *UpdateActivityRequest) (*UpdateActivityResponse, error)
-	DeleteActivity(context.Context, *DeleteActivityRequest) (*DeleteActivityResponse, error)
-	CreateFeed(context.Context, *CreateFeedRequest) (*CreateFeedResponse, error)
-	GetFeed(context.Context, *GetFeedRequest) (*GetFeedResponse, error)
-	GetFeedActivities(context.Context, *GetFeedActivitiesRequest) (*GetFeedActivitiesResponse, error)
-	UpdateFeed(context.Context, *UpdateFeedRequest) (*UpdateFeedResponse, error)
-	DeleteFeed(context.Context, *DeleteFeedRequest) (*DeleteFeedResponse, error)
-	CreateCollection(context.Context, *CreateCollectionRequest) (*CreateCollectionResponse, error)
-	CreateObject(context.Context, *CreateObjectRequest) (*CreateObjectResponse, error)
-	GetObject(context.Context, *GetObjectRequest) (*GetObjectResponse, error)
-	UpdateObject(context.Context, *UpdateObjectRequest) (*UpdateObjectResponse, error)
-	DeleteObject(context.Context, *DeleteObjectRequest) (*DeleteObjectResponse, error)
-}
-
-// UnimplementedFeedsServer can be embedded to have forward compatible implementations.
-type UnimplementedFeedsServer struct {
-}
-
-func (*UnimplementedFeedsServer) AddActivity(context.Context, *AddActivityRequest) (*AddActivityResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method AddActivity not implemented")
-}
-func (*UnimplementedFeedsServer) GetActivity(context.Context, *GetActivityRequest) (*GetActivityResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetActivity not implemented")
-}
-func (*UnimplementedFeedsServer) GetActivityByObjectID(context.Context, *GetActivityByObjectIDRequest) (*GetActivityByObjectIDResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetActivityByObjectID not implemented")
-}
-func (*UnimplementedFeedsServer) UpdateActivity(context.Context, *UpdateActivityRequest) (*UpdateActivityResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method UpdateActivity not implemented")
-}
-func (*UnimplementedFeedsServer) DeleteActivity(context.Context, *DeleteActivityRequest) (*DeleteActivityResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method DeleteActivity not implemented")
-}
-func (*UnimplementedFeedsServer) CreateFeed(context.Context, *CreateFeedRequest) (*CreateFeedResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method CreateFeed not implemented")
-}
-func (*UnimplementedFeedsServer) GetFeed(context.Context, *GetFeedRequest) (*GetFeedResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetFeed not implemented")
-}
-func (*UnimplementedFeedsServer) GetFeedActivities(context.Context, *GetFeedActivitiesRequest) (*GetFeedActivitiesResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetFeedActivities not implemented")
-}
-func (*UnimplementedFeedsServer) UpdateFeed(context.Context, *UpdateFeedRequest) (*UpdateFeedResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method UpdateFeed not implemented")
-}
-func (*UnimplementedFeedsServer) DeleteFeed(context.Context, *DeleteFeedRequest) (*DeleteFeedResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method DeleteFeed not implemented")
-}
-func (*UnimplementedFeedsServer) CreateCollection(context.Context, *CreateCollectionRequest) (*CreateCollectionResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method CreateCollection not implemented")
-}
-func (*UnimplementedFeedsServer) CreateObject(context.Context, *CreateObjectRequest) (*CreateObjectResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method CreateObject not implemented")
-}
-func (*UnimplementedFeedsServer) GetObject(context.Context, *GetObjectRequest) (*GetObjectResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetObject not implemented")
-}
-func (*UnimplementedFeedsServer) UpdateObject(context.Context, *UpdateObjectRequest) (*UpdateObjectResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method UpdateObject not implemented")
-}
-func (*UnimplementedFeedsServer) DeleteObject(context.Context, *DeleteObjectRequest) (*DeleteObjectResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method DeleteObject not implemented")
-}
-
-func RegisterFeedsServer(s *grpc.Server, srv FeedsServer) {
-	s.RegisterService(&_Feeds_serviceDesc, srv)
-}
-
-func _Feeds_AddActivity_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AddActivityRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FeedsServer).AddActivity(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/syntoks_feed.Feeds/AddActivity",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FeedsServer).AddActivity(ctx, req.(*AddActivityRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _Feeds_GetActivity_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetActivityRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FeedsServer).GetActivity(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/syntoks_feed.Feeds/GetActivity",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FeedsServer).GetActivity(ctx, req.(*GetActivityRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _Feeds_GetActivityByObjectID_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetActivityByObjectIDRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FeedsServer).GetActivityByObjectID(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/syntoks_feed.Feeds/GetActivityByObjectID",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FeedsServer).GetActivityByObjectID(ctx, req.(*GetActivityByObjectIDRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _Feeds_UpdateActivity_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UpdateActivityRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FeedsServer).UpdateActivity(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/syntoks_feed.Feeds/UpdateActivity",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FeedsServer).UpdateActivity(ctx, req.(*UpdateActivityRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _Feeds_DeleteActivity_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DeleteActivityRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FeedsServer).DeleteActivity(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/syntoks_feed.Feeds/DeleteActivity",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FeedsServer).DeleteActivity(ctx, req.(*DeleteActivityRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _Feeds_CreateFeed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateFeedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FeedsServer).CreateFeed(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/syntoks_feed.Feeds/CreateFeed",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FeedsServer).CreateFeed(ctx, req.(*CreateFeedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _Feeds_GetFeed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetFeedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FeedsServer).GetFeed(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/syntoks_feed.Feeds/GetFeed",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FeedsServer).GetFeed(ctx, req.(*GetFeedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _Feeds_GetFeedActivities_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetFeedActivitiesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FeedsServer).GetFeedActivities(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/syntoks_feed.Feeds/GetFeedActivities",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FeedsServer).GetFeedActivities(ctx, req.(*GetFeedActivitiesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _Feeds_UpdateFeed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UpdateFeedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FeedsServer).UpdateFeed(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/syntoks_feed.Feeds/UpdateFeed",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FeedsServer).UpdateFeed(ctx, req.(*UpdateFeedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _Feeds_DeleteFeed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DeleteFeedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FeedsServer).DeleteFeed(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/syntoks_feed.Feeds/DeleteFeed",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FeedsServer).DeleteFeed(ctx, req.(*DeleteFeedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _Feeds_CreateCollection_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateCollectionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FeedsServer).CreateCollection(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/syntoks_feed.Feeds/CreateCollection",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FeedsServer).CreateCollection(ctx, req.(*CreateCollectionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _Feeds_CreateObject_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateObjectRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FeedsServer).CreateObject(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/syntoks_feed.Feeds/CreateObject",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FeedsServer).CreateObject(ctx, req.(*CreateObjectRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _Feeds_GetObject_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetObjectRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FeedsServer).GetObject(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/syntoks_feed.Feeds/GetObject",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FeedsServer).GetObject(ctx, req.(*GetObjectRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _Feeds_UpdateObject_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UpdateObjectRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FeedsServer).UpdateObject(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/syntoks_feed.Feeds/UpdateObject",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FeedsServer).UpdateObject(ctx, req.(*UpdateObjectRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _Feeds_DeleteObject_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DeleteObjectRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FeedsServer).DeleteObject(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/syntoks_feed.Feeds/DeleteObject",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FeedsServer).DeleteObject(ctx, req.(*DeleteObjectRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-var _Feeds_serviceDesc = grpc.ServiceDesc{
-	ServiceName: "syntoks_feed.Feeds",
-	HandlerType: (*FeedsServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "AddActivity",
-			Handler:    _Feeds_AddActivity_Handler,
-		},
-		{
-			MethodName: "GetActivity",
-			Handler:    _Feeds_GetActivity_Handler,
-		},
-		{
-			MethodName: "GetActivityByObjectID",
-			Handler:    _Feeds_GetActivityByObjectID_Handler,
-		},
-		{
-			MethodName: "UpdateActivity",
-			Handler:    _Feeds_UpdateActivity_Handler,
-		},
-		{
-			MethodName: "DeleteActivity",
-			Handler:    _Feeds_DeleteActivity_Handler,
-		},
-		{
-			MethodName: "CreateFeed",
-			Handler:    _Feeds_CreateFeed_Handler,
-		},
-		{
-			MethodName: "GetFeed",
-			Handler:    _Feeds_GetFeed_Handler,
-		},
-		{
-			MethodName: "GetFeedActivities",
-			Handler:    _Feeds_GetFeedActivities_Handler,
-		},
-		{
-			MethodName: "UpdateFeed",
-			Handler:    _Feeds_UpdateFeed_Handler,
-		},
-		{
-			MethodName: "DeleteFeed",
-			Handler:    _Feeds_DeleteFeed_Handler,
-		},
-		{
-			MethodName: "CreateCollection",
-			Handler:    _Feeds_CreateCollection_Handler,
-		},
-		{
-			MethodName: "CreateObject",
-			Handler:    _Feeds_CreateObject_Handler,
-		},
-		{
-			MethodName: "GetObject",
-			Handler:    _Feeds_GetObject_Handler,
-		},
-		{
-			MethodName: "UpdateObject",
-			Handler:    _Feeds_UpdateObject_Handler,
-		},
-		{
-			MethodName: "DeleteObject",
-			Handler:    _Feeds_DeleteObject_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "api/feeds.proto",
 }

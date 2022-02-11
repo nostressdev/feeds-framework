@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+package syntoks_feed;
+option go_package = "./proto";
+
+import "validate/validate.proto";
+import "api/models.proto";
+import "api/reactions.proto";
+import "api/activities.proto";
+import "api/collections.proto";
+import "api/feeds.proto";
+import "google/protobuf/any.proto";
+
+
+service Feeds {
+    // activities.proto
+    rpc AddActivity(AddActivityRequest) returns (AddActivityResponse) {}
+    rpc GetActivity(GetActivityRequest) returns (GetActivityResponse) {}
+    rpc GetActivityByObjectID(GetActivityByObjectIDRequest) returns (GetActivityByObjectIDResponse) {}
+    rpc UpdateActivity(UpdateActivityRequest) returns (UpdateActivityResponse) {}
+    rpc DeleteActivity(DeleteActivityRequest) returns (DeleteActivityResponse) {}
+    // feeds.proto
+    rpc CreateFeed(CreateFeedRequest) returns (CreateFeedResponse) {}
+    rpc GetFeed(GetFeedRequest) returns (GetFeedResponse) {}
+    rpc GetFeedActivities(GetFeedActivitiesRequest) returns (GetFeedActivitiesResponse) {}
+    rpc UpdateFeed(UpdateFeedRequest) returns (UpdateFeedResponse) {}
+    rpc DeleteFeed(DeleteFeedRequest) returns (DeleteFeedResponse) {}
+    // collections.proto
+    rpc CreateCollection(CreateCollectionRequest) returns (CreateCollectionResponse) {}
+    rpc CreateObject(CreateObjectRequest) returns (CreateObjectResponse) {}
+    rpc GetObject(GetObjectRequest) returns (GetObjectResponse) {}
+    rpc UpdateObject(UpdateObjectRequest) returns (UpdateObjectResponse) {}
+    rpc DeleteObject(DeleteObjectRequest) returns (DeleteObjectResponse) {}
+    // reactions.proto
+    rpc CreateReaction(CreateReactionRequest) returns (CreateReactionResponse) {}
+    rpc GetReation(GetReationRequest) returns (GetReationResponse) {}
+    rpc UpdateReaction(UpdateReactionRequest) returns (UpdateReactionResponse) {}
+    rpc DeleteReaction(DeleteReactionRequest) returns (DeleteReactionResponse) {}
+    // grouppingFeeds.proto
+    rpc CreateGroupingFeed(CreateGroupingFeedRequest) returns (CreateGroupingFeedResponse) {}
+    rpc GetGroupingFeed(GetGroupingFeedRequest) returns (GetGroupingFeedResponse) {}
+    rpc GetGroupingFeedActivities(GetGroupingFeedActivitiesRequest) returns (GetGroupingFeedActivitiesResponse) {}
+    rpc UpdateGroupingFeed(UpdateGroupingFeedRequest) returns (UpdateGroupingFeedResponse) {}
+    rpc DeleteGroupingFeed(DeleteGroupingFeedRequest) returns (DeleteGroupingFeedResponse) {}
+}
