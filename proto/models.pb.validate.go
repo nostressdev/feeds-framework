@@ -70,9 +70,9 @@ func (m *Activity) validate(all bool) error {
 		errors = append(errors, err)
 	}
 
-	// no validation rules for ForeignObjectId
+	// no validation rules for ObjectId
 
-	// no validation rules for ActivityId
+	// no validation rules for LinkedActivityId
 
 	// no validation rules for CreatedAt
 

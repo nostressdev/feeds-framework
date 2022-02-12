@@ -68,7 +68,7 @@ func (m *AddActivityRequest) validate(all bool) error {
 		errors = append(errors, err)
 	}
 
-	// no validation rules for ForeignObjectId
+	// no validation rules for ObjectId
 
 	// no validation rules for Time
 
@@ -1062,9 +1062,9 @@ func (m *GetActivityByObjectIDRequest) validate(all bool) error {
 
 	var errors []error
 
-	if utf8.RuneCountInString(m.GetForeignObjectId()) < 1 {
+	if utf8.RuneCountInString(m.GetObjectId()) < 1 {
 		err := GetActivityByObjectIDRequestValidationError{
-			field:  "ForeignObjectId",
+			field:  "ObjectId",
 			reason: "value length must be at least 1 runes",
 		}
 		if !all {

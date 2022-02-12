@@ -9,7 +9,7 @@ import "google/protobuf/any.proto";
 
 message AddActivityRequest {
     string feed_id = 1 [(validate.rules).string.min_len = 1];
-    string foreign_object_id = 2;
+    string object_id = 2;
     int64 time = 3;
     string user_id = 4;
     string activity_type = 5;
@@ -46,7 +46,7 @@ message GetActivityResponse {
 }
 
 message GetActivityByObjectIDRequest {
-    string foreign_object_id = 1 [(validate.rules).string.min_len = 1];
+    string object_id = 1 [(validate.rules).string.min_len = 1];
 }
 
 message GetActivityByObjectIDResponse {

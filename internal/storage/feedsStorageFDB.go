@@ -37,7 +37,7 @@ func NewFeedsFDB(config *ConfigFeedsFDB) FeedsStorage {
 		ActivitiesSubspace:          config.Subspace.Sub("activities"),
 		FeedActivitiesSubspace:      config.Subspace.Sub("feed_activities"),
 		ActivityFeedsSubspace:       config.Subspace.Sub("activity_feeds"),
-		ForeignIDActivitiesSubspace: config.Subspace.Sub("foreign_id_activities"),
+		ForeignIDActivitiesSubspace: config.Subspace.Sub("object_id_activities"),
 		CollectionsSubspace:         config.Subspace.Sub("collections"),
 		CollectionObjectsSubspace:   config.Subspace.Sub("collection_objects"),
 	}
@@ -49,13 +49,13 @@ func (s *FeedsStorageFDB) AddActivity(feedID, objectID, userID, activityType str
 	}
 	snowflakeID := s.Generator.Generate()
 	activity := &proto.Activity{
-		Id:              snowflakeID.Int64(),
-		StringId:        snowflakeID.String(),
-		ForeignObjectId: objectID,
-		CreatedAt:       time,
-		UserId:          userID,
-		ActivityType:    activityType,
-		ExtraData:       extraData,
+		Id:           snowflakeID.Int64(),
+		StringId:     snowflakeID.String(),
+		ObjectId:     objectID,
+		CreatedAt:    time,
+		UserId:       userID,
+		ActivityType: activityType,
+		ExtraData:    extraData,
 	}
 	_, err := s.DB.Transact(func(tr fdb.Transaction) (interface{}, error) {
 		bytes, err := tr.Get(s.FeedsSubspace.Sub(feedID)).Get()
@@ -72,7 +72,7 @@ func (s *FeedsStorageFDB) AddActivity(feedID, objectID, userID, activityType str
 		tr.Set(s.ActivitiesSubspace.Sub(activity.StringId), bytes)
 		tr.Set(s.FeedActivitiesSubspace.Sub(feedID, activity.StringId), []byte(activity.StringId))
 		tr.Set(s.ActivityFeedsSubspace.Sub(activity.StringId, feedID), []byte(feedID))
-		if activity.ForeignObjectId != "" {
+		if activity.ObjectId != "" {
 			tr.Set(s.ForeignIDActivitiesSubspace.Sub(objectID, activity.StringId), []byte(activity.StringId))
 		}
 		for _, redirectFeedID := range redirectTo {
@@ -182,8 +182,8 @@ func (s *FeedsStorageFDB) DeleteActivity(activityID string) error {
 			return nil, err
 		}
 		fmt.Println(4)
-		if activity.ForeignObjectId != "" {
-			tr.Clear(s.ForeignIDActivitiesSubspace.Sub(activity.ForeignObjectId, activityID))
+		if activity.ObjectId != "" {
+			tr.Clear(s.ForeignIDActivitiesSubspace.Sub(activity.ObjectId, activityID))
 		}
 		fmt.Println(5)
 		tr.Clear(s.ActivitiesSubspace.Sub(activityID))

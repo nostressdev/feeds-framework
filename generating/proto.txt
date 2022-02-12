@@ -1,0 +1,9 @@
+message AddReactionRequest {
+
+}
+
+message AddReactionResponse {
+
+}
+
+    rpc AddReaction(AddReactionRequest) returns (AddReactionResponse) {}

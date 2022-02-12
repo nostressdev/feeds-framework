@@ -15,7 +15,7 @@ with open("generating/protoTemplate.txt", "r") as file:
 with open("generating/serviceTemplate.txt", "r") as file:
     service_template = "".join(file.readlines())
 
-functions = ["CreateGroupingFeed", "GetGroupingFeed", "GetGroupingFeedActivities", "UpdateGroupingFeed", "DeleteGroupingFeed"]
+functions = ["AddGroupingActivity", "AddGroupingReaction"]
 
 for name in functions:
     with open(f"internal/feeds/{first_to_lower(name)}.go", "w") as file:

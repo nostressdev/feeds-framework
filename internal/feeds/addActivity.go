@@ -11,7 +11,7 @@ func (s *FeedsService) AddActivity(ctx context.Context, request *proto.AddActivi
 	if err := request.Validate(); err != nil {
 		return nil, nerrors.BadRequest.Wrap(err, "validate request")
 	}
-	activity, err := s.Storage.AddActivity(request.FeedId, request.ForeignObjectId, request.UserId, request.ActivityType, request.Time, request.RedirectTo, request.ExtraData)
+	activity, err := s.Storage.AddActivity(request.FeedId, request.ObjectId, request.UserId, request.ActivityType, request.Time, request.RedirectTo, request.ExtraData)
 	if err != nil {
 		return nil, err
 	}

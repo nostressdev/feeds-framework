@@ -9,8 +9,8 @@ import "google/protobuf/any.proto";
 message Activity {
     int64 id = 1;
     string string_id = 2 [(validate.rules).string.min_len = 1];
-    string foreign_object_id = 3;
-    string activity_id = 4; // only for reactions
+    string object_id = 3;
+    string linked_activity_id = 4; // only for reactions
     int64 created_at = 5;
     int64 updated_at = 6;
     string user_id = 7;
