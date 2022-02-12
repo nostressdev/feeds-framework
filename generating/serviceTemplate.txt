@@ -1,0 +1,1 @@
+    rpc MethodName(MethodNameRequest) returns (MethodNameResponse) {}

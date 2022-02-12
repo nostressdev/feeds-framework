@@ -72,6 +72,8 @@ func (m *Activity) validate(all bool) error {
 
 	// no validation rules for ForeignObjectId
 
+	// no validation rules for ActivityId
+
 	// no validation rules for CreatedAt
 
 	// no validation rules for UpdatedAt
@@ -324,22 +326,22 @@ var _ interface {
 	ErrorName() string
 } = FeedValidationError{}
 
-// Validate checks the field values on SortedFeed with the rules defined in the
-// proto definition for this message. If any rules are violated, the first
+// Validate checks the field values on GroupingFeed with the rules defined in
+// the proto definition for this message. If any rules are violated, the first
 // error encountered is returned, or nil if there are no violations.
-func (m *SortedFeed) Validate() error {
+func (m *GroupingFeed) Validate() error {
 	return m.validate(false)
 }
 
-// ValidateAll checks the field values on SortedFeed with the rules defined in
-// the proto definition for this message. If any rules are violated, the
-// result is a list of violation errors wrapped in SortedFeedMultiError, or
+// ValidateAll checks the field values on GroupingFeed with the rules defined
+// in the proto definition for this message. If any rules are violated, the
+// result is a list of violation errors wrapped in GroupingFeedMultiError, or
 // nil if none found.
-func (m *SortedFeed) ValidateAll() error {
+func (m *GroupingFeed) ValidateAll() error {
 	return m.validate(true)
 }
 
-func (m *SortedFeed) validate(all bool) error {
+func (m *GroupingFeed) validate(all bool) error {
 	if m == nil {
 		return nil
 	}
@@ -347,7 +349,7 @@ func (m *SortedFeed) validate(all bool) error {
 	var errors []error
 
 	if utf8.RuneCountInString(m.GetId()) < 1 {
-		err := SortedFeedValidationError{
+		err := GroupingFeedValidationError{
 			field:  "Id",
 			reason: "value length must be at least 1 runes",
 		}
@@ -359,9 +361,9 @@ func (m *SortedFeed) validate(all bool) error {
 
 	// no validation rules for UserId
 
-	if utf8.RuneCountInString(m.GetKeyFormula()) < 1 {
-		err := SortedFeedValidationError{
-			field:  "KeyFormula",
+	if utf8.RuneCountInString(m.GetKeyFormat()) < 1 {
+		err := GroupingFeedValidationError{
+			field:  "KeyFormat",
 			reason: "value length must be at least 1 runes",
 		}
 		if !all {
@@ -374,7 +376,7 @@ func (m *SortedFeed) validate(all bool) error {
 		switch v := interface{}(m.GetExtraData()).(type) {
 		case interface{ ValidateAll() error }:
 			if err := v.ValidateAll(); err != nil {
-				errors = append(errors, SortedFeedValidationError{
+				errors = append(errors, GroupingFeedValidationError{
 					field:  "ExtraData",
 					reason: "embedded message failed validation",
 					cause:  err,
@@ -382,7 +384,7 @@ func (m *SortedFeed) validate(all bool) error {
 			}
 		case interface{ Validate() error }:
 			if err := v.Validate(); err != nil {
-				errors = append(errors, SortedFeedValidationError{
+				errors = append(errors, GroupingFeedValidationError{
 					field:  "ExtraData",
 					reason: "embedded message failed validation",
 					cause:  err,
@@ -391,7 +393,7 @@ func (m *SortedFeed) validate(all bool) error {
 		}
 	} else if v, ok := interface{}(m.GetExtraData()).(interface{ Validate() error }); ok {
 		if err := v.Validate(); err != nil {
-			return SortedFeedValidationError{
+			return GroupingFeedValidationError{
 				field:  "ExtraData",
 				reason: "embedded message failed validation",
 				cause:  err,
@@ -400,17 +402,17 @@ func (m *SortedFeed) validate(all bool) error {
 	}
 
 	if len(errors) > 0 {
-		return SortedFeedMultiError(errors)
+		return GroupingFeedMultiError(errors)
 	}
 	return nil
 }
 
-// SortedFeedMultiError is an error wrapping multiple validation errors
-// returned by SortedFeed.ValidateAll() if the designated constraints aren't met.
-type SortedFeedMultiError []error
+// GroupingFeedMultiError is an error wrapping multiple validation errors
+// returned by GroupingFeed.ValidateAll() if the designated constraints aren't met.
+type GroupingFeedMultiError []error
 
 // Error returns a concatenation of all the error messages it wraps.
-func (m SortedFeedMultiError) Error() string {
+func (m GroupingFeedMultiError) Error() string {
 	var msgs []string
 	for _, err := range m {
 		msgs = append(msgs, err.Error())
@@ -419,11 +421,11 @@ func (m SortedFeedMultiError) Error() string {
 }
 
 // AllErrors returns a list of validation violation errors.
-func (m SortedFeedMultiError) AllErrors() []error { return m }
+func (m GroupingFeedMultiError) AllErrors() []error { return m }
 
-// SortedFeedValidationError is the validation error returned by
-// SortedFeed.Validate if the designated constraints aren't met.
-type SortedFeedValidationError struct {
+// GroupingFeedValidationError is the validation error returned by
+// GroupingFeed.Validate if the designated constraints aren't met.
+type GroupingFeedValidationError struct {
 	field  string
 	reason string
 	cause  error
@@ -431,22 +433,22 @@ type SortedFeedValidationError struct {
 }
 
 // Field function returns field value.
-func (e SortedFeedValidationError) Field() string { return e.field }
+func (e GroupingFeedValidationError) Field() string { return e.field }
 
 // Reason function returns reason value.
-func (e SortedFeedValidationError) Reason() string { return e.reason }
+func (e GroupingFeedValidationError) Reason() string { return e.reason }
 
 // Cause function returns cause value.
-func (e SortedFeedValidationError) Cause() error { return e.cause }
+func (e GroupingFeedValidationError) Cause() error { return e.cause }
 
 // Key function returns key value.
-func (e SortedFeedValidationError) Key() bool { return e.key }
+func (e GroupingFeedValidationError) Key() bool { return e.key }
 
 // ErrorName returns error name.
-func (e SortedFeedValidationError) ErrorName() string { return "SortedFeedValidationError" }
+func (e GroupingFeedValidationError) ErrorName() string { return "GroupingFeedValidationError" }
 
 // Error satisfies the builtin error interface
-func (e SortedFeedValidationError) Error() string {
+func (e GroupingFeedValidationError) Error() string {
 	cause := ""
 	if e.cause != nil {
 		cause = fmt.Sprintf(" | caused by: %v", e.cause)
@@ -458,14 +460,14 @@ func (e SortedFeedValidationError) Error() string {
 	}
 
 	return fmt.Sprintf(
-		"invalid %sSortedFeed.%s: %s%s",
+		"invalid %sGroupingFeed.%s: %s%s",
 		key,
 		e.field,
 		e.reason,
 		cause)
 }
 
-var _ error = SortedFeedValidationError{}
+var _ error = GroupingFeedValidationError{}
 
 var _ interface {
 	Field() string
@@ -473,7 +475,7 @@ var _ interface {
 	Key() bool
 	Cause() error
 	ErrorName() string
-} = SortedFeedValidationError{}
+} = GroupingFeedValidationError{}
 
 // Validate checks the field values on Collection with the rules defined in the
 // proto definition for this message. If any rules are violated, the first

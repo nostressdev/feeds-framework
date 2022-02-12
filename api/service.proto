@@ -3,13 +3,11 @@ syntax = "proto3";
 package syntoks_feed;
 option go_package = "./proto";
 
-import "validate/validate.proto";
-import "api/models.proto";
 import "api/reactions.proto";
+import "api/groupingFeeds.proto";
 import "api/activities.proto";
 import "api/collections.proto";
 import "api/feeds.proto";
-import "google/protobuf/any.proto";
 
 
 service Feeds {

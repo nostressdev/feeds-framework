@@ -57,6 +57,65 @@ func (m *CreateReactionRequest) validate(all bool) error {
 
 	var errors []error
 
+	if utf8.RuneCountInString(m.GetFeedId()) < 1 {
+		err := CreateReactionRequestValidationError{
+			field:  "FeedId",
+			reason: "value length must be at least 1 runes",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	// no validation rules for ForeignObjectId
+
+	// no validation rules for Time
+
+	// no validation rules for UserId
+
+	// no validation rules for ActivityType
+
+	if all {
+		switch v := interface{}(m.GetExtraData()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, CreateReactionRequestValidationError{
+					field:  "ExtraData",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, CreateReactionRequestValidationError{
+					field:  "ExtraData",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetExtraData()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return CreateReactionRequestValidationError{
+				field:  "ExtraData",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if utf8.RuneCountInString(m.GetActivityId()) < 1 {
+		err := CreateReactionRequestValidationError{
+			field:  "ActivityId",
+			reason: "value length must be at least 1 runes",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
 	if len(errors) > 0 {
 		return CreateReactionRequestMultiError(errors)
 	}
@@ -157,6 +216,35 @@ func (m *CreateReactionResponse) validate(all bool) error {
 	}
 
 	var errors []error
+
+	if all {
+		switch v := interface{}(m.GetReaction()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, CreateReactionResponseValidationError{
+					field:  "Reaction",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, CreateReactionResponseValidationError{
+					field:  "Reaction",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetReaction()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return CreateReactionResponseValidationError{
+				field:  "Reaction",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
 
 	if len(errors) > 0 {
 		return CreateReactionResponseMultiError(errors)
@@ -259,6 +347,17 @@ func (m *GetReationRequest) validate(all bool) error {
 
 	var errors []error
 
+	if utf8.RuneCountInString(m.GetReactionId()) < 1 {
+		err := GetReationRequestValidationError{
+			field:  "ReactionId",
+			reason: "value length must be at least 1 runes",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
 	if len(errors) > 0 {
 		return GetReationRequestMultiError(errors)
 	}
@@ -359,6 +458,35 @@ func (m *GetReationResponse) validate(all bool) error {
 	}
 
 	var errors []error
+
+	if all {
+		switch v := interface{}(m.GetReaction()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, GetReationResponseValidationError{
+					field:  "Reaction",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, GetReationResponseValidationError{
+					field:  "Reaction",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetReaction()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return GetReationResponseValidationError{
+				field:  "Reaction",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
 
 	if len(errors) > 0 {
 		return GetReationResponseMultiError(errors)
@@ -461,6 +589,46 @@ func (m *UpdateReactionRequest) validate(all bool) error {
 
 	var errors []error
 
+	if utf8.RuneCountInString(m.GetReactionId()) < 1 {
+		err := UpdateReactionRequestValidationError{
+			field:  "ReactionId",
+			reason: "value length must be at least 1 runes",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if all {
+		switch v := interface{}(m.GetExtraData()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, UpdateReactionRequestValidationError{
+					field:  "ExtraData",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, UpdateReactionRequestValidationError{
+					field:  "ExtraData",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetExtraData()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return UpdateReactionRequestValidationError{
+				field:  "ExtraData",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
 	if len(errors) > 0 {
 		return UpdateReactionRequestMultiError(errors)
 	}
@@ -562,6 +730,35 @@ func (m *UpdateReactionResponse) validate(all bool) error {
 
 	var errors []error
 
+	if all {
+		switch v := interface{}(m.GetReaction()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, UpdateReactionResponseValidationError{
+					field:  "Reaction",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, UpdateReactionResponseValidationError{
+					field:  "Reaction",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetReaction()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return UpdateReactionResponseValidationError{
+				field:  "Reaction",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
 	if len(errors) > 0 {
 		return UpdateReactionResponseMultiError(errors)
 	}
@@ -662,6 +859,17 @@ func (m *DeleteReactionRequest) validate(all bool) error {
 	}
 
 	var errors []error
+
+	if utf8.RuneCountInString(m.GetReactionId()) < 1 {
+		err := DeleteReactionRequestValidationError{
+			field:  "ReactionId",
+			reason: "value length must be at least 1 runes",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	if len(errors) > 0 {
 		return DeleteReactionRequestMultiError(errors)

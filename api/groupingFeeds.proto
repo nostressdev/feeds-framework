@@ -8,41 +8,45 @@ import "api/models.proto";
 import "google/protobuf/any.proto";
 
 message CreateGroupingFeedRequest {
-
+    string user_id = 1;
+    google.protobuf.Any extra_data = 2;
+    string key_format = 3 [(validate.rules).string.min_len = 1];
 }
 
 message CreateGroupingFeedResponse {
-
+    GroupingFeed grouping_feed = 1;
 }
 
 message GetGroupingFeedRequest {
-
+    string grouping_feed_id = 1 [(validate.rules).string.min_len = 1];
 }
 
 message GetGroupingFeedResponse {
-
+    GroupingFeed grouping_feed = 1;
 }
 
 message GetGroupingFeedActivitiesRequest {
-
+    string grouping_feed_id = 1 [(validate.rules).string.min_len = 1];
+    int64 limit = 2;
+    string offset_id = 3;
 }
 
 message GetGroupingFeedActivitiesResponse {
-
+    repeated Activity activities = 1;
 }
 
 message UpdateGroupingFeedRequest {
-
+    string grouping_feed_id = 1 [(validate.rules).string.min_len = 1];
+    google.protobuf.Any extra_data = 2;
 }
 
 message UpdateGroupingFeedResponse {
-
+    GroupingFeed grouping_feed = 1;
 }
 
 message DeleteGroupingFeedRequest {
-
+    string grouping_feed_id = 1 [(validate.rules).string.min_len = 1];
 }
 
 message DeleteGroupingFeedResponse {
-
 }

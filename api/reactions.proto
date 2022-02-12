@@ -8,33 +8,41 @@ import "api/models.proto";
 import "google/protobuf/any.proto";
 
 message CreateReactionRequest {
-
+    string feed_id = 1 [(validate.rules).string.min_len = 1];
+    string foreign_object_id = 2;
+    int64 time = 3;
+    string user_id = 4;
+    string activity_type = 5;
+    repeated string redirect_to = 6;
+    google.protobuf.Any extra_data = 7;
+    string activity_id = 8 [(validate.rules).string.min_len = 1];
 }
 
 message CreateReactionResponse {
-
+    Activity reaction = 1;
 }
 
 message GetReationRequest {
-
+    string reaction_id = 1 [(validate.rules).string.min_len = 1];
 }
 
 message GetReationResponse {
-
+    Activity reaction = 1;
 }
 
 message UpdateReactionRequest {
-
+    string reaction_id = 1 [(validate.rules).string.min_len = 1];
+    google.protobuf.Any extra_data = 2;
 }
 
 message UpdateReactionResponse {
-
+    Activity reaction = 1;
 }
 
 message DeleteReactionRequest {
+    string reaction_id = 1 [(validate.rules).string.min_len = 1];
 
 }
 
 message DeleteReactionResponse {
-
 }

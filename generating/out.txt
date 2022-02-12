@@ -1,0 +1,45 @@
+message CreateGroupingFeedRequest {
+
+}
+
+message CreateGroupingFeedResponse {
+
+}
+
+message GetGroupingFeedRequest {
+
+}
+
+message GetGroupingFeedResponse {
+
+}
+
+message GetGroupingFeedActivitiesRequest {
+
+}
+
+message GetGroupingFeedActivitiesResponse {
+
+}
+
+message UpdateGroupingFeedRequest {
+
+}
+
+message UpdateGroupingFeedResponse {
+
+}
+
+message DeleteGroupingFeedRequest {
+
+}
+
+message DeleteGroupingFeedResponse {
+
+}
+
+    rpc CreateGroupingFeed(CreateGroupingFeedRequest) returns (CreateGroupingFeedResponse) {}
+    rpc GetGroupingFeed(GetGroupingFeedRequest) returns (GetGroupingFeedResponse) {}
+    rpc GetGroupingFeedActivities(GetGroupingFeedActivitiesRequest) returns (GetGroupingFeedActivitiesResponse) {}
+    rpc UpdateGroupingFeed(UpdateGroupingFeedRequest) returns (UpdateGroupingFeedResponse) {}
+    rpc DeleteGroupingFeed(DeleteGroupingFeedRequest) returns (DeleteGroupingFeedResponse) {}
