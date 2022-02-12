@@ -50,7 +50,7 @@ collection_objects:\<collectionID>:\<objectID> -> objectData
 
 Ответ на комментарий - Activity с linked_activity_id = prev_comment и object_id = post_id
 
-Т.к. это Activity, то в БД они хранятся там же, в activities:\<activityID>, и так же будет храниться индекс object_id_activities:\<foreignObjectID>:\<activityID> -> activityID, для получения всех реакций на объект(например все комментарии к посту)
+Т.к. это Activity, то в БД они хранятся там же, в activities:\<activityID>, и так же будет храниться индекс object_id_activities:\<activityID>:\<reactionID> -> reactionID, для получения всех реакций на объект(например все комментарии к посту)
 
 Реакции являются полноценными Acitiviy, поэтому все операции связанные с лентами будут работать так же, как и с обычными Activity
 
