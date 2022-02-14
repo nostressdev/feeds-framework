@@ -11,12 +11,11 @@ func (s *FeedsService) DeleteReaction(ctx context.Context, request *proto.Delete
 	if err := request.Validate(); err != nil {
 		return nil, nerrors.BadRequest.Wrap(err, "validate request")
 	}
-	_, err := s.Storage.DeleteReaction(TODO)
+	err := s.Storage.DeleteReaction(request.ReactionId)
 	if err != nil {
 		return nil, err
 	}
 	response := &proto.DeleteReactionResponse{
-		TODO,
 	}
 	if err := response.Validate(); err != nil {
 		return nil, nerrors.BadRequest.Wrap(err, "validate response")

@@ -32,7 +32,7 @@ service Feeds {
     // reactions.proto
     rpc CreateReaction(CreateReactionRequest) returns (CreateReactionResponse) {}
     rpc AddReaction(AddReactionRequest) returns (AddReactionResponse) {}
-    rpc GetReation(GetReationRequest) returns (GetReationResponse) {}
+    rpc GetReaction(GetReactionRequest) returns (GetReactionResponse) {}
     rpc GetActivityReactions(GetActivityReactionsRequest) returns (GetActivityReactionsResponse) {}
     rpc UpdateReaction(UpdateReactionRequest) returns (UpdateReactionResponse) {}
     rpc DeleteReaction(DeleteReactionRequest) returns (DeleteReactionResponse) {}

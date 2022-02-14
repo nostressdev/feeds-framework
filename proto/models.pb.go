@@ -423,6 +423,61 @@ func (x *Object) GetData() *any.Any {
 	return nil
 }
 
+type ActivityGroup struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Activities []*Activity `protobuf:"bytes,1,rep,name=activities,proto3" json:"activities,omitempty"`
+	GroupKey   string      `protobuf:"bytes,2,opt,name=GroupKey,proto3" json:"GroupKey,omitempty"`
+}
+
+func (x *ActivityGroup) Reset() {
+	*x = ActivityGroup{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_api_models_proto_msgTypes[5]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *ActivityGroup) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ActivityGroup) ProtoMessage() {}
+
+func (x *ActivityGroup) ProtoReflect() protoreflect.Message {
+	mi := &file_api_models_proto_msgTypes[5]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ActivityGroup.ProtoReflect.Descriptor instead.
+func (*ActivityGroup) Descriptor() ([]byte, []int) {
+	return file_api_models_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *ActivityGroup) GetActivities() []*Activity {
+	if x != nil {
+		return x.Activities
+	}
+	return nil
+}
+
+func (x *ActivityGroup) GetGroupKey() string {
+	if x != nil {
+		return x.GroupKey
+	}
+	return ""
+}
+
 var File_api_models_proto protoreflect.FileDescriptor
 
 var file_api_models_proto_rawDesc = []byte{
@@ -480,10 +535,17 @@ var file_api_models_proto_rawDesc = []byte{
 	0x02, 0x10, 0x01, 0x52, 0x02, 0x69, 0x64, 0x12, 0x28, 0x0a, 0x04, 0x64, 0x61, 0x74, 0x61, 0x18,
 	0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x14, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x70,
 	0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x2e, 0x41, 0x6e, 0x79, 0x52, 0x04, 0x64, 0x61, 0x74,
-	0x61, 0x2a, 0x28, 0x0a, 0x0c, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x69, 0x6e, 0x67, 0x54, 0x79, 0x70,
-	0x65, 0x12, 0x0b, 0x0a, 0x07, 0x43, 0x41, 0x53, 0x43, 0x41, 0x44, 0x45, 0x10, 0x00, 0x12, 0x0b,
-	0x0a, 0x07, 0x53, 0x45, 0x54, 0x5f, 0x4e, 0x49, 0x4c, 0x10, 0x01, 0x42, 0x09, 0x5a, 0x07, 0x2e,
-	0x2f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x61, 0x22, 0x6c, 0x0a, 0x0d, 0x41, 0x63, 0x74, 0x69, 0x76, 0x69, 0x74, 0x79, 0x47, 0x72, 0x6f,
+	0x75, 0x70, 0x12, 0x36, 0x0a, 0x0a, 0x61, 0x63, 0x74, 0x69, 0x76, 0x69, 0x74, 0x69, 0x65, 0x73,
+	0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x16, 0x2e, 0x73, 0x79, 0x6e, 0x74, 0x6f, 0x6b, 0x73,
+	0x5f, 0x66, 0x65, 0x65, 0x64, 0x2e, 0x41, 0x63, 0x74, 0x69, 0x76, 0x69, 0x74, 0x79, 0x52, 0x0a,
+	0x61, 0x63, 0x74, 0x69, 0x76, 0x69, 0x74, 0x69, 0x65, 0x73, 0x12, 0x23, 0x0a, 0x08, 0x47, 0x72,
+	0x6f, 0x75, 0x70, 0x4b, 0x65, 0x79, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x42, 0x07, 0xfa, 0x42,
+	0x04, 0x72, 0x02, 0x10, 0x01, 0x52, 0x08, 0x47, 0x72, 0x6f, 0x75, 0x70, 0x4b, 0x65, 0x79, 0x2a,
+	0x28, 0x0a, 0x0c, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x69, 0x6e, 0x67, 0x54, 0x79, 0x70, 0x65, 0x12,
+	0x0b, 0x0a, 0x07, 0x43, 0x41, 0x53, 0x43, 0x41, 0x44, 0x45, 0x10, 0x00, 0x12, 0x0b, 0x0a, 0x07,
+	0x53, 0x45, 0x54, 0x5f, 0x4e, 0x49, 0x4c, 0x10, 0x01, 0x42, 0x09, 0x5a, 0x07, 0x2e, 0x2f, 0x70,
+	0x72, 0x6f, 0x74, 0x6f, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -499,27 +561,29 @@ func file_api_models_proto_rawDescGZIP() []byte {
 }
 
 var file_api_models_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
-var file_api_models_proto_msgTypes = make([]protoimpl.MessageInfo, 5)
+var file_api_models_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
 var file_api_models_proto_goTypes = []interface{}{
-	(DeletingType)(0),    // 0: syntoks_feed.DeletingType
-	(*Activity)(nil),     // 1: syntoks_feed.Activity
-	(*Feed)(nil),         // 2: syntoks_feed.Feed
-	(*GroupingFeed)(nil), // 3: syntoks_feed.GroupingFeed
-	(*Collection)(nil),   // 4: syntoks_feed.Collection
-	(*Object)(nil),       // 5: syntoks_feed.Object
-	(*any.Any)(nil),      // 6: google.protobuf.Any
+	(DeletingType)(0),     // 0: syntoks_feed.DeletingType
+	(*Activity)(nil),      // 1: syntoks_feed.Activity
+	(*Feed)(nil),          // 2: syntoks_feed.Feed
+	(*GroupingFeed)(nil),  // 3: syntoks_feed.GroupingFeed
+	(*Collection)(nil),    // 4: syntoks_feed.Collection
+	(*Object)(nil),        // 5: syntoks_feed.Object
+	(*ActivityGroup)(nil), // 6: syntoks_feed.ActivityGroup
+	(*any.Any)(nil),       // 7: google.protobuf.Any
 }
 var file_api_models_proto_depIdxs = []int32{
-	6, // 0: syntoks_feed.Activity.extra_data:type_name -> google.protobuf.Any
-	6, // 1: syntoks_feed.Feed.extra_data:type_name -> google.protobuf.Any
-	6, // 2: syntoks_feed.GroupingFeed.extra_data:type_name -> google.protobuf.Any
+	7, // 0: syntoks_feed.Activity.extra_data:type_name -> google.protobuf.Any
+	7, // 1: syntoks_feed.Feed.extra_data:type_name -> google.protobuf.Any
+	7, // 2: syntoks_feed.GroupingFeed.extra_data:type_name -> google.protobuf.Any
 	0, // 3: syntoks_feed.Collection.deleting_type:type_name -> syntoks_feed.DeletingType
-	6, // 4: syntoks_feed.Object.data:type_name -> google.protobuf.Any
-	5, // [5:5] is the sub-list for method output_type
-	5, // [5:5] is the sub-list for method input_type
-	5, // [5:5] is the sub-list for extension type_name
-	5, // [5:5] is the sub-list for extension extendee
-	0, // [0:5] is the sub-list for field type_name
+	7, // 4: syntoks_feed.Object.data:type_name -> google.protobuf.Any
+	1, // 5: syntoks_feed.ActivityGroup.activities:type_name -> syntoks_feed.Activity
+	6, // [6:6] is the sub-list for method output_type
+	6, // [6:6] is the sub-list for method input_type
+	6, // [6:6] is the sub-list for extension type_name
+	6, // [6:6] is the sub-list for extension extendee
+	0, // [0:6] is the sub-list for field type_name
 }
 
 func init() { file_api_models_proto_init() }
@@ -588,6 +652,18 @@ func file_api_models_proto_init() {
 				return nil
 			}
 		}
+		file_api_models_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*ActivityGroup); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
@@ -595,7 +671,7 @@ func file_api_models_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_api_models_proto_rawDesc,
 			NumEnums:      1,
-			NumMessages:   5,
+			NumMessages:   6,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

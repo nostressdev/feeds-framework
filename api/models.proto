@@ -45,3 +45,8 @@ message Object {
     string id = 1 [(validate.rules).string.min_len = 1];
     google.protobuf.Any data = 2;
 }
+
+message ActivityGroup {
+    repeated Activity activities = 1;
+    string GroupKey = 2 [(validate.rules).string.min_len = 1];
+}

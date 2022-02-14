@@ -7,16 +7,16 @@ import (
 	"github.com/nostressdev/nerrors"
 )
 
-func (s *FeedsService) GetReation(ctx context.Context, request *proto.GetReationRequest) (*proto.GetReationResponse, error) {
+func (s *FeedsService) GetReaction(ctx context.Context, request *proto.GetReactionRequest) (*proto.GetReactionResponse, error) {
 	if err := request.Validate(); err != nil {
 		return nil, nerrors.BadRequest.Wrap(err, "validate request")
 	}
-	_, err := s.Storage.GetReation(TODO)
+	reaction, err := s.Storage.GetReaction(request.ReactionId)
 	if err != nil {
 		return nil, err
 	}
-	response := &proto.GetReationResponse{
-		TODO,
+	response := &proto.GetReactionResponse{
+		Reaction: reaction,
 	}
 	if err := response.Validate(); err != nil {
 		return nil, nerrors.BadRequest.Wrap(err, "validate response")

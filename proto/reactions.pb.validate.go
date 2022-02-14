@@ -536,22 +536,22 @@ var _ interface {
 	ErrorName() string
 } = AddReactionResponseValidationError{}
 
-// Validate checks the field values on GetReationRequest with the rules defined
-// in the proto definition for this message. If any rules are violated, the
-// first error encountered is returned, or nil if there are no violations.
-func (m *GetReationRequest) Validate() error {
+// Validate checks the field values on GetReactionRequest with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *GetReactionRequest) Validate() error {
 	return m.validate(false)
 }
 
-// ValidateAll checks the field values on GetReationRequest with the rules
+// ValidateAll checks the field values on GetReactionRequest with the rules
 // defined in the proto definition for this message. If any rules are
 // violated, the result is a list of violation errors wrapped in
-// GetReationRequestMultiError, or nil if none found.
-func (m *GetReationRequest) ValidateAll() error {
+// GetReactionRequestMultiError, or nil if none found.
+func (m *GetReactionRequest) ValidateAll() error {
 	return m.validate(true)
 }
 
-func (m *GetReationRequest) validate(all bool) error {
+func (m *GetReactionRequest) validate(all bool) error {
 	if m == nil {
 		return nil
 	}
@@ -559,7 +559,7 @@ func (m *GetReationRequest) validate(all bool) error {
 	var errors []error
 
 	if utf8.RuneCountInString(m.GetReactionId()) < 1 {
-		err := GetReationRequestValidationError{
+		err := GetReactionRequestValidationError{
 			field:  "ReactionId",
 			reason: "value length must be at least 1 runes",
 		}
@@ -570,18 +570,18 @@ func (m *GetReationRequest) validate(all bool) error {
 	}
 
 	if len(errors) > 0 {
-		return GetReationRequestMultiError(errors)
+		return GetReactionRequestMultiError(errors)
 	}
 	return nil
 }
 
-// GetReationRequestMultiError is an error wrapping multiple validation errors
-// returned by GetReationRequest.ValidateAll() if the designated constraints
+// GetReactionRequestMultiError is an error wrapping multiple validation errors
+// returned by GetReactionRequest.ValidateAll() if the designated constraints
 // aren't met.
-type GetReationRequestMultiError []error
+type GetReactionRequestMultiError []error
 
 // Error returns a concatenation of all the error messages it wraps.
-func (m GetReationRequestMultiError) Error() string {
+func (m GetReactionRequestMultiError) Error() string {
 	var msgs []string
 	for _, err := range m {
 		msgs = append(msgs, err.Error())
@@ -590,11 +590,11 @@ func (m GetReationRequestMultiError) Error() string {
 }
 
 // AllErrors returns a list of validation violation errors.
-func (m GetReationRequestMultiError) AllErrors() []error { return m }
+func (m GetReactionRequestMultiError) AllErrors() []error { return m }
 
-// GetReationRequestValidationError is the validation error returned by
-// GetReationRequest.Validate if the designated constraints aren't met.
-type GetReationRequestValidationError struct {
+// GetReactionRequestValidationError is the validation error returned by
+// GetReactionRequest.Validate if the designated constraints aren't met.
+type GetReactionRequestValidationError struct {
 	field  string
 	reason string
 	cause  error
@@ -602,24 +602,24 @@ type GetReationRequestValidationError struct {
 }
 
 // Field function returns field value.
-func (e GetReationRequestValidationError) Field() string { return e.field }
+func (e GetReactionRequestValidationError) Field() string { return e.field }
 
 // Reason function returns reason value.
-func (e GetReationRequestValidationError) Reason() string { return e.reason }
+func (e GetReactionRequestValidationError) Reason() string { return e.reason }
 
 // Cause function returns cause value.
-func (e GetReationRequestValidationError) Cause() error { return e.cause }
+func (e GetReactionRequestValidationError) Cause() error { return e.cause }
 
 // Key function returns key value.
-func (e GetReationRequestValidationError) Key() bool { return e.key }
+func (e GetReactionRequestValidationError) Key() bool { return e.key }
 
 // ErrorName returns error name.
-func (e GetReationRequestValidationError) ErrorName() string {
-	return "GetReationRequestValidationError"
+func (e GetReactionRequestValidationError) ErrorName() string {
+	return "GetReactionRequestValidationError"
 }
 
 // Error satisfies the builtin error interface
-func (e GetReationRequestValidationError) Error() string {
+func (e GetReactionRequestValidationError) Error() string {
 	cause := ""
 	if e.cause != nil {
 		cause = fmt.Sprintf(" | caused by: %v", e.cause)
@@ -631,14 +631,14 @@ func (e GetReationRequestValidationError) Error() string {
 	}
 
 	return fmt.Sprintf(
-		"invalid %sGetReationRequest.%s: %s%s",
+		"invalid %sGetReactionRequest.%s: %s%s",
 		key,
 		e.field,
 		e.reason,
 		cause)
 }
 
-var _ error = GetReationRequestValidationError{}
+var _ error = GetReactionRequestValidationError{}
 
 var _ interface {
 	Field() string
@@ -646,24 +646,24 @@ var _ interface {
 	Key() bool
 	Cause() error
 	ErrorName() string
-} = GetReationRequestValidationError{}
+} = GetReactionRequestValidationError{}
 
-// Validate checks the field values on GetReationResponse with the rules
+// Validate checks the field values on GetReactionResponse with the rules
 // defined in the proto definition for this message. If any rules are
 // violated, the first error encountered is returned, or nil if there are no violations.
-func (m *GetReationResponse) Validate() error {
+func (m *GetReactionResponse) Validate() error {
 	return m.validate(false)
 }
 
-// ValidateAll checks the field values on GetReationResponse with the rules
+// ValidateAll checks the field values on GetReactionResponse with the rules
 // defined in the proto definition for this message. If any rules are
 // violated, the result is a list of violation errors wrapped in
-// GetReationResponseMultiError, or nil if none found.
-func (m *GetReationResponse) ValidateAll() error {
+// GetReactionResponseMultiError, or nil if none found.
+func (m *GetReactionResponse) ValidateAll() error {
 	return m.validate(true)
 }
 
-func (m *GetReationResponse) validate(all bool) error {
+func (m *GetReactionResponse) validate(all bool) error {
 	if m == nil {
 		return nil
 	}
@@ -674,7 +674,7 @@ func (m *GetReationResponse) validate(all bool) error {
 		switch v := interface{}(m.GetReaction()).(type) {
 		case interface{ ValidateAll() error }:
 			if err := v.ValidateAll(); err != nil {
-				errors = append(errors, GetReationResponseValidationError{
+				errors = append(errors, GetReactionResponseValidationError{
 					field:  "Reaction",
 					reason: "embedded message failed validation",
 					cause:  err,
@@ -682,7 +682,7 @@ func (m *GetReationResponse) validate(all bool) error {
 			}
 		case interface{ Validate() error }:
 			if err := v.Validate(); err != nil {
-				errors = append(errors, GetReationResponseValidationError{
+				errors = append(errors, GetReactionResponseValidationError{
 					field:  "Reaction",
 					reason: "embedded message failed validation",
 					cause:  err,
@@ -691,7 +691,7 @@ func (m *GetReationResponse) validate(all bool) error {
 		}
 	} else if v, ok := interface{}(m.GetReaction()).(interface{ Validate() error }); ok {
 		if err := v.Validate(); err != nil {
-			return GetReationResponseValidationError{
+			return GetReactionResponseValidationError{
 				field:  "Reaction",
 				reason: "embedded message failed validation",
 				cause:  err,
@@ -700,18 +700,18 @@ func (m *GetReationResponse) validate(all bool) error {
 	}
 
 	if len(errors) > 0 {
-		return GetReationResponseMultiError(errors)
+		return GetReactionResponseMultiError(errors)
 	}
 	return nil
 }
 
-// GetReationResponseMultiError is an error wrapping multiple validation errors
-// returned by GetReationResponse.ValidateAll() if the designated constraints
-// aren't met.
-type GetReationResponseMultiError []error
+// GetReactionResponseMultiError is an error wrapping multiple validation
+// errors returned by GetReactionResponse.ValidateAll() if the designated
+// constraints aren't met.
+type GetReactionResponseMultiError []error
 
 // Error returns a concatenation of all the error messages it wraps.
-func (m GetReationResponseMultiError) Error() string {
+func (m GetReactionResponseMultiError) Error() string {
 	var msgs []string
 	for _, err := range m {
 		msgs = append(msgs, err.Error())
@@ -720,11 +720,11 @@ func (m GetReationResponseMultiError) Error() string {
 }
 
 // AllErrors returns a list of validation violation errors.
-func (m GetReationResponseMultiError) AllErrors() []error { return m }
+func (m GetReactionResponseMultiError) AllErrors() []error { return m }
 
-// GetReationResponseValidationError is the validation error returned by
-// GetReationResponse.Validate if the designated constraints aren't met.
-type GetReationResponseValidationError struct {
+// GetReactionResponseValidationError is the validation error returned by
+// GetReactionResponse.Validate if the designated constraints aren't met.
+type GetReactionResponseValidationError struct {
 	field  string
 	reason string
 	cause  error
@@ -732,24 +732,24 @@ type GetReationResponseValidationError struct {
 }
 
 // Field function returns field value.
-func (e GetReationResponseValidationError) Field() string { return e.field }
+func (e GetReactionResponseValidationError) Field() string { return e.field }
 
 // Reason function returns reason value.
-func (e GetReationResponseValidationError) Reason() string { return e.reason }
+func (e GetReactionResponseValidationError) Reason() string { return e.reason }
 
 // Cause function returns cause value.
-func (e GetReationResponseValidationError) Cause() error { return e.cause }
+func (e GetReactionResponseValidationError) Cause() error { return e.cause }
 
 // Key function returns key value.
-func (e GetReationResponseValidationError) Key() bool { return e.key }
+func (e GetReactionResponseValidationError) Key() bool { return e.key }
 
 // ErrorName returns error name.
-func (e GetReationResponseValidationError) ErrorName() string {
-	return "GetReationResponseValidationError"
+func (e GetReactionResponseValidationError) ErrorName() string {
+	return "GetReactionResponseValidationError"
 }
 
 // Error satisfies the builtin error interface
-func (e GetReationResponseValidationError) Error() string {
+func (e GetReactionResponseValidationError) Error() string {
 	cause := ""
 	if e.cause != nil {
 		cause = fmt.Sprintf(" | caused by: %v", e.cause)
@@ -761,14 +761,14 @@ func (e GetReationResponseValidationError) Error() string {
 	}
 
 	return fmt.Sprintf(
-		"invalid %sGetReationResponse.%s: %s%s",
+		"invalid %sGetReactionResponse.%s: %s%s",
 		key,
 		e.field,
 		e.reason,
 		cause)
 }
 
-var _ error = GetReationResponseValidationError{}
+var _ error = GetReactionResponseValidationError{}
 
 var _ interface {
 	Field() string
@@ -776,7 +776,7 @@ var _ interface {
 	Key() bool
 	Cause() error
 	ErrorName() string
-} = GetReationResponseValidationError{}
+} = GetReactionResponseValidationError{}
 
 // Validate checks the field values on GetActivityReactionsRequest with the
 // rules defined in the proto definition for this message. If any rules are

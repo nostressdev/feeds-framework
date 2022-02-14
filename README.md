@@ -79,7 +79,12 @@ activity_grouping_feeds:\<activityID>:\<feedID> -> feedID
 * GetActivity: получаем данные в activities:\<activityID>
 * GetActivityByObjectID: получаем данные в диапазоне object_id_activities:\<objectID>, если там больше 1 записи, то возвращаем ошибку
 * UpdateActivity: перезаписываем данные в activities:\<activityID>
-* DeleteActivity: удаляем данные в  activities:\<activityID>, если есть objectID, то удаляем данные в object_id_activities:\<objectID>:\<activityID>, удаляем feed_activities:\<feedID>:\<activityID> для всех feedID из диапазона  activity_feeds:\<activityID>, а затем очищаем и сам диапазон activity_feeds:\<activityID>
+* DeleteActivity: 
+    * удаляем данные в activities:\<activityID>
+    * удаляем feed_activities:\<feedID>:\<activityID> для всех feedID из диапазона  activity_feeds:\<activityID>, а затем очищаем и сам диапазон activity_feeds:\<activityID>
+    * удаляем grouping_feed_activities:\<feedID>:\<formatKey>:\<activityID> для всех feedID из диапазона activity_grouping_feeds:\<activityID>, а затем очищаем activity_grouping_feeds:\<activityID>
+    * удаляем данные в object_id_activities:\<objectID>:\<activityID>
+    * для всех reactionID из диапазона object_id_activities:<activityID> проставляем object_id="deleted", а для тех у кого linked_activity_id = activityID проставляем и linked_activity_id = "deleted", после очищаем activity_reactions:\<activityID> и object_id_activities:\<activityID>
 ### Feeds
 * CreateFeed: записывает данные в feeds:\<feedID>
 * GetFeed: получает данные в feeds:\<feedID>
@@ -99,10 +104,18 @@ activity_grouping_feeds:\<activityID>:\<feedID> -> feedID
 * GetReation: получаем данные из activities:\<activityID>
 * GetActivityReactions: получаем все данные из диапазона activity_reactions:\<linkedActivityID>, и возможно рекурсивно далее
 * UpdateReaction: перезаписываем данные в activities:\<activityID>
-* DeleteReaction: удаляем данные в  activities:\<activityID>, если есть objectID, то удаляем данные в object_id_activities:\<objectID>:\<activityID>, удаляем feed_activities:\<feedID>:\<activityID> для всех feedID из диапазона  activity_feeds:\<activityID>, а затем очищаем и сам диапазон activity_feeds:\<activityID>, удаляем activity_reactions:\<linkedActivityID>:\<activityID>, для всех activity из activity_reactions:\<activityID> проставляем linkedActivityID="deleted" и после очищаем диапазон activity_reactions:\<activityID>
+* DeleteReaction:
+    * удаляем данные в  activities:\<reactionID>
+    * удаляем feed_activities:\<feedID>:\<activityID> для всех feedID из диапазона  activity_feeds:\<reactionID>, а затем очищаем и сам диапазон activity_feeds:\<reactionID>
+    * удаляем grouping_feed_activities:\<feedID>:\<formatKey>:\<activityID> для всех feedID из диапазона activity_grouping_feeds:\<reactionID>, а затем очищаем activity_grouping_feeds:\<reactionID>
+    * удаляем activity_reactions:\<linkedActivityID>:\<reactionID>
+    * удаляем данные в object_id_activities:\<objectID>:\<reactionID>
+    * для всех activity из activity_reactions:\<reactionID> проставляем linkedActivityID="deleted" и после очищаем диапазон activity_reactions:\<reactionID>
 ### GroupingFeeds
 * CreateGroupingFeed: записывает данные в данные в grouping_feeds:\<feedID>
 * GetGroupingFeed: получает данные в grouping_feeds:\<feedID>
 * GetGroupingFeedActivities: получает данные из диапазона grouping_feed_activities:\<feedID>
 * UpdateGroupingFeed: обновляет данные в grouping_feeds:\<feedID>
-* DeleteGroupingFeed: удаляет данные в данные в grouping_feeds:\<feedID>, удаляет данные в activity_grouping_feeds:\<activityID>:\<feedID> для всех activityID из grouping_feed_activities:\<feedID> и наконец удаляет диапазон grouping_feed_activities:\<feedID>
+* DeleteGroupingFeed: 
+    * удаляем данные в данные в grouping_feeds:\<feedID>
+    * удаляем данные в activity_grouping_feeds:\<activityID>:\<feedID> для всех activityID из grouping_feed_activities:\<feedID> и наконец удаляет диапазон grouping_feed_activities:\<feedID>

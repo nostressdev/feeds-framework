@@ -27,11 +27,11 @@ message AddReactionRequest {
 message AddReactionResponse {
 }
 
-message GetReationRequest {
+message GetReactionRequest {
     string reaction_id = 1 [(validate.rules).string.min_len = 1];
 }
 
-message GetReationResponse {
+message GetReactionResponse {
     Activity reaction = 1;
 }
 

@@ -32,7 +32,7 @@ message GetGroupingFeedActivitiesRequest {
 }
 
 message GetGroupingFeedActivitiesResponse {
-    repeated Activity activities = 1;
+    repeated ActivityGroup activity_groups = 1;
 }
 
 message UpdateGroupingFeedRequest {

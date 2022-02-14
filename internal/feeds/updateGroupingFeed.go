@@ -11,12 +11,12 @@ func (s *FeedsService) UpdateGroupingFeed(ctx context.Context, request *proto.Up
 	if err := request.Validate(); err != nil {
 		return nil, nerrors.BadRequest.Wrap(err, "validate request")
 	}
-	_, err := s.Storage.UpdateGroupingFeed(TODO)
+	feed, err := s.Storage.UpdateGroupingFeed(request.GroupingFeedId, request.ExtraData)
 	if err != nil {
 		return nil, err
 	}
 	response := &proto.UpdateGroupingFeedResponse{
-		TODO,
+		GroupingFeed: feed,
 	}
 	if err := response.Validate(); err != nil {
 		return nil, nerrors.BadRequest.Wrap(err, "validate response")

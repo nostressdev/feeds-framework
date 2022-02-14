@@ -11,12 +11,12 @@ func (s *FeedsService) GetActivityReactions(ctx context.Context, request *proto.
 	if err := request.Validate(); err != nil {
 		return nil, nerrors.BadRequest.Wrap(err, "validate request")
 	}
-	_, err := s.Storage.GetActivityReactions(TODO)
+	reactions, err := s.Storage.GetActivityReactions(request.ActivityId, request.Limit, request.OffsetId)
 	if err != nil {
 		return nil, err
 	}
 	response := &proto.GetActivityReactionsResponse{
-		TODO,
+		Reactions: reactions,
 	}
 	if err := response.Validate(); err != nil {
 		return nil, nerrors.BadRequest.Wrap(err, "validate response")
