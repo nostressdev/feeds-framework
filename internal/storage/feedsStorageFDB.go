@@ -2,6 +2,7 @@ package storage
 
 import (
 	"html/template"
+	"log"
 	"strings"
 	go_time "time"
 
@@ -110,7 +111,7 @@ func (s *FeedsStorageFDB) GetActivity(activityID string) (*proto.Activity, error
 }
 
 func (s *FeedsStorageFDB) GetActivityByObjectID(objectID string) (*proto.Activity, error) {
-	var activity *proto.Activity = &proto.Activity{}
+	activity := &proto.Activity{}
 	_, err := s.DB.ReadTransact(func(tr fdb.ReadTransaction) (interface{}, error) {
 		begin, end := s.ObjectIDActivitiesSubspace.Sub(objectID).FDBRangeKeys()
 		iter := tr.GetRange(fdb.KeyRange{Begin: begin, End: end}, fdb.RangeOptions{}).Iterator()
@@ -123,21 +124,21 @@ func (s *FeedsStorageFDB) GetActivityByObjectID(objectID string) (*proto.Activit
 				return nil, err
 			}
 			activityID := string(kv.Value)
+			log.Println(activityID)
 			bytes, err := tr.Get(s.ActivitiesSubspace.Sub(activityID)).Get()
 			if err != nil {
 				return nil, err
 			}
 			if bytes == nil {
-				return nil, nerrors.BadRequest.New("no such activity")
+				return nil, nerrors.BadRequest.New("no such activity " + string(activityID))
 			}
 			err = protobuf.Unmarshal(bytes, activity)
 			if err != nil {
 				return nil, err
 			}
-			return nil, nil
 		}
 		if activity.StringId == "" {
-			return nil, nerrors.BadRequest.New("no such activity")
+			return nil, nerrors.BadRequest.New("no such activity " + string(objectID))
 		}
 		return nil, nil
 	})
@@ -197,7 +198,7 @@ func (s *FeedsStorageFDB) DeleteActivity(activityID string) error {
 			if err != nil {
 				return nil, err
 			}
-			bytes, err := tr.Get(s.ActivitiesSubspace.Sub(kv.Value)).Get()
+			bytes, err := tr.Get(s.ActivitiesSubspace.Sub(string(kv.Value))).Get()
 			if err != nil {
 				return nil, err
 			}
@@ -296,10 +297,12 @@ func (s *FeedsStorageFDB) GetFeedActivities(feedID string, limit int64, offsetID
 			if err != nil {
 				return nil, err
 			}
+			log.Println(activityID)
 			activities = append(activities, activity)
 		}
 		return nil, nil
 	})
+	log.Println(activities)
 	return activities, err
 }
 
@@ -539,7 +542,8 @@ func (s *FeedsStorageFDB) deleteActivity(tr fdb.Transaction, activity *proto.Act
 		if err != nil {
 			return err
 		}
-		tr.Clear(s.FeedActivitiesSubspace.Sub(kv.Value, activity.StringId))
+		log.Println("deleting in " + string(kv.Value))
+		tr.Clear(s.FeedActivitiesSubspace.Sub(string(kv.Value), activity.StringId))
 	}
 	tr.Clear(s.ActivityFeedsSubspace.Sub(activity.StringId))
 
@@ -551,7 +555,7 @@ func (s *FeedsStorageFDB) deleteActivity(tr fdb.Transaction, activity *proto.Act
 		if err != nil {
 			return err
 		}
-		bytes, err := tr.Get(s.GroupingFeedsSubspace.Sub(kv.Value)).Get()
+		bytes, err := tr.Get(s.GroupingFeedsSubspace.Sub(string(kv.Value))).Get()
 		if err != nil {
 			return err
 		}
@@ -573,7 +577,7 @@ func (s *FeedsStorageFDB) deleteActivity(tr fdb.Transaction, activity *proto.Act
 			return err
 		}
 		key := builder.String()
-		tr.Clear(s.GroupingFeedActivitiesSubspace.Sub(kv.Value, key, activity.StringId))
+		tr.Clear(s.GroupingFeedActivitiesSubspace.Sub(string(kv.Value), key, activity.StringId))
 	}
 	tr.Clear(s.ActivityGroupingFeedsSubspace.Sub(activity.StringId))
 	return nil
@@ -733,13 +737,13 @@ func (s *FeedsStorageFDB) DeleteReaction(reactionID string) error {
 			return nil, err
 		}
 		if bytes == nil {
-			return nil, nerrors.BadRequest.New("no such activity")
+			return nil, nerrors.BadRequest.New("1) no such activity " + reactionID)
 		}
 		if err := protobuf.Unmarshal(bytes, reaction); err != nil {
 			return nil, err
 		}
-		if reaction.LinkedActivityId != "" {
-			return nil, nerrors.BadRequest.New("activity is not a reaction")
+		if reaction.LinkedActivityId == "" {
+			return nil, nerrors.BadRequest.New("2) activity is not a reaction " + reaction.String())
 		}
 		if err := s.deleteActivity(tr, reaction); err != nil {
 			return nil, err
@@ -754,12 +758,12 @@ func (s *FeedsStorageFDB) DeleteReaction(reactionID string) error {
 			if err != nil {
 				return nil, err
 			}
-			bytes, err := tr.Get(s.ActivitiesSubspace.Sub(kv.Value)).Get()
+			bytes, err := tr.Get(s.ActivitiesSubspace.Sub(string(kv.Value))).Get()
 			if err != nil {
 				return nil, err
 			}
 			if bytes == nil {
-				return nil, nerrors.Internal.New("no such activity")
+				return nil, nerrors.Internal.New("3) no such activity " + string(kv.Value))
 			}
 			activity := &proto.Activity{}
 			err = protobuf.Unmarshal(bytes, activity)
