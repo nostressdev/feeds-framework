@@ -1,0 +1,54 @@
+syntax = "proto3";
+
+package syntoks_feed;
+option go_package = "./proto";
+
+import "validate/validate.proto";
+import "api/models.proto";
+import "google/protobuf/any.proto";
+
+message CreateCollectionRequest {
+    string collection_id = 1;
+    DeletingType deleting_type = 2 [(validate.rules).enum.defined_only = true];
+}
+
+message CreateCollectionResponse {
+    Collection collection = 1;
+}
+
+message CreateObjectRequest {
+    string collection_id = 1 [(validate.rules).string.min_len = 1];
+    string object_id = 2;
+    google.protobuf.Any data = 3;
+}
+
+message CreateObjectResponse {
+    Object object = 1;
+}
+
+message GetObjectRequest {
+    string collection_id = 1 [(validate.rules).string.min_len = 1];
+    string object_id = 2 [(validate.rules).string.min_len = 1];
+}
+
+message GetObjectResponse {
+    Object object = 1;
+}
+
+message UpdateObjectRequest {
+    string collection_id = 1 [(validate.rules).string.min_len = 1];
+    string object_id = 2;
+    google.protobuf.Any data = 3;
+}
+
+message UpdateObjectResponse {
+    Object object = 1;
+}
+
+message DeleteObjectRequest {
+    string collection_id = 1 [(validate.rules).string.min_len = 1];
+    string object_id = 2;
+}
+
+message DeleteObjectResponse {
+}

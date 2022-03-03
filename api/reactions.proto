@@ -1,0 +1,63 @@
+syntax = "proto3";
+
+package syntoks_feed;
+option go_package = "./proto";
+
+import "validate/validate.proto";
+import "api/models.proto";
+import "google/protobuf/any.proto";
+
+message CreateReactionRequest {
+    int64 time = 1;
+    string user_id = 2;
+    string activity_type = 3;
+    google.protobuf.Any extra_data = 5;
+    string linked_activity_id = 6 [(validate.rules).string.min_len = 1];
+}
+
+message CreateReactionResponse {
+    Activity reaction = 1;
+}
+
+message AddReactionRequest {
+    string reaction_id = 1 [(validate.rules).string.min_len = 1];
+    string feed_id = 2 [(validate.rules).string.min_len = 1];
+}
+
+message AddReactionResponse {
+}
+
+message GetReactionRequest {
+    string reaction_id = 1 [(validate.rules).string.min_len = 1];
+}
+
+message GetReactionResponse {
+    Activity reaction = 1;
+}
+
+message GetActivityReactionsRequest {
+    string activity_id = 1 [(validate.rules).string.min_len = 1];
+    int64 limit = 2;
+    string offset_id = 3;
+}
+
+message GetActivityReactionsResponse {
+    repeated Activity reactions = 1;
+}
+
+
+message UpdateReactionRequest {
+    string reaction_id = 1 [(validate.rules).string.min_len = 1];
+    google.protobuf.Any extra_data = 2;
+}
+
+message UpdateReactionResponse {
+    Activity reaction = 1;
+}
+
+message DeleteReactionRequest {
+    string reaction_id = 1 [(validate.rules).string.min_len = 1];
+}
+
+message DeleteReactionResponse {
+}

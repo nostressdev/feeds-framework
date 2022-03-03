@@ -1,0 +1,8 @@
+message MethodNameRequest {
+
+}
+
+message MethodNameResponse {
+
+}
+

@@ -1,0 +1,54 @@
+syntax = "proto3";
+
+package syntoks_feed;
+option go_package = "./proto";
+
+import "validate/validate.proto";
+import "api/models.proto";
+import "google/protobuf/any.proto";
+
+message AddActivityRequest {
+    string feed_id = 1 [(validate.rules).string.min_len = 1];
+    string object_id = 2;
+    int64 time = 3;
+    string user_id = 4;
+    string activity_type = 5;
+    repeated string redirect_to = 6;
+    google.protobuf.Any extra_data = 7;
+}
+
+message AddActivityResponse {
+    Activity activity = 1;
+}
+
+message UpdateActivityRequest {
+    string activity_id = 1 [(validate.rules).string.min_len = 1];
+    google.protobuf.Any extra_data = 2;
+}
+
+message UpdateActivityResponse {
+    Activity activity = 1;
+}
+
+message DeleteActivityRequest {
+    string activity_id = 1 [(validate.rules).string.min_len = 1];
+}
+
+message DeleteActivityResponse {
+}
+
+message GetActivityRequest {
+    string activity_id = 1 [(validate.rules).string.min_len = 1];
+}
+
+message GetActivityResponse {
+    Activity activity = 1;
+}
+
+message GetActivityByObjectIDRequest {
+    string object_id = 1 [(validate.rules).string.min_len = 1];
+}
+
+message GetActivityByObjectIDResponse {
+    Activity activity = 1;
+}

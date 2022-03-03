@@ -1,0 +1,52 @@
+syntax = "proto3";
+
+package syntoks_feed;
+option go_package = "./proto";
+
+import "validate/validate.proto";
+import "google/protobuf/any.proto";
+
+message Activity {
+    int64 id = 1;
+    string string_id = 2 [(validate.rules).string.min_len = 1];
+    string object_id = 3;
+    string linked_activity_id = 4; // only for reactions
+    int64 created_at = 5;
+    int64 updated_at = 6;
+    string user_id = 7;
+    string activity_type = 8;
+    google.protobuf.Any extra_data = 9;
+}
+
+message Feed {
+    string id = 1 [(validate.rules).string.min_len = 1];
+    string user_id = 2;
+    google.protobuf.Any extra_data = 3;
+}
+
+message GroupingFeed {
+    string id = 1 [(validate.rules).string.min_len = 1];
+    string user_id = 2;
+    string key_format = 3 [(validate.rules).string.min_len = 1];
+    google.protobuf.Any extra_data = 4;
+}
+
+message Collection {
+    string id = 1 [(validate.rules).string.min_len = 1];
+    DeletingType deleting_type = 2 [(validate.rules).enum.defined_only = true];
+}
+
+enum DeletingType {
+    CASCADE = 0;
+    SET_NIL = 1;
+}
+
+message Object {
+    string id = 1 [(validate.rules).string.min_len = 1];
+    google.protobuf.Any data = 2;
+}
+
+message ActivityGroup {
+    repeated Activity activities = 1;
+    string GroupKey = 2 [(validate.rules).string.min_len = 1];
+}
