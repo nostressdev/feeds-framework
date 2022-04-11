@@ -105,8 +105,6 @@ func (m *AddActivityRequest) validate(all bool) error {
 		}
 	}
 
-	// no validation rules for ActivityId
-
 	if len(errors) > 0 {
 		return AddActivityRequestMultiError(errors)
 	}
