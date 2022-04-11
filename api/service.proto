@@ -42,4 +42,11 @@ service Feeds {
     rpc GetGroupingFeedActivities(GetGroupingFeedActivitiesRequest) returns (GetGroupingFeedActivitiesResponse) {}
     rpc UpdateGroupingFeed(UpdateGroupingFeedRequest) returns (UpdateGroupingFeedResponse) {}
     rpc DeleteGroupingFeed(DeleteGroupingFeedRequest) returns (DeleteGroupingFeedResponse) {}
+    rpc Ping(PingRequest) returns (PingResponse) {}
+}
+
+message PingRequest {
+}
+
+message PingResponse {
 }
