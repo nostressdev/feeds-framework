@@ -15,6 +15,7 @@ message AddActivityRequest {
     string activity_type = 5;
     repeated string redirect_to = 6;
     google.protobuf.Any extra_data = 7;
+    string activity_id = 8;
 }
 
 message AddActivityResponse {

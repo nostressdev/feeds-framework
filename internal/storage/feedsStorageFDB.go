@@ -723,7 +723,7 @@ func (s *FeedsStorageFDB) UpdateReaction(reactionID string, extraData *anypb.Any
 		if err != nil {
 			return nil, err
 		}
-		tr.Set(s.ActivitiesSubspace.Sub(reaction.Id), bytes)
+		tr.Set(s.ActivitiesSubspace.Sub(reaction.StringId), bytes)
 		return nil, nil
 	})
 	return reaction, err
