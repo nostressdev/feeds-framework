@@ -314,6 +314,260 @@ var _ interface {
 	ErrorName() string
 } = AddActivityResponseValidationError{}
 
+// Validate checks the field values on AddExistingActivityRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *AddExistingActivityRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on AddExistingActivityRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// AddExistingActivityRequestMultiError, or nil if none found.
+func (m *AddExistingActivityRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *AddExistingActivityRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if utf8.RuneCountInString(m.GetFeedId()) < 1 {
+		err := AddExistingActivityRequestValidationError{
+			field:  "FeedId",
+			reason: "value length must be at least 1 runes",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if utf8.RuneCountInString(m.GetActivityId()) < 1 {
+		err := AddExistingActivityRequestValidationError{
+			field:  "ActivityId",
+			reason: "value length must be at least 1 runes",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if len(errors) > 0 {
+		return AddExistingActivityRequestMultiError(errors)
+	}
+	return nil
+}
+
+// AddExistingActivityRequestMultiError is an error wrapping multiple
+// validation errors returned by AddExistingActivityRequest.ValidateAll() if
+// the designated constraints aren't met.
+type AddExistingActivityRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m AddExistingActivityRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m AddExistingActivityRequestMultiError) AllErrors() []error { return m }
+
+// AddExistingActivityRequestValidationError is the validation error returned
+// by AddExistingActivityRequest.Validate if the designated constraints aren't met.
+type AddExistingActivityRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e AddExistingActivityRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e AddExistingActivityRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e AddExistingActivityRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e AddExistingActivityRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e AddExistingActivityRequestValidationError) ErrorName() string {
+	return "AddExistingActivityRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e AddExistingActivityRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sAddExistingActivityRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = AddExistingActivityRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = AddExistingActivityRequestValidationError{}
+
+// Validate checks the field values on AddExistingActivityResponse with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *AddExistingActivityResponse) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on AddExistingActivityResponse with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// AddExistingActivityResponseMultiError, or nil if none found.
+func (m *AddExistingActivityResponse) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *AddExistingActivityResponse) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if all {
+		switch v := interface{}(m.GetActivity()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, AddExistingActivityResponseValidationError{
+					field:  "Activity",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, AddExistingActivityResponseValidationError{
+					field:  "Activity",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetActivity()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return AddExistingActivityResponseValidationError{
+				field:  "Activity",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if len(errors) > 0 {
+		return AddExistingActivityResponseMultiError(errors)
+	}
+	return nil
+}
+
+// AddExistingActivityResponseMultiError is an error wrapping multiple
+// validation errors returned by AddExistingActivityResponse.ValidateAll() if
+// the designated constraints aren't met.
+type AddExistingActivityResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m AddExistingActivityResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m AddExistingActivityResponseMultiError) AllErrors() []error { return m }
+
+// AddExistingActivityResponseValidationError is the validation error returned
+// by AddExistingActivityResponse.Validate if the designated constraints
+// aren't met.
+type AddExistingActivityResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e AddExistingActivityResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e AddExistingActivityResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e AddExistingActivityResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e AddExistingActivityResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e AddExistingActivityResponseValidationError) ErrorName() string {
+	return "AddExistingActivityResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e AddExistingActivityResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sAddExistingActivityResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = AddExistingActivityResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = AddExistingActivityResponseValidationError{}
+
 // Validate checks the field values on UpdateActivityRequest with the rules
 // defined in the proto definition for this message. If any rules are
 // violated, the first error encountered is returned, or nil if there are no violations.

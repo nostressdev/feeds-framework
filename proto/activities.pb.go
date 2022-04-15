@@ -164,6 +164,108 @@ func (x *AddActivityResponse) GetActivity() *Activity {
 	return nil
 }
 
+type AddExistingActivityRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	FeedId     string `protobuf:"bytes,1,opt,name=feed_id,json=feedId,proto3" json:"feed_id,omitempty"`
+	ActivityId string `protobuf:"bytes,2,opt,name=activity_id,json=activityId,proto3" json:"activity_id,omitempty"`
+}
+
+func (x *AddExistingActivityRequest) Reset() {
+	*x = AddExistingActivityRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_api_activities_proto_msgTypes[2]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *AddExistingActivityRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddExistingActivityRequest) ProtoMessage() {}
+
+func (x *AddExistingActivityRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_api_activities_proto_msgTypes[2]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddExistingActivityRequest.ProtoReflect.Descriptor instead.
+func (*AddExistingActivityRequest) Descriptor() ([]byte, []int) {
+	return file_api_activities_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *AddExistingActivityRequest) GetFeedId() string {
+	if x != nil {
+		return x.FeedId
+	}
+	return ""
+}
+
+func (x *AddExistingActivityRequest) GetActivityId() string {
+	if x != nil {
+		return x.ActivityId
+	}
+	return ""
+}
+
+type AddExistingActivityResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Activity *Activity `protobuf:"bytes,1,opt,name=activity,proto3" json:"activity,omitempty"`
+}
+
+func (x *AddExistingActivityResponse) Reset() {
+	*x = AddExistingActivityResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_api_activities_proto_msgTypes[3]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *AddExistingActivityResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddExistingActivityResponse) ProtoMessage() {}
+
+func (x *AddExistingActivityResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_api_activities_proto_msgTypes[3]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddExistingActivityResponse.ProtoReflect.Descriptor instead.
+func (*AddExistingActivityResponse) Descriptor() ([]byte, []int) {
+	return file_api_activities_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *AddExistingActivityResponse) GetActivity() *Activity {
+	if x != nil {
+		return x.Activity
+	}
+	return nil
+}
+
 type UpdateActivityRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -176,7 +278,7 @@ type UpdateActivityRequest struct {
 func (x *UpdateActivityRequest) Reset() {
 	*x = UpdateActivityRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_api_activities_proto_msgTypes[2]
+		mi := &file_api_activities_proto_msgTypes[4]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -189,7 +291,7 @@ func (x *UpdateActivityRequest) String() string {
 func (*UpdateActivityRequest) ProtoMessage() {}
 
 func (x *UpdateActivityRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_api_activities_proto_msgTypes[2]
+	mi := &file_api_activities_proto_msgTypes[4]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -202,7 +304,7 @@ func (x *UpdateActivityRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateActivityRequest.ProtoReflect.Descriptor instead.
 func (*UpdateActivityRequest) Descriptor() ([]byte, []int) {
-	return file_api_activities_proto_rawDescGZIP(), []int{2}
+	return file_api_activities_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *UpdateActivityRequest) GetActivityId() string {
@@ -230,7 +332,7 @@ type UpdateActivityResponse struct {
 func (x *UpdateActivityResponse) Reset() {
 	*x = UpdateActivityResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_api_activities_proto_msgTypes[3]
+		mi := &file_api_activities_proto_msgTypes[5]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -243,7 +345,7 @@ func (x *UpdateActivityResponse) String() string {
 func (*UpdateActivityResponse) ProtoMessage() {}
 
 func (x *UpdateActivityResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_api_activities_proto_msgTypes[3]
+	mi := &file_api_activities_proto_msgTypes[5]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -256,7 +358,7 @@ func (x *UpdateActivityResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateActivityResponse.ProtoReflect.Descriptor instead.
 func (*UpdateActivityResponse) Descriptor() ([]byte, []int) {
-	return file_api_activities_proto_rawDescGZIP(), []int{3}
+	return file_api_activities_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *UpdateActivityResponse) GetActivity() *Activity {
@@ -277,7 +379,7 @@ type DeleteActivityRequest struct {
 func (x *DeleteActivityRequest) Reset() {
 	*x = DeleteActivityRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_api_activities_proto_msgTypes[4]
+		mi := &file_api_activities_proto_msgTypes[6]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -290,7 +392,7 @@ func (x *DeleteActivityRequest) String() string {
 func (*DeleteActivityRequest) ProtoMessage() {}
 
 func (x *DeleteActivityRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_api_activities_proto_msgTypes[4]
+	mi := &file_api_activities_proto_msgTypes[6]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -303,7 +405,7 @@ func (x *DeleteActivityRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteActivityRequest.ProtoReflect.Descriptor instead.
 func (*DeleteActivityRequest) Descriptor() ([]byte, []int) {
-	return file_api_activities_proto_rawDescGZIP(), []int{4}
+	return file_api_activities_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *DeleteActivityRequest) GetActivityId() string {
@@ -322,7 +424,7 @@ type DeleteActivityResponse struct {
 func (x *DeleteActivityResponse) Reset() {
 	*x = DeleteActivityResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_api_activities_proto_msgTypes[5]
+		mi := &file_api_activities_proto_msgTypes[7]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -335,7 +437,7 @@ func (x *DeleteActivityResponse) String() string {
 func (*DeleteActivityResponse) ProtoMessage() {}
 
 func (x *DeleteActivityResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_api_activities_proto_msgTypes[5]
+	mi := &file_api_activities_proto_msgTypes[7]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -348,7 +450,7 @@ func (x *DeleteActivityResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteActivityResponse.ProtoReflect.Descriptor instead.
 func (*DeleteActivityResponse) Descriptor() ([]byte, []int) {
-	return file_api_activities_proto_rawDescGZIP(), []int{5}
+	return file_api_activities_proto_rawDescGZIP(), []int{7}
 }
 
 type GetActivityRequest struct {
@@ -362,7 +464,7 @@ type GetActivityRequest struct {
 func (x *GetActivityRequest) Reset() {
 	*x = GetActivityRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_api_activities_proto_msgTypes[6]
+		mi := &file_api_activities_proto_msgTypes[8]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -375,7 +477,7 @@ func (x *GetActivityRequest) String() string {
 func (*GetActivityRequest) ProtoMessage() {}
 
 func (x *GetActivityRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_api_activities_proto_msgTypes[6]
+	mi := &file_api_activities_proto_msgTypes[8]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -388,7 +490,7 @@ func (x *GetActivityRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetActivityRequest.ProtoReflect.Descriptor instead.
 func (*GetActivityRequest) Descriptor() ([]byte, []int) {
-	return file_api_activities_proto_rawDescGZIP(), []int{6}
+	return file_api_activities_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *GetActivityRequest) GetActivityId() string {
@@ -409,7 +511,7 @@ type GetActivityResponse struct {
 func (x *GetActivityResponse) Reset() {
 	*x = GetActivityResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_api_activities_proto_msgTypes[7]
+		mi := &file_api_activities_proto_msgTypes[9]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -422,7 +524,7 @@ func (x *GetActivityResponse) String() string {
 func (*GetActivityResponse) ProtoMessage() {}
 
 func (x *GetActivityResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_api_activities_proto_msgTypes[7]
+	mi := &file_api_activities_proto_msgTypes[9]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -435,7 +537,7 @@ func (x *GetActivityResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetActivityResponse.ProtoReflect.Descriptor instead.
 func (*GetActivityResponse) Descriptor() ([]byte, []int) {
-	return file_api_activities_proto_rawDescGZIP(), []int{7}
+	return file_api_activities_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *GetActivityResponse) GetActivity() *Activity {
@@ -456,7 +558,7 @@ type GetActivityByObjectIDRequest struct {
 func (x *GetActivityByObjectIDRequest) Reset() {
 	*x = GetActivityByObjectIDRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_api_activities_proto_msgTypes[8]
+		mi := &file_api_activities_proto_msgTypes[10]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -469,7 +571,7 @@ func (x *GetActivityByObjectIDRequest) String() string {
 func (*GetActivityByObjectIDRequest) ProtoMessage() {}
 
 func (x *GetActivityByObjectIDRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_api_activities_proto_msgTypes[8]
+	mi := &file_api_activities_proto_msgTypes[10]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -482,7 +584,7 @@ func (x *GetActivityByObjectIDRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetActivityByObjectIDRequest.ProtoReflect.Descriptor instead.
 func (*GetActivityByObjectIDRequest) Descriptor() ([]byte, []int) {
-	return file_api_activities_proto_rawDescGZIP(), []int{8}
+	return file_api_activities_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *GetActivityByObjectIDRequest) GetObjectId() string {
@@ -503,7 +605,7 @@ type GetActivityByObjectIDResponse struct {
 func (x *GetActivityByObjectIDResponse) Reset() {
 	*x = GetActivityByObjectIDResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_api_activities_proto_msgTypes[9]
+		mi := &file_api_activities_proto_msgTypes[11]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -516,7 +618,7 @@ func (x *GetActivityByObjectIDResponse) String() string {
 func (*GetActivityByObjectIDResponse) ProtoMessage() {}
 
 func (x *GetActivityByObjectIDResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_api_activities_proto_msgTypes[9]
+	mi := &file_api_activities_proto_msgTypes[11]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -529,7 +631,7 @@ func (x *GetActivityByObjectIDResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetActivityByObjectIDResponse.ProtoReflect.Descriptor instead.
 func (*GetActivityByObjectIDResponse) Descriptor() ([]byte, []int) {
-	return file_api_activities_proto_rawDescGZIP(), []int{9}
+	return file_api_activities_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *GetActivityByObjectIDResponse) GetActivity() *Activity {
@@ -569,44 +671,56 @@ var file_api_activities_proto_rawDesc = []byte{
 	0x32, 0x0a, 0x08, 0x61, 0x63, 0x74, 0x69, 0x76, 0x69, 0x74, 0x79, 0x18, 0x01, 0x20, 0x01, 0x28,
 	0x0b, 0x32, 0x16, 0x2e, 0x73, 0x79, 0x6e, 0x74, 0x6f, 0x6b, 0x73, 0x5f, 0x66, 0x65, 0x65, 0x64,
 	0x2e, 0x41, 0x63, 0x74, 0x69, 0x76, 0x69, 0x74, 0x79, 0x52, 0x08, 0x61, 0x63, 0x74, 0x69, 0x76,
-	0x69, 0x74, 0x79, 0x22, 0x76, 0x0a, 0x15, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x41, 0x63, 0x74,
-	0x69, 0x76, 0x69, 0x74, 0x79, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x28, 0x0a, 0x0b,
-	0x61, 0x63, 0x74, 0x69, 0x76, 0x69, 0x74, 0x79, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28,
-	0x09, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x72, 0x02, 0x10, 0x01, 0x52, 0x0a, 0x61, 0x63, 0x74, 0x69,
-	0x76, 0x69, 0x74, 0x79, 0x49, 0x64, 0x12, 0x33, 0x0a, 0x0a, 0x65, 0x78, 0x74, 0x72, 0x61, 0x5f,
-	0x64, 0x61, 0x74, 0x61, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x14, 0x2e, 0x67, 0x6f, 0x6f,
-	0x67, 0x6c, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x2e, 0x41, 0x6e, 0x79,
-	0x52, 0x09, 0x65, 0x78, 0x74, 0x72, 0x61, 0x44, 0x61, 0x74, 0x61, 0x22, 0x4c, 0x0a, 0x16, 0x55,
-	0x70, 0x64, 0x61, 0x74, 0x65, 0x41, 0x63, 0x74, 0x69, 0x76, 0x69, 0x74, 0x79, 0x52, 0x65, 0x73,
+	0x69, 0x74, 0x79, 0x22, 0x68, 0x0a, 0x1a, 0x41, 0x64, 0x64, 0x45, 0x78, 0x69, 0x73, 0x74, 0x69,
+	0x6e, 0x67, 0x41, 0x63, 0x74, 0x69, 0x76, 0x69, 0x74, 0x79, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73,
+	0x74, 0x12, 0x20, 0x0a, 0x07, 0x66, 0x65, 0x65, 0x64, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01,
+	0x28, 0x09, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x72, 0x02, 0x10, 0x01, 0x52, 0x06, 0x66, 0x65, 0x65,
+	0x64, 0x49, 0x64, 0x12, 0x28, 0x0a, 0x0b, 0x61, 0x63, 0x74, 0x69, 0x76, 0x69, 0x74, 0x79, 0x5f,
+	0x69, 0x64, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x72, 0x02, 0x10,
+	0x01, 0x52, 0x0a, 0x61, 0x63, 0x74, 0x69, 0x76, 0x69, 0x74, 0x79, 0x49, 0x64, 0x22, 0x51, 0x0a,
+	0x1b, 0x41, 0x64, 0x64, 0x45, 0x78, 0x69, 0x73, 0x74, 0x69, 0x6e, 0x67, 0x41, 0x63, 0x74, 0x69,
+	0x76, 0x69, 0x74, 0x79, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x32, 0x0a, 0x08,
+	0x61, 0x63, 0x74, 0x69, 0x76, 0x69, 0x74, 0x79, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x16,
+	0x2e, 0x73, 0x79, 0x6e, 0x74, 0x6f, 0x6b, 0x73, 0x5f, 0x66, 0x65, 0x65, 0x64, 0x2e, 0x41, 0x63,
+	0x74, 0x69, 0x76, 0x69, 0x74, 0x79, 0x52, 0x08, 0x61, 0x63, 0x74, 0x69, 0x76, 0x69, 0x74, 0x79,
+	0x22, 0x76, 0x0a, 0x15, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x41, 0x63, 0x74, 0x69, 0x76, 0x69,
+	0x74, 0x79, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x28, 0x0a, 0x0b, 0x61, 0x63, 0x74,
+	0x69, 0x76, 0x69, 0x74, 0x79, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x42, 0x07,
+	0xfa, 0x42, 0x04, 0x72, 0x02, 0x10, 0x01, 0x52, 0x0a, 0x61, 0x63, 0x74, 0x69, 0x76, 0x69, 0x74,
+	0x79, 0x49, 0x64, 0x12, 0x33, 0x0a, 0x0a, 0x65, 0x78, 0x74, 0x72, 0x61, 0x5f, 0x64, 0x61, 0x74,
+	0x61, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x14, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65,
+	0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x2e, 0x41, 0x6e, 0x79, 0x52, 0x09, 0x65,
+	0x78, 0x74, 0x72, 0x61, 0x44, 0x61, 0x74, 0x61, 0x22, 0x4c, 0x0a, 0x16, 0x55, 0x70, 0x64, 0x61,
+	0x74, 0x65, 0x41, 0x63, 0x74, 0x69, 0x76, 0x69, 0x74, 0x79, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e,
+	0x73, 0x65, 0x12, 0x32, 0x0a, 0x08, 0x61, 0x63, 0x74, 0x69, 0x76, 0x69, 0x74, 0x79, 0x18, 0x01,
+	0x20, 0x01, 0x28, 0x0b, 0x32, 0x16, 0x2e, 0x73, 0x79, 0x6e, 0x74, 0x6f, 0x6b, 0x73, 0x5f, 0x66,
+	0x65, 0x65, 0x64, 0x2e, 0x41, 0x63, 0x74, 0x69, 0x76, 0x69, 0x74, 0x79, 0x52, 0x08, 0x61, 0x63,
+	0x74, 0x69, 0x76, 0x69, 0x74, 0x79, 0x22, 0x41, 0x0a, 0x15, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65,
+	0x41, 0x63, 0x74, 0x69, 0x76, 0x69, 0x74, 0x79, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12,
+	0x28, 0x0a, 0x0b, 0x61, 0x63, 0x74, 0x69, 0x76, 0x69, 0x74, 0x79, 0x5f, 0x69, 0x64, 0x18, 0x01,
+	0x20, 0x01, 0x28, 0x09, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x72, 0x02, 0x10, 0x01, 0x52, 0x0a, 0x61,
+	0x63, 0x74, 0x69, 0x76, 0x69, 0x74, 0x79, 0x49, 0x64, 0x22, 0x18, 0x0a, 0x16, 0x44, 0x65, 0x6c,
+	0x65, 0x74, 0x65, 0x41, 0x63, 0x74, 0x69, 0x76, 0x69, 0x74, 0x79, 0x52, 0x65, 0x73, 0x70, 0x6f,
+	0x6e, 0x73, 0x65, 0x22, 0x3e, 0x0a, 0x12, 0x47, 0x65, 0x74, 0x41, 0x63, 0x74, 0x69, 0x76, 0x69,
+	0x74, 0x79, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x28, 0x0a, 0x0b, 0x61, 0x63, 0x74,
+	0x69, 0x76, 0x69, 0x74, 0x79, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x42, 0x07,
+	0xfa, 0x42, 0x04, 0x72, 0x02, 0x10, 0x01, 0x52, 0x0a, 0x61, 0x63, 0x74, 0x69, 0x76, 0x69, 0x74,
+	0x79, 0x49, 0x64, 0x22, 0x49, 0x0a, 0x13, 0x47, 0x65, 0x74, 0x41, 0x63, 0x74, 0x69, 0x76, 0x69,
+	0x74, 0x79, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x32, 0x0a, 0x08, 0x61, 0x63,
+	0x74, 0x69, 0x76, 0x69, 0x74, 0x79, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x16, 0x2e, 0x73,
+	0x79, 0x6e, 0x74, 0x6f, 0x6b, 0x73, 0x5f, 0x66, 0x65, 0x65, 0x64, 0x2e, 0x41, 0x63, 0x74, 0x69,
+	0x76, 0x69, 0x74, 0x79, 0x52, 0x08, 0x61, 0x63, 0x74, 0x69, 0x76, 0x69, 0x74, 0x79, 0x22, 0x44,
+	0x0a, 0x1c, 0x47, 0x65, 0x74, 0x41, 0x63, 0x74, 0x69, 0x76, 0x69, 0x74, 0x79, 0x42, 0x79, 0x4f,
+	0x62, 0x6a, 0x65, 0x63, 0x74, 0x49, 0x44, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x24,
+	0x0a, 0x09, 0x6f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28,
+	0x09, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x72, 0x02, 0x10, 0x01, 0x52, 0x08, 0x6f, 0x62, 0x6a, 0x65,
+	0x63, 0x74, 0x49, 0x64, 0x22, 0x53, 0x0a, 0x1d, 0x47, 0x65, 0x74, 0x41, 0x63, 0x74, 0x69, 0x76,
+	0x69, 0x74, 0x79, 0x42, 0x79, 0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x49, 0x44, 0x52, 0x65, 0x73,
 	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x32, 0x0a, 0x08, 0x61, 0x63, 0x74, 0x69, 0x76, 0x69, 0x74,
 	0x79, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x16, 0x2e, 0x73, 0x79, 0x6e, 0x74, 0x6f, 0x6b,
 	0x73, 0x5f, 0x66, 0x65, 0x65, 0x64, 0x2e, 0x41, 0x63, 0x74, 0x69, 0x76, 0x69, 0x74, 0x79, 0x52,
-	0x08, 0x61, 0x63, 0x74, 0x69, 0x76, 0x69, 0x74, 0x79, 0x22, 0x41, 0x0a, 0x15, 0x44, 0x65, 0x6c,
-	0x65, 0x74, 0x65, 0x41, 0x63, 0x74, 0x69, 0x76, 0x69, 0x74, 0x79, 0x52, 0x65, 0x71, 0x75, 0x65,
-	0x73, 0x74, 0x12, 0x28, 0x0a, 0x0b, 0x61, 0x63, 0x74, 0x69, 0x76, 0x69, 0x74, 0x79, 0x5f, 0x69,
-	0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x72, 0x02, 0x10, 0x01,
-	0x52, 0x0a, 0x61, 0x63, 0x74, 0x69, 0x76, 0x69, 0x74, 0x79, 0x49, 0x64, 0x22, 0x18, 0x0a, 0x16,
-	0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x41, 0x63, 0x74, 0x69, 0x76, 0x69, 0x74, 0x79, 0x52, 0x65,
-	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x3e, 0x0a, 0x12, 0x47, 0x65, 0x74, 0x41, 0x63, 0x74,
-	0x69, 0x76, 0x69, 0x74, 0x79, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x28, 0x0a, 0x0b,
-	0x61, 0x63, 0x74, 0x69, 0x76, 0x69, 0x74, 0x79, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28,
-	0x09, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x72, 0x02, 0x10, 0x01, 0x52, 0x0a, 0x61, 0x63, 0x74, 0x69,
-	0x76, 0x69, 0x74, 0x79, 0x49, 0x64, 0x22, 0x49, 0x0a, 0x13, 0x47, 0x65, 0x74, 0x41, 0x63, 0x74,
-	0x69, 0x76, 0x69, 0x74, 0x79, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x32, 0x0a,
-	0x08, 0x61, 0x63, 0x74, 0x69, 0x76, 0x69, 0x74, 0x79, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32,
-	0x16, 0x2e, 0x73, 0x79, 0x6e, 0x74, 0x6f, 0x6b, 0x73, 0x5f, 0x66, 0x65, 0x65, 0x64, 0x2e, 0x41,
-	0x63, 0x74, 0x69, 0x76, 0x69, 0x74, 0x79, 0x52, 0x08, 0x61, 0x63, 0x74, 0x69, 0x76, 0x69, 0x74,
-	0x79, 0x22, 0x44, 0x0a, 0x1c, 0x47, 0x65, 0x74, 0x41, 0x63, 0x74, 0x69, 0x76, 0x69, 0x74, 0x79,
-	0x42, 0x79, 0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x49, 0x44, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73,
-	0x74, 0x12, 0x24, 0x0a, 0x09, 0x6f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x5f, 0x69, 0x64, 0x18, 0x01,
-	0x20, 0x01, 0x28, 0x09, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x72, 0x02, 0x10, 0x01, 0x52, 0x08, 0x6f,
-	0x62, 0x6a, 0x65, 0x63, 0x74, 0x49, 0x64, 0x22, 0x53, 0x0a, 0x1d, 0x47, 0x65, 0x74, 0x41, 0x63,
-	0x74, 0x69, 0x76, 0x69, 0x74, 0x79, 0x42, 0x79, 0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x49, 0x44,
-	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x32, 0x0a, 0x08, 0x61, 0x63, 0x74, 0x69,
-	0x76, 0x69, 0x74, 0x79, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x16, 0x2e, 0x73, 0x79, 0x6e,
-	0x74, 0x6f, 0x6b, 0x73, 0x5f, 0x66, 0x65, 0x65, 0x64, 0x2e, 0x41, 0x63, 0x74, 0x69, 0x76, 0x69,
-	0x74, 0x79, 0x52, 0x08, 0x61, 0x63, 0x74, 0x69, 0x76, 0x69, 0x74, 0x79, 0x42, 0x09, 0x5a, 0x07,
-	0x2e, 0x2f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x08, 0x61, 0x63, 0x74, 0x69, 0x76, 0x69, 0x74, 0x79, 0x42, 0x09, 0x5a, 0x07, 0x2e, 0x2f, 0x70,
+	0x72, 0x6f, 0x74, 0x6f, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -621,33 +735,36 @@ func file_api_activities_proto_rawDescGZIP() []byte {
 	return file_api_activities_proto_rawDescData
 }
 
-var file_api_activities_proto_msgTypes = make([]protoimpl.MessageInfo, 10)
+var file_api_activities_proto_msgTypes = make([]protoimpl.MessageInfo, 12)
 var file_api_activities_proto_goTypes = []interface{}{
 	(*AddActivityRequest)(nil),            // 0: syntoks_feed.AddActivityRequest
 	(*AddActivityResponse)(nil),           // 1: syntoks_feed.AddActivityResponse
-	(*UpdateActivityRequest)(nil),         // 2: syntoks_feed.UpdateActivityRequest
-	(*UpdateActivityResponse)(nil),        // 3: syntoks_feed.UpdateActivityResponse
-	(*DeleteActivityRequest)(nil),         // 4: syntoks_feed.DeleteActivityRequest
-	(*DeleteActivityResponse)(nil),        // 5: syntoks_feed.DeleteActivityResponse
-	(*GetActivityRequest)(nil),            // 6: syntoks_feed.GetActivityRequest
-	(*GetActivityResponse)(nil),           // 7: syntoks_feed.GetActivityResponse
-	(*GetActivityByObjectIDRequest)(nil),  // 8: syntoks_feed.GetActivityByObjectIDRequest
-	(*GetActivityByObjectIDResponse)(nil), // 9: syntoks_feed.GetActivityByObjectIDResponse
-	(*any.Any)(nil),                       // 10: google.protobuf.Any
-	(*Activity)(nil),                      // 11: syntoks_feed.Activity
+	(*AddExistingActivityRequest)(nil),    // 2: syntoks_feed.AddExistingActivityRequest
+	(*AddExistingActivityResponse)(nil),   // 3: syntoks_feed.AddExistingActivityResponse
+	(*UpdateActivityRequest)(nil),         // 4: syntoks_feed.UpdateActivityRequest
+	(*UpdateActivityResponse)(nil),        // 5: syntoks_feed.UpdateActivityResponse
+	(*DeleteActivityRequest)(nil),         // 6: syntoks_feed.DeleteActivityRequest
+	(*DeleteActivityResponse)(nil),        // 7: syntoks_feed.DeleteActivityResponse
+	(*GetActivityRequest)(nil),            // 8: syntoks_feed.GetActivityRequest
+	(*GetActivityResponse)(nil),           // 9: syntoks_feed.GetActivityResponse
+	(*GetActivityByObjectIDRequest)(nil),  // 10: syntoks_feed.GetActivityByObjectIDRequest
+	(*GetActivityByObjectIDResponse)(nil), // 11: syntoks_feed.GetActivityByObjectIDResponse
+	(*any.Any)(nil),                       // 12: google.protobuf.Any
+	(*Activity)(nil),                      // 13: syntoks_feed.Activity
 }
 var file_api_activities_proto_depIdxs = []int32{
-	10, // 0: syntoks_feed.AddActivityRequest.extra_data:type_name -> google.protobuf.Any
-	11, // 1: syntoks_feed.AddActivityResponse.activity:type_name -> syntoks_feed.Activity
-	10, // 2: syntoks_feed.UpdateActivityRequest.extra_data:type_name -> google.protobuf.Any
-	11, // 3: syntoks_feed.UpdateActivityResponse.activity:type_name -> syntoks_feed.Activity
-	11, // 4: syntoks_feed.GetActivityResponse.activity:type_name -> syntoks_feed.Activity
-	11, // 5: syntoks_feed.GetActivityByObjectIDResponse.activity:type_name -> syntoks_feed.Activity
-	6,  // [6:6] is the sub-list for method output_type
-	6,  // [6:6] is the sub-list for method input_type
-	6,  // [6:6] is the sub-list for extension type_name
-	6,  // [6:6] is the sub-list for extension extendee
-	0,  // [0:6] is the sub-list for field type_name
+	12, // 0: syntoks_feed.AddActivityRequest.extra_data:type_name -> google.protobuf.Any
+	13, // 1: syntoks_feed.AddActivityResponse.activity:type_name -> syntoks_feed.Activity
+	13, // 2: syntoks_feed.AddExistingActivityResponse.activity:type_name -> syntoks_feed.Activity
+	12, // 3: syntoks_feed.UpdateActivityRequest.extra_data:type_name -> google.protobuf.Any
+	13, // 4: syntoks_feed.UpdateActivityResponse.activity:type_name -> syntoks_feed.Activity
+	13, // 5: syntoks_feed.GetActivityResponse.activity:type_name -> syntoks_feed.Activity
+	13, // 6: syntoks_feed.GetActivityByObjectIDResponse.activity:type_name -> syntoks_feed.Activity
+	7,  // [7:7] is the sub-list for method output_type
+	7,  // [7:7] is the sub-list for method input_type
+	7,  // [7:7] is the sub-list for extension type_name
+	7,  // [7:7] is the sub-list for extension extendee
+	0,  // [0:7] is the sub-list for field type_name
 }
 
 func init() { file_api_activities_proto_init() }
@@ -682,7 +799,7 @@ func file_api_activities_proto_init() {
 			}
 		}
 		file_api_activities_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*UpdateActivityRequest); i {
+			switch v := v.(*AddExistingActivityRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -694,7 +811,7 @@ func file_api_activities_proto_init() {
 			}
 		}
 		file_api_activities_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*UpdateActivityResponse); i {
+			switch v := v.(*AddExistingActivityResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -706,7 +823,7 @@ func file_api_activities_proto_init() {
 			}
 		}
 		file_api_activities_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*DeleteActivityRequest); i {
+			switch v := v.(*UpdateActivityRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -718,7 +835,7 @@ func file_api_activities_proto_init() {
 			}
 		}
 		file_api_activities_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*DeleteActivityResponse); i {
+			switch v := v.(*UpdateActivityResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -730,7 +847,7 @@ func file_api_activities_proto_init() {
 			}
 		}
 		file_api_activities_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*GetActivityRequest); i {
+			switch v := v.(*DeleteActivityRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -742,7 +859,7 @@ func file_api_activities_proto_init() {
 			}
 		}
 		file_api_activities_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*GetActivityResponse); i {
+			switch v := v.(*DeleteActivityResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -754,7 +871,7 @@ func file_api_activities_proto_init() {
 			}
 		}
 		file_api_activities_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*GetActivityByObjectIDRequest); i {
+			switch v := v.(*GetActivityRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -766,6 +883,30 @@ func file_api_activities_proto_init() {
 			}
 		}
 		file_api_activities_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*GetActivityResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_api_activities_proto_msgTypes[10].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*GetActivityByObjectIDRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_api_activities_proto_msgTypes[11].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GetActivityByObjectIDResponse); i {
 			case 0:
 				return &v.state
@@ -784,7 +925,7 @@ func file_api_activities_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_api_activities_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   10,
+			NumMessages:   12,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

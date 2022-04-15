@@ -13,6 +13,7 @@ import "api/feeds.proto";
 service Feeds {
     // activities.proto
     rpc AddActivity(AddActivityRequest) returns (AddActivityResponse) {}
+    rpc AddExistingActivity(AddExistingActivityRequest) returns (AddExistingActivityResponse) {}
     rpc GetActivity(GetActivityRequest) returns (GetActivityResponse) {}
     rpc GetActivityByObjectID(GetActivityByObjectIDRequest) returns (GetActivityByObjectIDResponse) {}
     rpc UpdateActivity(UpdateActivityRequest) returns (UpdateActivityResponse) {}

@@ -91,6 +91,25 @@ func (s *FeedsStorageFDB) AddActivity(feedID, objectID, userID, activityType str
 	return activity, err
 }
 
+func (s *FeedsStorageFDB) AddExistingActivity(feedID, activityID string) (*proto.Activity, error) {
+	activity := &proto.Activity{}
+	_, err := s.DB.Transact(func(tr fdb.Transaction) (interface{}, error) {
+		bytes, err := tr.Get(s.ActivitiesSubspace.Sub(activityID)).Get()
+		if err != nil {
+			return nil, err
+		}
+		if bytes == nil {
+			return nil, nerrors.BadRequest.New("no such activity")
+		}
+		err = protobuf.Unmarshal(bytes, activity)
+		if err != nil {
+			return nil, err
+		}
+		return nil, s.addToFeed(tr, feedID, activity)
+	})
+	return activity, err
+}
+
 func (s *FeedsStorageFDB) GetActivity(activityID string) (*proto.Activity, error) {
 	activity := &proto.Activity{}
 	_, err := s.DB.ReadTransact(func(tr fdb.ReadTransaction) (interface{}, error) {
@@ -165,7 +184,7 @@ func (s *FeedsStorageFDB) UpdateActivity(activityID string, extraData *anypb.Any
 		if err != nil {
 			return nil, err
 		}
-		tr.Set(s.ActivitiesSubspace.Sub(activity.Id), bytes)
+		tr.Set(s.ActivitiesSubspace.Sub(activity.StringId), bytes)
 		return nil, nil
 	})
 	return activity, err
@@ -279,7 +298,7 @@ func (s *FeedsStorageFDB) GetFeedActivities(feedID string, limit int64, offsetID
 		}
 		begin, end := s.FeedActivitiesSubspace.Sub(feedID).FDBRangeKeySelectors()
 		if offsetID != "" {
-			end = fdb.LastLessThan(s.FeedActivitiesSubspace.Sub(feedID, offsetID))
+			end = fdb.FirstGreaterOrEqual(s.FeedActivitiesSubspace.Sub(feedID, offsetID))
 		}
 		iter := tr.GetRange(fdb.SelectorRange{Begin: begin, End: end}, fdb.RangeOptions{Limit: int(limit), Reverse: true}).Iterator()
 		for iter.Advance() {

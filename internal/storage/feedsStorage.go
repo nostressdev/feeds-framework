@@ -7,6 +7,7 @@ import (
 
 type FeedsStorage interface {
 	AddActivity(feedID, objectID, userID, activityType string, time int64, redirectTo []string, extraData *anypb.Any) (*proto.Activity, error)
+	AddExistingActivity(feedID, activityID string) (*proto.Activity, error)
 	GetActivity(activityID string) (*proto.Activity, error)
 	GetActivityByObjectID(objectID string) (*proto.Activity, error)
 	UpdateActivity(activityID string, extraData *anypb.Any) (*proto.Activity, error)
