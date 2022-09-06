@@ -10,8 +10,11 @@ run-feeds: bin/feeds
 	./bin/feeds
 
 bin/feeds: proto $(GO)
-	go build -o bin/feeds cmd/main.go
+	go build -o bin/feeds-framework cmd/main.go
 
 docker.build:
 	docker build -f docker/feeds-framework/Dockerfile . -t feeds-framework:latest
-	docker-compose up
+
+yc.push:
+	docker tag feeds-framework:latest cr.yandex/crpka9tj9s0es9movrgk/feeds-framework:latest
+	docker push cr.yandex/crpka9tj9s0es9movrgk/feeds-framework:latest
