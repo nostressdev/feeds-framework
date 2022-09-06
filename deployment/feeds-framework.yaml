@@ -55,7 +55,7 @@ spec:
             - name: LOG_LEVEL
               value: "DEBUG"
             - name: FDB_CLUSTER_FILE
-              value: /mnt/fdb-volume/cluster-file
+              value: /mnt/fdb-volume/coordinators
           volumeMounts:
             - name: fdb-volume
               mountPath: /mnt/fdb-volume
