@@ -79,8 +79,8 @@ spec:
             periodSeconds: 5
       volumes:
         - name: fdb-volume
-          configMap:
-            name: fdbdev-config
+          secret:
+            secretName: fdb
 ---
 apiVersion: v1
 kind: Service
