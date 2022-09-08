@@ -55,7 +55,7 @@ spec:
             - name: LOG_LEVEL
               value: "DEBUG"
             - name: FDB_CLUSTER_FILE
-              value: /mnt/fdb-volume/coordinators
+              value: /mnt/fdb-volume/cluster-file
           volumeMounts:
             - name: fdb-volume
               mountPath: /mnt/fdb-volume
@@ -79,8 +79,8 @@ spec:
             periodSeconds: 5
       volumes:
         - name: fdb-volume
-          secret:
-            secretName: fdb
+          configMap:
+            name: fdbdev-config
 ---
 apiVersion: v1
 kind: Service
