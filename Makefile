@@ -16,5 +16,5 @@ docker.build:
 	docker build -f docker/feeds-framework/Dockerfile . -t feeds-framework:latest
 
 yc.push:
-	docker tag feeds-framework:latest cr.yandex/crpka9tj9s0es9movrgk/feeds-framework:latest
-	docker push cr.yandex/crpka9tj9s0es9movrgk/feeds-framework:latest
+	docker tag feeds-framework:latest cr.yandex/crp3j6j9afnid0jm6v82/feeds-framework:latest
+	docker push cr.yandex/crp3j6j9afnid0jm6v82/feeds-framework:latest

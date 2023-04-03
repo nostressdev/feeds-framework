@@ -11,7 +11,7 @@ spec:
   selector:
     matchLabels:
       app: feeds-framework
-  replicas: 3
+  replicas: 1
   template:
     metadata:
       labels:
@@ -22,7 +22,7 @@ spec:
         - name: regcred
       containers:
         - name: feeds-framework
-          image: cr.yandex/crpka9tj9s0es9movrgk/feeds-framework:latest
+          image: cr.yandex/crp3j6j9afnid0jm6v82/feeds-framework:latest
           imagePullPolicy: Always
           command: ["./bin/feeds-framework"]
           ports:
@@ -35,8 +35,8 @@ spec:
               cpu: 50m
               memory: 128Mi
             limits:
-              cpu: 500m
-              memory: 512Mi
+              cpu: 100m
+              memory: 256Mi
           env:
             - name: GRPC_ADDR
               value: "0.0.0.0"
@@ -106,7 +106,7 @@ metadata:
     nginx.ingress.kubernetes.io/backend-protocol: "GRPC"
 spec:
   rules:
-    - host: feeds-framework.nostress.dev
+    - host: feeds-framework.pocketlook.syntok.nostress.dev
       http:
         paths:
           - path: /
@@ -118,5 +118,5 @@ spec:
                   number: 80
   tls:
     - hosts:
-        - feeds-framework.nostress.dev
+        - feeds-framework.pocketlook.syntok.nostress.dev
       secretName: api-feeds-framework-cert
